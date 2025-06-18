@@ -106,7 +106,7 @@ class FigStepFull(garak.probes.Probe):
 class FigStep(FigStepFull, garak.probes.Probe):
     active = False
 
-    __doc__ = FigStepFull.__doc__ + " - Tiny version"
+    __doc__ = FigStepFull.__doc__ + "- Tiny version"
 
     safebench_image_catalog = data_path / "safebenchtiny_filenames.txt"
 
