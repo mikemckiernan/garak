@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>garak.generators.base &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="garak.generators.cohere" href="garak.generators.cohere.html" />
+    <link rel="prev" title="garak.generators.azure" href="garak.generators.azure.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using garak</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plugin structure</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="generators.html">garak.generators</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.html">garak.generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.azure.html">garak.generators.azure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">garak.generators.base</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#garak.generators.base.Generator"><code class="docutils literal notranslate"><span class="pre">Generator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.base.Generator.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">Generator.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.base.Generator.active"><code class="docutils literal notranslate"><span class="pre">Generator.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.base.Generator.clear_history"><code class="docutils literal notranslate"><span class="pre">Generator.clear_history()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.base.Generator.generate"><code class="docutils literal notranslate"><span class="pre">Generator.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.base.Generator.generator_family_name"><code class="docutils literal notranslate"><span class="pre">Generator.generator_family_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.base.Generator.modality"><code class="docutils literal notranslate"><span class="pre">Generator.modality</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.base.Generator.parallel_capable"><code class="docutils literal notranslate"><span class="pre">Generator.parallel_capable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.base.Generator.supports_multiple_generations"><code class="docutils literal notranslate"><span class="pre">Generator.supports_multiple_generations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.cohere.html">garak.generators.cohere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.function.html">garak.generators.function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.ggml.html">garak.generators.ggml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.groq.html">garak.generators.groq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.guardrails.html">garak.generators.guardrails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.huggingface.html">garak.generators.huggingface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.langchain.html">garak.generators.langchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.langchain_serve.html">garak.generators.langchain_serve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.litellm.html">garak.generators.litellm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.mistral.html">garak.generators.mistral</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.ollama.html">garak.generators.ollama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.openai.html">garak.generators.openai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.nemo.html">garak.generators.nemo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.nim.html">garak.generators.nim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.nvcf.html">garak.generators.nvcf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.replicate.html">garak.generators.replicate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.rest.html">garak.generators.rest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.rasa.html">garak.generators.rasa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.test.html">garak.generators.test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.watsonx.html">garak.generators.watsonx</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extending and Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.generator.html">Let’s build a generator!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.probe.html">Writing a Probe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="generators.html">garak.generators</a></li>
+      <li class="breadcrumb-item active">garak.generators.base</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/garak.generators.base.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="garak-generators-base">
+<h1>garak.generators.base<a class="headerlink" href="#garak-generators-base" title="Link to this heading"></a></h1>
+<p>In garak, <code class="docutils literal notranslate"><span class="pre">Generator</span></code>s wrap any text-to-text+ system that garak will examine. This could be a raw LLM, a chatbot endpoint, or even a non-LLM dialog system. This base class defines the basic structure of garak’s generators. All generators inherit from garak.generators.base.Generator.</p>
+<p>Attributes:</p>
+<ul class="simple">
+<li><p>name - The name of the specific generator class. This is optionally also set in the constructor.</p></li>
+<li><p>description - An optional description of the generator.</p></li>
+<li><p>max_tokens - The maximum number of tokens to generate.</p></li>
+<li><p>temperature - Optionally, a temperature param to pass to the underlying model.</p></li>
+<li><p>top_k - Optionally, a temperature param to pass to the underlying model.</p></li>
+<li><p>top_p - Optionally, a temperature param to pass to the underlying model.</p></li>
+<li><p>active - Whether or not the class is active. Usually true, unless a generator is disabled for some particular reason.</p></li>
+<li><p>generator_family_name - Generators each belong to a family, describing a group. This is often related to the module name - for example, <code class="docutils literal notranslate"><span class="pre">openai.py</span></code> contains classes for working with OpenAI models, whose generator_family_name is “openai”.</p></li>
+<li><p>context_len - The number of tokens in the model context window, or None</p></li>
+<li><p>modality - A dictionary with two keys, “in” and “out”, each holding a set of the modalities supported by the generator. “in” refers to prompt expectations, and “out” refers to output. For example, a text-to-text+image model would have modality: <code class="docutils literal notranslate"><span class="pre">dict</span> <span class="pre">=</span> <span class="pre">{&quot;in&quot;:</span> <span class="pre">{&quot;text&quot;},</span> <span class="pre">&quot;out&quot;:</span> <span class="pre">{&quot;text&quot;,</span> <span class="pre">&quot;image&quot;}}</span></code>.</p></li>
+<li><p>supports_multiple_generations - Whether or not the generator can natively return multiple outputs from a prompt in a single function call. When set to False, the <code class="docutils literal notranslate"><span class="pre">generate()</span></code> method will make repeated calls, one output at a time, until the requested number of generations (in <code class="docutils literal notranslate"><span class="pre">generations</span></code>) is reached.</p></li>
+<li><p>skip_seq_start, skip_start_end - If both asserted, content between these two will be pruned before being returned. Useful for removing chain-of-thought, for example</p></li>
+</ul>
+<p>Functions:</p>
+<ol class="arabic">
+<li><p><strong>__init___()</strong>: Class constructor. Call this from generators after doing local init. It does things like populating name variables, notifying generator startup to the user, and logging generator construction.</p></li>
+<li><p><strong>generate*()</strong>: This method is mediating access to the underlying model or dialogue system. The <code class="docutils literal notranslate"><span class="pre">generate()</span></code> orchestrates all interaction with the dialogue service/model. It takes a prompt and, optionally, a number of output generations (<code class="docutils literal notranslate"><span class="pre">generations_this_call</span></code>). It returns a list of responses of length up to the number of output generations, with each member a prompt response (e.g. text). Since <code class="docutils literal notranslate"><span class="pre">generate()</span></code> involves a reasonable amount of logic, it is preferable to not override this function, and rather work with the hooks and sub-methods provided.</p>
+<p>The general flow in <code class="docutils literal notranslate"><span class="pre">generate()</span></code> is as follows:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">_pre_generate_hook()</span></code>.</p></li>
+<li><p>Work out how many generations we’re doing this call (passed via <code class="docutils literal notranslate"><span class="pre">generations_this_call</span></code>).</p></li>
+<li><p>If only one generation is requested, return the output of <code class="docutils literal notranslate"><span class="pre">_call_model</span></code> with 1 generation specified.</p></li>
+<li><p>If the underlying model supports multiple generations, return the output of <code class="docutils literal notranslate"><span class="pre">_call_model</span></code> invoked with the full count of generations.</p></li>
+<li><p>Otherwise, we need to assemble the outputs over multiple calls. There are two options here.</p>
+<ol class="arabic simple">
+<li><p>Is garak running with <code class="docutils literal notranslate"><span class="pre">parallel_attempts</span> <span class="pre">&gt;</span> <span class="pre">1</span></code> configured? In that case, start a multiprocessing pool with as many workers as the value of <code class="docutils literal notranslate"><span class="pre">parallel_attempts</span></code>, and have each one of these work on building the required number of generations, in any order.</p></li>
+<li><p>Otherwise, call <code class="docutils literal notranslate"><span class="pre">_call_model()</span></code> repeatedly to collect the requested number of generations.</p></li>
+</ol>
+</li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">_post_generate_hook()</span></code> (a no-op by default)</p></li>
+<li><p>If skip sequence start and end are both defined, call <code class="docutils literal notranslate"><span class="pre">_prune_skip_sequences()</span></code></p></li>
+<li><p>Return the resulting list of prompt responses.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p><strong>_call_model()</strong>: This method handles direct interaction with the model. It takes a prompt and an optional number of generations this call, and returns a list of prompt responses (e.g. strings) and <code class="docutils literal notranslate"><span class="pre">None``s.</span> <span class="pre">Models</span> <span class="pre">may</span> <span class="pre">return</span> <span class="pre">``None</span></code> in the case the underlying system failed unrecoverably. This is the method to write model interaction code in. If the class’ supports_multiple_generations is false, _call_model does not need to accept values of <code class="docutils literal notranslate"><span class="pre">generations_this_call</span></code> other than <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><strong>_pre_generate_hook()</strong>: An optional hook called before generation, useful if the class needs to do some setup or housekeeping before generation.</p></li>
+<li><p><strong>_verify_model_result</strong>: Validation of model output types, useful in debugging. If this fails, the generator doesn’t match the expectations in the rest of garak.</p></li>
+<li><p><strong>_post_generate_hook()</strong>: An optional hook called after generation, useful if the class needs to do some modification of output.</p></li>
+<li><p><strong>_prune_skip_sequences()</strong>: Called if both <code class="docutils literal notranslate"><span class="pre">skip_seq_start</span></code> and <code class="docutils literal notranslate"><span class="pre">skip_seq_end</span></code> are defined. Strip out any response content between the start and end markers.</p></li>
+</ol>
+<p id="module-garak.generators.base">Base Generator</p>
+<p>All <cite>garak</cite> generators must inherit from this.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.generators.base.Generator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.generators.base.</span></span><span class="sig-name descname"><span class="pre">Generator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.generators.base.Generator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Configurable</span></code></p>
+<p>Base class for objects that wrap an LLM or other text-to-text service</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.base.Generator.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'context_len':</span> <span class="pre">None,</span> <span class="pre">'max_tokens':</span> <span class="pre">150,</span> <span class="pre">'skip_seq_end':</span> <span class="pre">None,</span> <span class="pre">'skip_seq_start':</span> <span class="pre">None,</span> <span class="pre">'temperature':</span> <span class="pre">None,</span> <span class="pre">'top_k':</span> <span class="pre">None}</span></em><a class="headerlink" href="#garak.generators.base.Generator.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.base.Generator.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#garak.generators.base.Generator.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.generators.base.Generator.clear_history">
+<span class="sig-name descname"><span class="pre">clear_history</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#garak.generators.base.Generator.clear_history" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.generators.base.Generator.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">generations_this_call</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#garak.generators.base.Generator.generate" title="Link to this definition"></a></dt>
+<dd><p>Manages the process of getting generations out from a prompt</p>
+<p>This will involve iterating through prompts, getting the generations
+from the model via a _call_* function, and returning the output</p>
+<p>Avoid overriding this - try to override _call_model or _call_api</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.base.Generator.generator_family_name">
+<span class="sig-name descname"><span class="pre">generator_family_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#garak.generators.base.Generator.generator_family_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.base.Generator.modality">
+<span class="sig-name descname"><span class="pre">modality</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'in':</span> <span class="pre">{'text'},</span> <span class="pre">'out':</span> <span class="pre">{'text'}}</span></em><a class="headerlink" href="#garak.generators.base.Generator.modality" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.base.Generator.parallel_capable">
+<span class="sig-name descname"><span class="pre">parallel_capable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#garak.generators.base.Generator.parallel_capable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.base.Generator.supports_multiple_generations">
+<span class="sig-name descname"><span class="pre">supports_multiple_generations</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.generators.base.Generator.supports_multiple_generations" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="garak.generators.azure.html" class="btn btn-neutral float-left" title="garak.generators.azure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="garak.generators.cohere.html" class="btn btn-neutral float-right" title="garak.generators.cohere" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

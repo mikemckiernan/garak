@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLI reference for garak &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Translation support" href="translation.html" />
+    <link rel="prev" title="Configuring garak" href="configurable.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using garak</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plugin structure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extending and Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.generator.html">Let’s build a generator!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.probe.html">Writing a Probe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CLI reference for garak</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cliref.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cli-reference-for-garak">
+<h1>CLI reference for garak<a class="headerlink" href="#cli-reference-for-garak" title="Link to this heading"></a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>garak LLM vulnerability scanner v0.11.1.pre1 ( https://github.com/NVIDIA/garak ) at 2025-05-27T19:55:52.735863
+usage: python -m garak [-h] [--verbose] [--report_prefix REPORT_PREFIX]
+                       [--narrow_output]
+                       [--parallel_requests PARALLEL_REQUESTS]
+                       [--parallel_attempts PARALLEL_ATTEMPTS]
+                       [--skip_unknown] [--seed SEED] [--deprefix]
+                       [--eval_threshold EVAL_THRESHOLD]
+                       [--generations GENERATIONS] [--config CONFIG]
+                       [--model_type MODEL_TYPE] [--model_name MODEL_NAME]
+                       [--probes PROBES] [--probe_tags PROBE_TAGS]
+                       [--detectors DETECTORS] [--extended_detectors]
+                       [--buffs BUFFS]
+                       [--buff_option_file BUFF_OPTION_FILE | --buff_options BUFF_OPTIONS]
+                       [--detector_option_file DETECTOR_OPTION_FILE | --detector_options DETECTOR_OPTIONS]
+                       [--generator_option_file GENERATOR_OPTION_FILE | --generator_options GENERATOR_OPTIONS]
+                       [--harness_option_file HARNESS_OPTION_FILE | --harness_options HARNESS_OPTIONS]
+                       [--probe_option_file PROBE_OPTION_FILE | --probe_options PROBE_OPTIONS]
+                       [--taxonomy TAXONOMY] [--plugin_info PLUGIN_INFO]
+                       [--list_probes] [--list_detectors] [--list_generators]
+                       [--list_buffs] [--list_config] [--version]
+                       [--report REPORT] [--interactive] [--generate_autodan]
+                       [--interactive.py] [--fix]
+
+LLM safety &amp; security scanning tool
+
+options:
+  -h, --help            show this help message and exit
+  --verbose, -v         add one or more times to increase verbosity of output
+                        during runtime
+  --report_prefix REPORT_PREFIX
+                        Specify an optional prefix for the report and hit logs
+  --narrow_output       give narrow CLI output
+  --parallel_requests PARALLEL_REQUESTS
+                        How many generator requests to launch in parallel for
+                        a given prompt. Ignored for models that support
+                        multiple generations per call.
+  --parallel_attempts PARALLEL_ATTEMPTS
+                        How many probe attempts to launch in parallel. Raise
+                        this for faster runs when using non-local models.
+  --skip_unknown        allow skip of unknown probes, detectors, or buffs
+  --seed SEED, -s SEED  random seed
+  --deprefix            remove the prompt from the front of generator output
+  --eval_threshold EVAL_THRESHOLD
+                        minimum threshold for a successful hit
+  --generations GENERATIONS, -g GENERATIONS
+                        number of generations per prompt
+  --config CONFIG       YAML config file for this run
+  --model_type MODEL_TYPE, -m MODEL_TYPE
+                        module and optionally also class of the generator,
+                        e.g. &#39;huggingface&#39;, or &#39;openai&#39;
+  --model_name MODEL_NAME, -n MODEL_NAME
+                        name of the model, e.g.
+                        &#39;timdettmers/guanaco-33b-merged&#39;
+  --probes PROBES, -p PROBES
+                        list of probe names to use, or &#39;all&#39; for all
+                        (default).
+  --probe_tags PROBE_TAGS
+                        only include probes with a tag that starts with this
+                        value (e.g. owasp:llm01)
+  --detectors DETECTORS, -d DETECTORS
+                        list of detectors to use, or &#39;all&#39; for all. Default is
+                        to use the probe&#39;s suggestion.
+  --extended_detectors  If detectors aren&#39;t specified on the command line,
+                        should we run all detectors? (default is just the
+                        primary detector, if given, else everything)
+  --buffs BUFFS, -b BUFFS
+                        list of buffs to use. Default is none
+  --buff_option_file BUFF_OPTION_FILE, -B BUFF_OPTION_FILE
+                        path to JSON file containing options to pass to buff
+  --buff_options BUFF_OPTIONS
+                        options to pass to buff, formatted as a JSON dict
+  --detector_option_file DETECTOR_OPTION_FILE, -D DETECTOR_OPTION_FILE
+                        path to JSON file containing options to pass to
+                        detector
+  --detector_options DETECTOR_OPTIONS
+                        options to pass to detector, formatted as a JSON dict
+  --generator_option_file GENERATOR_OPTION_FILE, -G GENERATOR_OPTION_FILE
+                        path to JSON file containing options to pass to
+                        generator
+  --generator_options GENERATOR_OPTIONS
+                        options to pass to generator, formatted as a JSON dict
+  --harness_option_file HARNESS_OPTION_FILE, -H HARNESS_OPTION_FILE
+                        path to JSON file containing options to pass to
+                        harness
+  --harness_options HARNESS_OPTIONS
+                        options to pass to harness, formatted as a JSON dict
+  --probe_option_file PROBE_OPTION_FILE, -P PROBE_OPTION_FILE
+                        path to JSON file containing options to pass to probe
+  --probe_options PROBE_OPTIONS
+                        options to pass to probe, formatted as a JSON dict
+  --taxonomy TAXONOMY   specify a MISP top-level taxonomy to be used for
+                        grouping probes in reporting. e.g. &#39;avid-effect&#39;,
+                        &#39;owasp&#39;
+  --plugin_info PLUGIN_INFO
+                        show info about one plugin; format as
+                        type.plugin.class, e.g. probes.lmrc.Profanity
+  --list_probes         list available vulnerability probes
+  --list_detectors      list available detectors
+  --list_generators     list available generation model interfaces
+  --list_buffs          list available buffs/fuzzes
+  --list_config         print active config info (and don&#39;t scan)
+  --version, -V         print version info &amp; exit
+  --report REPORT, -r REPORT
+                        process garak report into a list of AVID reports
+  --interactive, -I     Enter interactive probing mode
+  --generate_autodan    generate AutoDAN prompts; requires --prompt_options
+                        with JSON containing a prompt and target
+  --interactive.py      Launch garak in interactive.py mode
+  --fix                 Update provided configuration with fixer migrations;
+                        requires one of --config / --*_option_file, /
+                        --*_options
+
+See https://github.com/NVIDIA/garak
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="configurable.html" class="btn btn-neutral float-left" title="Configuring garak" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="translation.html" class="btn btn-neutral float-right" title="Translation support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

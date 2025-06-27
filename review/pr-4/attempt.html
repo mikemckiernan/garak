@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>garak.attempt &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="garak.cli" href="cli.html" />
+    <link rel="prev" title="Top-level concepts in garak" href="basic.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using garak</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">garak.attempt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">garak.attempt</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#garak.attempt.Attempt"><code class="docutils literal notranslate"><span class="pre">Attempt</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.attempt.Attempt.all_outputs"><code class="docutils literal notranslate"><span class="pre">Attempt.all_outputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.attempt.Attempt.as_dict"><code class="docutils literal notranslate"><span class="pre">Attempt.as_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.attempt.Attempt.latest_prompts"><code class="docutils literal notranslate"><span class="pre">Attempt.latest_prompts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.attempt.Attempt.outputs"><code class="docutils literal notranslate"><span class="pre">Attempt.outputs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.attempt.Attempt.outputs_for"><code class="docutils literal notranslate"><span class="pre">Attempt.outputs_for()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.attempt.Attempt.prompt"><code class="docutils literal notranslate"><span class="pre">Attempt.prompt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.attempt.Attempt.prompt_for"><code class="docutils literal notranslate"><span class="pre">Attempt.prompt_for()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plugin structure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extending and Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.generator.html">Let’s build a generator!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.probe.html">Writing a Probe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">garak.attempt</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/attempt.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="garak-attempt">
+<h1>garak.attempt<a class="headerlink" href="#garak-attempt" title="Link to this heading"></a></h1>
+<p>In garak, <code class="docutils literal notranslate"><span class="pre">attempt</span></code> objects track a single prompt and the results of running it on through the generator.
+Probes work by creating a set of garak.attempt objects and setting their class properties.
+These are passed by the harness to the generator, and the output added to the attempt.
+Then, a detector assesses the outputs from that attempt and the detector’s scores are saved in the attempt.
+Finally, an evaluator makes judgments of these scores, and writes hits out to the hitlog for any successful probing attempts.</p>
+<section id="id1">
+<h2>garak.attempt<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p id="module-garak.attempt">Defines the Attempt class, which encapsulates a prompt with metadata and results</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.attempt.Attempt">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.attempt.</span></span><span class="sig-name descname"><span class="pre">Attempt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">probe_classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">probe_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse_translation_outputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.attempt.Attempt" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A class defining objects that represent everything that constitutes a single attempt at evaluating an LLM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – The status of this attempt; <code class="docutils literal notranslate"><span class="pre">ATTEMPT_NEW</span></code>, <code class="docutils literal notranslate"><span class="pre">ATTEMPT_STARTED</span></code>, or <code class="docutils literal notranslate"><span class="pre">ATTEMPT_COMPLETE</span></code></p></li>
+<li><p><strong>prompt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The processed prompt that will presented to the generator</p></li>
+<li><p><strong>probe_classname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Name of the probe class that originated this <code class="docutils literal notranslate"><span class="pre">Attempt</span></code></p></li>
+<li><p><strong>probe_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a><em>, </em><em>optional</em>) – Non-default parameters logged by the probe</p></li>
+<li><p><strong>targets</strong> (<em>List</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>)</em><em>, </em><em>optional</em>) – A list of target strings to be searched for in generator responses to this attempt’s prompt</p></li>
+<li><p><strong>outputs</strong> (<em>List</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>)</em>) – The outputs from the generator in response to the prompt</p></li>
+<li><p><strong>notes</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a>) – A free-form dictionary of notes accompanying the attempt</p></li>
+<li><p><strong>detector_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a>) – A dictionary of detector scores, keyed by detector name, where each value is a list of scores corresponding to each of the generator output strings in <code class="docutils literal notranslate"><span class="pre">outputs</span></code></p></li>
+<li><p><strong>goal</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Free-text simple description of the goal of this attempt, set by the originating probe</p></li>
+<li><p><strong>seq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Sequence number (starting 0) set in <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe.probe" title="garak.probes.base.Probe.probe"><code class="xref py py-meth docutils literal notranslate"><span class="pre">garak.probes.base.Probe.probe()</span></code></a>, to allow matching individual prompts with lists of answers/targets or other post-hoc ordering and keying</p></li>
+<li><p><strong>messages</strong> (<em>List</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a><em>)</em>) – conversation turn histories; list of list of dicts have the format {“role”: role, “content”: text}, with actor being something like “system”, “user”, “assistant”</p></li>
+<li><p><strong>lang</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><em>valid BCP47</em>) – Language code for prompt as sent to the target</p></li>
+<li><p><strong>reverse_translation_outputs</strong> – The reverse translation of output based on the original language of the probe</p></li>
+<li><p><strong>reverse_translation_outputs</strong> – List(str)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Typical use:</p>
+<ul class="simple">
+<li><p>An attempt tracks a seed prompt and responses to the prompt.</p></li>
+<li><p>There is a 1:1 relationship between an attempt and a source prompt.</p></li>
+<li><p>Attempts track all generations.
+This means <code class="docutils literal notranslate"><span class="pre">messages</span></code> tracks many histories, one per generation.</p></li>
+<li><p>For compatibility, setting <code class="docutils literal notranslate"><span class="pre">Attempt.prompt</span></code> sets just one turn and the prompt is unpacked later when output is set.
+We don’t know the number of generations to expect until some output arrives.</p></li>
+<li><p>To keep alignment, generators must return lists of length generations.</p></li>
+</ul>
+<p>Patterns and expectations for Attempt access:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.prompt</span></code> returns the first user prompt.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.outputs</span></code> returns the most recent model outputs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.latest_prompts</span></code> returns a list of the latest user prompts.</p></li>
+</ul>
+<p>Patterns and expectations for Attempt setting:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.prompt</span></code> sets the first prompt, or fails if the first prompt is already set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.outputs</span></code> sets a new layer of model responses.
+Silently handles expansion of prompt to multiple histories.
+Prompt must be set before outputs are set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.latest_prompts</span></code> adds a new set of user prompts.</p></li>
+</ul>
+<dl class="py property">
+<dt class="sig sig-object py" id="garak.attempt.Attempt.all_outputs">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">all_outputs</span></span><a class="headerlink" href="#garak.attempt.Attempt.all_outputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.attempt.Attempt.as_dict">
+<span class="sig-name descname"><span class="pre">as_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a></span></span><a class="headerlink" href="#garak.attempt.Attempt.as_dict" title="Link to this definition"></a></dt>
+<dd><p>Converts the attempt to a dictionary.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="garak.attempt.Attempt.latest_prompts">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">latest_prompts</span></span><a class="headerlink" href="#garak.attempt.Attempt.latest_prompts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="garak.attempt.Attempt.outputs">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outputs</span></span><a class="headerlink" href="#garak.attempt.Attempt.outputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.attempt.Attempt.outputs_for">
+<span class="sig-name descname"><span class="pre">outputs_for</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#garak.attempt.Attempt.outputs_for" title="Link to this definition"></a></dt>
+<dd><p>outputs for a known language</p>
+<p>When “*” or None are passed returns the original model output</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="garak.attempt.Attempt.prompt">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prompt</span></span><a class="headerlink" href="#garak.attempt.Attempt.prompt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.attempt.Attempt.prompt_for">
+<span class="sig-name descname"><span class="pre">prompt_for</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lang</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#garak.attempt.Attempt.prompt_for" title="Link to this definition"></a></dt>
+<dd><p>prompt for a known language</p>
+<p>When “*” or None are passed returns the prompt passed to the model</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="basic.html" class="btn btn-neutral float-left" title="Top-level concepts in garak" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cli.html" class="btn btn-neutral float-right" title="garak.cli" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

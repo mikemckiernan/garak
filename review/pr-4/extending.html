@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extending garak &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Let’s build a generator!" href="extending.generator.html" />
+    <link rel="prev" title="garak.report" href="garak.report.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using garak</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plugin structure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extending and Contributing</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#code-structure">Code structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#developing-your-own-plugins">Developing your own plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guides-to-writing-plugins">Guides to writing plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#testing-during-development">Testing during development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contributing">Contributing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extending.generator.html">Let’s build a generator!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.probe.html">Writing a Probe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/extending.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="extending-garak">
+<h1>Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code><a class="headerlink" href="#extending-garak" title="Link to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">garak</span></code> has a modular, extensible structure.
+If there’s a function you’re missing in <code class="docutils literal notranslate"><span class="pre">garak</span></code>, it is in many cases relatively simple to add that by adding a plugin.
+Plugins in garak are typically single Python modules (i.e. a single Python file), added into the probes, detectors, generators, or buffs directories (packages).
+<code class="docutils literal notranslate"><span class="pre">garak</span></code> provides many tests which, while not complete, are extensive, and offer a good description of expectations new code should meet.
+We hope that the messages within the tests are helpful to developers and guide you quickly to building good code that works well with the <code class="docutils literal notranslate"><span class="pre">garak</span></code> GenAI assessment kit.</p>
+<section id="code-structure">
+<h2>Code structure<a class="headerlink" href="#code-structure" title="Link to this heading"></a></h2>
+<p>We have a page describing the <a class="reference internal" href="basic.html"><span class="doc">top-level concepts in garak</span></a>.
+Rather than repeat that, take a look, so you have an idea about the code base!</p>
+</section>
+<section id="developing-your-own-plugins">
+<h2>Developing your own plugins<a class="headerlink" href="#developing-your-own-plugins" title="Link to this heading"></a></h2>
+<p>Plugins are generators, probes, detectors, buffs, harnesses, and evaluators. Each category of plugin gets its own directory in the source tree. The first four categories are where most of the new functionality is.</p>
+<p>The recipe for writing a new plugin or plugin class isn’t outlandish:</p>
+<ul class="simple">
+<li><p>Only start a new module if none of the current modules could fit</p></li>
+<li><dl class="simple">
+<dt>Take a look at how other plugins do it</dt><dd><ul>
+<li><p>For an example Generator, check out <code class="xref py py-class docutils literal notranslate"><span class="pre">garak.probes.replicate</span></code></p></li>
+<li><p>For an example Probe, check out <a class="reference internal" href="garak.probes.malwaregen.html#module-garak.probes.malwaregen" title="garak.probes.malwaregen"><code class="xref py py-class docutils literal notranslate"><span class="pre">garak.probes.malwaregen</span></code></a></p></li>
+<li><p>For an example Detector, check out <code class="xref py py-class docutils literal notranslate"><span class="pre">garak.detectors.toxicity</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">garak.detectors.specialwords</span></code></p></li>
+<li><p>For an example Buff, check out <a class="reference internal" href="garak.buffs.lowercase.html#module-garak.buffs.lowercase" title="garak.buffs.lowercase"><code class="xref py py-class docutils literal notranslate"><span class="pre">garak.buffs.lowercase</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Start a new module inheriting from one of the base classes, e.g. <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">garak.probes.base.Probe</span></code></a></p></li>
+<li><p>Override as little as possible.</p></li>
+</ul>
+</section>
+<section id="guides-to-writing-plugins">
+<h2>Guides to writing plugins<a class="headerlink" href="#guides-to-writing-plugins" title="Link to this heading"></a></h2>
+<p>Here are our tutorials on plugin writing:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="extending.generator.html"><span class="doc">Building a garak generator</span></a> – step-by-step guide to building an interface for a real API-based model service</p></li>
+<li><p><a class="reference internal" href="extending.probe.html"><span class="doc">Building a garak probe</span></a> – A guide to writing your own custom probes</p></li>
+</ul>
+<section id="testing-during-development">
+<h3>Testing during development<a class="headerlink" href="#testing-during-development" title="Link to this heading"></a></h3>
+<p>You can test your code in a few ways:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Start an interactive Python session</dt><dd><ul>
+<li><p>Instantiate the plugin, e.g. <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">garak._plugins</span></code> then <code class="docutils literal notranslate"><span class="pre">probe</span> <span class="pre">=</span> <span class="pre">garak._plugins.load_plugin(&quot;garak.probes.mymodule.MyProbe&quot;)</span></code></p></li>
+<li><p>Check out that the values and methods work as you’d expect</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Get <code class="docutils literal notranslate"><span class="pre">garak</span></code> to list all the plugins of the type you’re writing, with <code class="docutils literal notranslate"><span class="pre">--list_probes</span></code>, <code class="docutils literal notranslate"><span class="pre">--list_detectors</span></code>, or <code class="docutils literal notranslate"><span class="pre">--list_generators</span></code>: <code class="docutils literal notranslate"><span class="pre">`python3</span> <span class="pre">-m</span> <span class="pre">garak</span> <span class="pre">--list_probes</span></code></p></li>
+<li><dl class="simple">
+<dt>Run a scan with test plugins</dt><dd><ul>
+<li><p>For probes, try a blank generator and always.Pass detector: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">garak</span> <span class="pre">-m</span> <span class="pre">test.Blank</span> <span class="pre">-p</span> <span class="pre">mymodule</span> <span class="pre">-d</span> <span class="pre">always.Pass</span></code></p></li>
+<li><p>For detectors, try a blank generator and a blank probe: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">garak</span> <span class="pre">-m</span> <span class="pre">test.Blank</span> <span class="pre">-p</span> <span class="pre">test.Blank</span> <span class="pre">-d</span> <span class="pre">mymodule</span></code></p></li>
+<li><p>For generators, try a blank probe and always.Pass detector: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">garak</span> <span class="pre">-m</span> <span class="pre">mymodule</span> <span class="pre">-p</span> <span class="pre">test.Blank</span> <span class="pre">-d</span> <span class="pre">always.Pass</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>garak supports pytest tests in garak/tests. You can run these with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pytest</span> <span class="pre">tests/</span></code> from the root directory.
+All the tests should pass for any code there’s a pull request for, and all tests must pass in any PR before it can be merged.</p>
+</section>
+<section id="contributing">
+<h3>Contributing<a class="headerlink" href="#contributing" title="Link to this heading"></a></h3>
+<p>Did you write something that makes <code class="docutils literal notranslate"><span class="pre">garak</span></code> better?
+We love community contributions and are used to shepherding in useful work.
+Take a look at our docs on <a class="reference internal" href="contributing.html"><span class="doc">contributing</span></a> your work to the project.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="garak.report.html" class="btn btn-neutral float-left" title="garak.report" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="extending.generator.html" class="btn btn-neutral float-right" title="Let’s build a generator!" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

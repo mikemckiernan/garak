@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>garak.probes.base &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="garak.probes.ansiescape" href="garak.probes.ansiescape.html" />
+    <link rel="prev" title="garak.probes" href="garak.probes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using garak</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plugin structure</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="probes.html">garak.probes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.html">garak.probes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">garak.probes.base</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.base.Probe"><code class="docutils literal notranslate"><span class="pre">Probe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">Probe.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.active"><code class="docutils literal notranslate"><span class="pre">Probe.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.doc_uri"><code class="docutils literal notranslate"><span class="pre">Probe.doc_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.extended_detectors"><code class="docutils literal notranslate"><span class="pre">Probe.extended_detectors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.goal"><code class="docutils literal notranslate"><span class="pre">Probe.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.lang"><code class="docutils literal notranslate"><span class="pre">Probe.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.modality"><code class="docutils literal notranslate"><span class="pre">Probe.modality</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.parallelisable_attempts"><code class="docutils literal notranslate"><span class="pre">Probe.parallelisable_attempts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.post_buff_hook"><code class="docutils literal notranslate"><span class="pre">Probe.post_buff_hook</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.primary_detector"><code class="docutils literal notranslate"><span class="pre">Probe.primary_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.probe"><code class="docutils literal notranslate"><span class="pre">Probe.probe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.recommended_detector"><code class="docutils literal notranslate"><span class="pre">Probe.recommended_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.tags"><code class="docutils literal notranslate"><span class="pre">Probe.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.Probe.tier"><code class="docutils literal notranslate"><span class="pre">Probe.tier</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.base.TreeSearchProbe"><code class="docutils literal notranslate"><span class="pre">TreeSearchProbe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.TreeSearchProbe.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">TreeSearchProbe.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.base.TreeSearchProbe.probe"><code class="docutils literal notranslate"><span class="pre">TreeSearchProbe.probe()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.ansiescape.html">garak.probes.ansiescape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.atkgen.html">garak.probes.atkgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.audio.html">garak.probes.audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.av_spam_scanning.html">garak.probes.av_spam_scanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.continuation.html">garak.probes.continuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.dan.html">garak.probes.dan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.divergence.html">garak.probes.divergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.donotanswer.html">garak.probes.donotanswer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.encoding.html">garak.probes.encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.exploitation.html">garak.probes.exploitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.fileformats.html">garak.probes.fileformats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.glitch.html">garak.probes.glitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.goodside.html">garak.probes.goodside</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.grandma.html">garak.probes.grandma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.latentinjection.html">garak.probes.latentinjection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.leakreplay.html">garak.probes.leakreplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.lmrc.html">garak.probes.lmrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.malwaregen.html">garak.probes.malwaregen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.misleading.html">garak.probes.misleading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.packagehallucination.html">garak.probes.packagehallucination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.phrasing.html">garak.probes.phrasing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.promptinject.html">garak.probes.promptinject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.realtoxicityprompts.html">garak.probes.realtoxicityprompts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.snowball.html">garak.probes.snowball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.suffix.html">garak.probes.suffix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.tap.html">garak.probes.tap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.test.html">garak.probes.test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.topic.html">garak.probes.topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.xss.html">garak.probes.xss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.visual_jailbreak.html">garak.probes.visual_jailbreak</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes._tier.html">garak.probes._tier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extending and Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.generator.html">Let’s build a generator!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.probe.html">Writing a Probe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="probes.html">garak.probes</a></li>
+      <li class="breadcrumb-item active">garak.probes.base</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/garak.probes.base.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="garak-probes-base">
+<h1>garak.probes.base<a class="headerlink" href="#garak-probes-base" title="Link to this heading"></a></h1>
+<p>This class defines the basic structure of garak’s probes. All probes inherit from <code class="docutils literal notranslate"><span class="pre">garak.probes.base.Probe</span></code>.</p>
+<p>Attributes:</p>
+<p>1. <strong>doc_uri</strong>   URI for documentation of the probe (perhaps a paper)
+1. <strong>lang</strong>    Language this is for, in BCP47 format; <code class="docutils literal notranslate"><span class="pre">*</span></code> for all langs. Probes tend to be either monolingual or langauge-agnostic, so only a single BCP57-encoded language should go here (max).
+1. <strong>active</strong>    Should this probe be run by default?
+1. <strong>tags</strong> MISP-format taxonomy categories
+1. <strong>goal</strong> What the probe is trying to do, phrased as an imperative
+1. <strong>primary_detector</strong>  Default detector to run, if the primary/extended way of doing it is to be used
+1. <strong>extended_detectors</strong>    Optional extended detectors
+1. <strong>parallelisable_attempts</strong>    Can attempts from this probe be parallelised?
+1. <strong>post_buff_hook</strong>    Tracks whether a buff is loaded that requires a call to untransform model outputs
+1. <strong>modality</strong>  Which modalities does this probe work on? <code class="docutils literal notranslate"><span class="pre">garak</span></code> supports mainstream any-to-any large models, but only assesses text output.
+1. <strong>tier</strong> Description of impact this probe can have; 1 = high.</p>
+<p>Functions:</p>
+<ol class="arabic simple">
+<li><p><strong>__init__()</strong>: Class constructor. Call this from probes after doing local init. It does things like setting <code class="docutils literal notranslate"><span class="pre">probename</span></code>, setting up the description automatically from the class docstring, and logging probe instantiation.</p></li>
+<li><p><strong>probe()</strong>. This function is responsible for the interaction between the probe and the generator. It takes as input the generator, and returns a list of completed <code class="docutils literal notranslate"><span class="pre">attempt</span></code> objects, including outputs generated. <code class="docutils literal notranslate"><span class="pre">probe()</span></code> orchestrates all interaction between the probe and the generator. Because a fair amount of logic is concentrated here, hooks into the process are provided, so one doesn’t need to override the <code class="docutils literal notranslate"><span class="pre">probe()</span></code> function itself when customising probes.</p></li>
+</ol>
+<p>The general flow in <code class="docutils literal notranslate"><span class="pre">probe()</span></code> is:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Create a list of <code class="docutils literal notranslate"><span class="pre">attempt</span></code> objects corresponding to the prompts in the probe, using <code class="docutils literal notranslate"><span class="pre">_mint_attempt()</span></code>. Prompts are iterated through and passed to <code class="docutils literal notranslate"><span class="pre">_mint_attempt()</span></code>. The <code class="docutils literal notranslate"><span class="pre">_mint_attempt()</span></code> function works by converting a prompt to a full <code class="docutils literal notranslate"><span class="pre">attempt</span></code> object, and then passing that <code class="docutils literal notranslate"><span class="pre">attempt</span></code> object through <code class="docutils literal notranslate"><span class="pre">_attempt_prestore_hook()</span></code>. The result is added to a list in <code class="docutils literal notranslate"><span class="pre">probe()</span></code> called <code class="docutils literal notranslate"><span class="pre">attempts_todo</span></code>.</p></li>
+<li><p>If any buffs are loaded, the list of attempts is passed to <code class="docutils literal notranslate"><span class="pre">_buff_hook()</span></code> for transformation. <code class="docutils literal notranslate"><span class="pre">_buff_hook()</span></code> checks the config and then creates a new attempt list, <code class="docutils literal notranslate"><span class="pre">buffed_attempts</span></code>, which contains the results of passing each original attempt through each instantiated buff in turn. Instantiated buffs are tracked in <code class="docutils literal notranslate"><span class="pre">_config.buffmanager.buffs</span></code>. Once <code class="docutils literal notranslate"><span class="pre">buffed_attempts</span></code> is populated, it’s returned, and overwrites <code class="docutils literal notranslate"><span class="pre">probe()</span></code>’s <code class="docutils literal notranslate"><span class="pre">attempts_todo</span></code>.</p></li>
+<li><p>At this point, <code class="docutils literal notranslate"><span class="pre">probe()</span></code> is ready to start interacting with the generator. An empty list <code class="docutils literal notranslate"><span class="pre">attempts_completed</span></code> is set up to hold completed results.</p></li>
+<li><p>The set of attempts is then passed to <code class="docutils literal notranslate"><span class="pre">_execute_all</span></code>.</p></li>
+<li><p>Attempts are iterated through (ether in parallel or serial) and individually posed to the generator using <code class="docutils literal notranslate"><span class="pre">_execute_attempt()</span></code>.</p></li>
+<li><p>The process of putting one <code class="docutils literal notranslate"><span class="pre">attempt</span></code> through the generator is orchestrated by <code class="docutils literal notranslate"><span class="pre">_execute_attempt()</span></code>, and runs as follows:</p>
+<ul>
+<li><p>First, <code class="docutils literal notranslate"><span class="pre">_generator_precall_hook()</span></code> allows adjustment of the attempt and generator (doesn’t return a value).</p></li>
+<li><p>Next, the prompt of the attempt (<cite>this_attempt.prompt</cite>) is passed to the generator’s <code class="docutils literal notranslate"><span class="pre">generate()</span></code> function. Results are stored in the attempt’s <code class="docutils literal notranslate"><span class="pre">outputs</span></code> attribute.</p></li>
+<li><p>If there’s a buff that wants to transform the generator results, the completed attempt is transformed through <code class="docutils literal notranslate"><span class="pre">_postprocess_buff()</span></code> (if <code class="docutils literal notranslate"><span class="pre">self.post_buff_hook</span> <span class="pre">==</span> <span class="pre">True</span></code>).</p></li>
+<li><p>The completed attempt is passed through a post-processing hook, <code class="docutils literal notranslate"><span class="pre">_postprocess_hook()</span></code>.</p></li>
+<li><p>A string of the completed attempt is logged to the report file.</p></li>
+<li><p>A deepcopy of the attempt is returned.</p></li>
+</ul>
+</li>
+<li><p>Once done, the result of <code class="docutils literal notranslate"><span class="pre">_execute_attempt()</span></code> is added to <code class="docutils literal notranslate"><span class="pre">attempts_completed</span></code>.</p></li>
+<li><p>Finally, <code class="docutils literal notranslate"><span class="pre">probe()</span></code> logs completion and returns the list of processed attempts from <code class="docutils literal notranslate"><span class="pre">attempts_completed</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p><strong>_attempt_prestore_hook()</strong>. Called when creating a new attempt with <code class="docutils literal notranslate"><span class="pre">_mint_attempt()</span></code>. Can be used to e.g. store <code class="docutils literal notranslate"><span class="pre">triggers</span></code> relevant to the attempt, for use in TriggerListDetector, or to add a note.</p></li>
+<li><p><strong>_buff_hook()</strong>. Called from <code class="docutils literal notranslate"><span class="pre">probe()</span></code> to buff attempts after the list in <code class="docutils literal notranslate"><span class="pre">attempts_todo</span></code> is populated.</p></li>
+<li><p><strong>_execute_attempt()</strong>. Called from <code class="docutils literal notranslate"><span class="pre">_execute_all()</span></code> to orchestrate processing of one attempt by the generator.</p></li>
+<li><p><strong>_execute_all()</strong>. Called from <code class="docutils literal notranslate"><span class="pre">probe()</span></code> to orchestrate processing of the set of attempts by the generator.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>If configured, parallelisation of attempt processing is set up using <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code>. The relevant config variable is <code class="docutils literal notranslate"><span class="pre">_config.system.parallel_attempts</span></code> and the value should be greater than 1 (1 in parallel is just serial).</p></li>
+<li><p>Attempts are iterated through (ether in parallel or serial) and individually posed to the generator using <code class="docutils literal notranslate"><span class="pre">_execute_attempt()</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li><p><strong>_generator_precall_hook()</strong>. Called at the start of <code class="docutils literal notranslate"><span class="pre">_execute_attempt()</span></code> with attempt and generator. Can be used to e.g. adjust generator parameters.</p></li>
+<li><p><strong>_mint_attempt()</strong>. Converts a prompt to a new attempt object, managing metadata like attempt status and probe classname.</p></li>
+<li><p><strong>_postprocess_buff()</strong>. Called in <code class="docutils literal notranslate"><span class="pre">_execute_attempt()</span></code> after results come back from the generator, if a buff specifies it. Used to e.g. translate results back if already translated to another language.</p></li>
+<li><p><strong>_postprocess_hook()</strong>. Called near the end of <code class="docutils literal notranslate"><span class="pre">_execute_attempt()</span></code> to apply final postprocessing to attempts after generation. Can be used to restore state, e.g. if generator parameters were adjusted, or to clean up generator output.</p></li>
+</ol>
+<p id="module-garak.probes.base">Base classes for probes.</p>
+<p>Probe plugins must inherit one of these. <cite>Probe</cite> serves as a template showing
+what expectations there are for inheriting classes.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.base.Probe">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.base.</span></span><span class="sig-name descname"><span class="pre">Probe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.base.Probe" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Configurable</span></code></p>
+<p>Base class for objects that define and execute LLM evaluations</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#garak.probes.base.Probe.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.base.Probe.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.doc_uri">
+<span class="sig-name descname"><span class="pre">doc_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#garak.probes.base.Probe.doc_uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.extended_detectors">
+<span class="sig-name descname"><span class="pre">extended_detectors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.13)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#garak.probes.base.Probe.extended_detectors" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#garak.probes.base.Probe.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#garak.probes.base.Probe.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.modality">
+<span class="sig-name descname"><span class="pre">modality</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'in':</span> <span class="pre">{'text'}}</span></em><a class="headerlink" href="#garak.probes.base.Probe.modality" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.parallelisable_attempts">
+<span class="sig-name descname"><span class="pre">parallelisable_attempts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#garak.probes.base.Probe.parallelisable_attempts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.post_buff_hook">
+<span class="sig-name descname"><span class="pre">post_buff_hook</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.base.Probe.post_buff_hook" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.primary_detector">
+<span class="sig-name descname"><span class="pre">primary_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#garak.probes.base.Probe.primary_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.probe">
+<span class="sig-name descname"><span class="pre">probe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">generator</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.13)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="attempt.html#garak.attempt.Attempt" title="garak.attempt.Attempt"><span class="pre">Attempt</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#garak.probes.base.Probe.probe" title="Link to this definition"></a></dt>
+<dd><p>attempt to exploit the target generator, returning a list of results</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.recommended_detector">
+<span class="sig-name descname"><span class="pre">recommended_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.13)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['always.Fail']</span></em><a class="headerlink" href="#garak.probes.base.Probe.recommended_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.13)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#garak.probes.base.Probe.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.Probe.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#garak.probes.base.Probe.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.base.TreeSearchProbe">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.base.</span></span><span class="sig-name descname"><span class="pre">TreeSearchProbe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.base.TreeSearchProbe" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.base.TreeSearchProbe.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'per_generation_threshold':</span> <span class="pre">0.5,</span> <span class="pre">'per_node_threshold':</span> <span class="pre">0.1,</span> <span class="pre">'queue_children_at_start':</span> <span class="pre">True,</span> <span class="pre">'strategy':</span> <span class="pre">'breadth_first',</span> <span class="pre">'target_soft':</span> <span class="pre">True}</span></em><a class="headerlink" href="#garak.probes.base.TreeSearchProbe.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.base.TreeSearchProbe.probe">
+<span class="sig-name descname"><span class="pre">probe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">generator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.base.TreeSearchProbe.probe" title="Link to this definition"></a></dt>
+<dd><p>attempt to exploit the target generator, returning a list of results</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="garak.probes.html" class="btn btn-neutral float-left" title="garak.probes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="garak.probes.ansiescape.html" class="btn btn-neutral float-right" title="garak.probes.ansiescape" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

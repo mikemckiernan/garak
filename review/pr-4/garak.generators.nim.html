@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>garak.generators.nim &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="garak.generators.nvcf" href="garak.generators.nvcf.html" />
+    <link rel="prev" title="garak.generators.nemo" href="garak.generators.nemo.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using garak</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plugin structure</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="generators.html">garak.generators</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.html">garak.generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.azure.html">garak.generators.azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.base.html">garak.generators.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.cohere.html">garak.generators.cohere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.function.html">garak.generators.function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.ggml.html">garak.generators.ggml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.groq.html">garak.generators.groq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.guardrails.html">garak.generators.guardrails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.huggingface.html">garak.generators.huggingface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.langchain.html">garak.generators.langchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.langchain_serve.html">garak.generators.langchain_serve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.litellm.html">garak.generators.litellm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.mistral.html">garak.generators.mistral</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.ollama.html">garak.generators.ollama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.openai.html">garak.generators.openai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.nemo.html">garak.generators.nemo</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">garak.generators.nim</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#garak.generators.nim.NVMultimodal"><code class="docutils literal notranslate"><span class="pre">NVMultimodal</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.nim.NVMultimodal.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">NVMultimodal.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.nim.NVMultimodal.modality"><code class="docutils literal notranslate"><span class="pre">NVMultimodal.modality</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.generators.nim.NVOpenAIChat"><code class="docutils literal notranslate"><span class="pre">NVOpenAIChat</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.nim.NVOpenAIChat.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">NVOpenAIChat.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.nim.NVOpenAIChat.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">NVOpenAIChat.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.nim.NVOpenAIChat.active"><code class="docutils literal notranslate"><span class="pre">NVOpenAIChat.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.nim.NVOpenAIChat.generator_family_name"><code class="docutils literal notranslate"><span class="pre">NVOpenAIChat.generator_family_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.nim.NVOpenAIChat.supports_multiple_generations"><code class="docutils literal notranslate"><span class="pre">NVOpenAIChat.supports_multiple_generations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.nim.NVOpenAIChat.timeout"><code class="docutils literal notranslate"><span class="pre">NVOpenAIChat.timeout</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.generators.nim.NVOpenAICompletion"><code class="docutils literal notranslate"><span class="pre">NVOpenAICompletion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.generators.nim.Vision"><code class="docutils literal notranslate"><span class="pre">Vision</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.nim.Vision.modality"><code class="docutils literal notranslate"><span class="pre">Vision.modality</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.nvcf.html">garak.generators.nvcf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.replicate.html">garak.generators.replicate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.rest.html">garak.generators.rest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.rasa.html">garak.generators.rasa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.test.html">garak.generators.test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.watsonx.html">garak.generators.watsonx</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extending and Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.generator.html">Let’s build a generator!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.probe.html">Writing a Probe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="generators.html">garak.generators</a></li>
+      <li class="breadcrumb-item active">garak.generators.nim</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/garak.generators.nim.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-garak.generators.nim">
+<span id="garak-generators-nim"></span><h1>garak.generators.nim<a class="headerlink" href="#module-garak.generators.nim" title="Link to this heading"></a></h1>
+<p>NVIDIA Inference Microservice LLM interface</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.generators.nim.NVMultimodal">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.generators.nim.</span></span><span class="sig-name descname"><span class="pre">NVMultimodal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.generators.nim.NVMultimodal" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#garak.generators.nim.NVOpenAIChat" title="garak.generators.nim.NVOpenAIChat"><code class="xref py py-class docutils literal notranslate"><span class="pre">NVOpenAIChat</span></code></a></p>
+<p>Wrapper for text + image / audio to text NIMs. Expects NIM_API_KEY environment variable.</p>
+<p>Expects keys to be a dict with keys ‘text’ (required), and ‘image’ or ‘audio’ (optional).
+Message is sent with ‘role’ and ‘content’ where content is structured as text
+followed by &lt;img&gt; and/or &lt;audio&gt; tags ala <a class="reference external" href="https://build.nvidia.com/microsoft/phi-4-multimodal-instruct">https://build.nvidia.com/microsoft/phi-4-multimodal-instruct</a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.nim.NVMultimodal.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'context_len':</span> <span class="pre">None,</span> <span class="pre">'extra_params':</span> <span class="pre">{},</span> <span class="pre">'frequency_penalty':</span> <span class="pre">0.0,</span> <span class="pre">'max_input_len':</span> <span class="pre">180000,</span> <span class="pre">'max_tokens':</span> <span class="pre">150,</span> <span class="pre">'presence_penalty':</span> <span class="pre">0.0,</span> <span class="pre">'retry_json':</span> <span class="pre">True,</span> <span class="pre">'seed':</span> <span class="pre">None,</span> <span class="pre">'skip_seq_end':</span> <span class="pre">None,</span> <span class="pre">'skip_seq_start':</span> <span class="pre">None,</span> <span class="pre">'stop':</span> <span class="pre">['#',</span> <span class="pre">';'],</span> <span class="pre">'suppressed_params':</span> <span class="pre">{'frequency_penalty',</span> <span class="pre">'n',</span> <span class="pre">'presence_penalty',</span> <span class="pre">'stop'},</span> <span class="pre">'temperature':</span> <span class="pre">0.1,</span> <span class="pre">'top_k':</span> <span class="pre">0,</span> <span class="pre">'top_p':</span> <span class="pre">0.7,</span> <span class="pre">'uri':</span> <span class="pre">'https://integrate.api.nvidia.com/v1/',</span> <span class="pre">'vary_seed_each_call':</span> <span class="pre">True,</span> <span class="pre">'vary_temp_each_call':</span> <span class="pre">True}</span></em><a class="headerlink" href="#garak.generators.nim.NVMultimodal.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.nim.NVMultimodal.modality">
+<span class="sig-name descname"><span class="pre">modality</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'in':</span> <span class="pre">{'audio',</span> <span class="pre">'image',</span> <span class="pre">'text'},</span> <span class="pre">'out':</span> <span class="pre">{'text'}}</span></em><a class="headerlink" href="#garak.generators.nim.NVMultimodal.modality" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.generators.nim.NVOpenAIChat">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.generators.nim.</span></span><span class="sig-name descname"><span class="pre">NVOpenAIChat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.generators.nim.NVOpenAIChat" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.generators.openai.html#garak.generators.openai.OpenAICompatible" title="garak.generators.openai.OpenAICompatible"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenAICompatible</span></code></a></p>
+<p>Wrapper for NVIDIA-hosted NIMs. Expects NIM_API_KEY environment variable.</p>
+<p>Uses the [OpenAI-compatible API](<a class="reference external" href="https://docs.nvidia.com/ai-enterprise/nim-llm/latest/openai-api.html">https://docs.nvidia.com/ai-enterprise/nim-llm/latest/openai-api.html</a>)
+via direct HTTP request.</p>
+<p>To get started with this generator:
+#. Visit [<a class="reference external" href="https://build.nvidia.com/explore/reasoning](build.nvidia.com/explore/reasoning">https://build.nvidia.com/explore/reasoning](build.nvidia.com/explore/reasoning</a>)
+and find the LLM you’d like to use.
+#. On the page for the LLM you want to use (e.g. [mixtral-8x7b-instruct](<a class="reference external" href="https://build.nvidia.com/mistralai/mixtral-8x7b-instruct">https://build.nvidia.com/mistralai/mixtral-8x7b-instruct</a>)),
+click “Get API key” key above the code snippet. You may need to create an
+account. Copy this key.
+#. In your console, Set the <code class="docutils literal notranslate"><span class="pre">NIM_API_KEY</span></code> variable to this API key. On
+Linux, this might look like <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">NIM_API_KEY=&quot;nvapi-xXxXxXx&quot;</span></code>.
+#. Run garak, setting <code class="docutils literal notranslate"><span class="pre">--model_name</span></code> to <code class="docutils literal notranslate"><span class="pre">nim</span></code> and <code class="docutils literal notranslate"><span class="pre">--model_type</span></code> to
+the name of the model on [build.nvidia.com](<a class="reference external" href="https://build.nvidia.com/">https://build.nvidia.com/</a>)
+- e.g. <code class="docutils literal notranslate"><span class="pre">mistralai/mixtral-8x7b-instruct-v0.1</span></code>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.nim.NVOpenAIChat.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'context_len':</span> <span class="pre">None,</span> <span class="pre">'extra_params':</span> <span class="pre">{},</span> <span class="pre">'frequency_penalty':</span> <span class="pre">0.0,</span> <span class="pre">'max_tokens':</span> <span class="pre">150,</span> <span class="pre">'presence_penalty':</span> <span class="pre">0.0,</span> <span class="pre">'retry_json':</span> <span class="pre">True,</span> <span class="pre">'seed':</span> <span class="pre">None,</span> <span class="pre">'skip_seq_end':</span> <span class="pre">None,</span> <span class="pre">'skip_seq_start':</span> <span class="pre">None,</span> <span class="pre">'stop':</span> <span class="pre">['#',</span> <span class="pre">';'],</span> <span class="pre">'suppressed_params':</span> <span class="pre">{'frequency_penalty',</span> <span class="pre">'n',</span> <span class="pre">'presence_penalty',</span> <span class="pre">'timeout'},</span> <span class="pre">'temperature':</span> <span class="pre">0.1,</span> <span class="pre">'top_k':</span> <span class="pre">0,</span> <span class="pre">'top_p':</span> <span class="pre">0.7,</span> <span class="pre">'uri':</span> <span class="pre">'https://integrate.api.nvidia.com/v1/',</span> <span class="pre">'vary_seed_each_call':</span> <span class="pre">True,</span> <span class="pre">'vary_temp_each_call':</span> <span class="pre">True}</span></em><a class="headerlink" href="#garak.generators.nim.NVOpenAIChat.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.nim.NVOpenAIChat.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NIM_API_KEY'</span></em><a class="headerlink" href="#garak.generators.nim.NVOpenAIChat.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.nim.NVOpenAIChat.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#garak.generators.nim.NVOpenAIChat.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.nim.NVOpenAIChat.generator_family_name">
+<span class="sig-name descname"><span class="pre">generator_family_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NIM'</span></em><a class="headerlink" href="#garak.generators.nim.NVOpenAIChat.generator_family_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.nim.NVOpenAIChat.supports_multiple_generations">
+<span class="sig-name descname"><span class="pre">supports_multiple_generations</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.generators.nim.NVOpenAIChat.supports_multiple_generations" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.nim.NVOpenAIChat.timeout">
+<span class="sig-name descname"><span class="pre">timeout</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">60</span></em><a class="headerlink" href="#garak.generators.nim.NVOpenAIChat.timeout" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.generators.nim.NVOpenAICompletion">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.generators.nim.</span></span><span class="sig-name descname"><span class="pre">NVOpenAICompletion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.generators.nim.NVOpenAICompletion" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#garak.generators.nim.NVOpenAIChat" title="garak.generators.nim.NVOpenAIChat"><code class="xref py py-class docutils literal notranslate"><span class="pre">NVOpenAIChat</span></code></a></p>
+<p>Wrapper for NVIDIA-hosted NIMs. Expects NIM_API_KEY environment variable.</p>
+<p>Uses the [OpenAI-compatible API](<a class="reference external" href="https://docs.nvidia.com/ai-enterprise/nim-llm/latest/openai-api.html">https://docs.nvidia.com/ai-enterprise/nim-llm/latest/openai-api.html</a>)
+via direct HTTP request.</p>
+<p>This generator supports only <code class="docutils literal notranslate"><span class="pre">completion</span></code> and NOT <code class="docutils literal notranslate"><span class="pre">chat</span></code>-format models.</p>
+<p>To get started with this generator:
+#. Visit [build.nvidia.com/explore/reasoning](build.nvidia.com/explore/reasoning)
+and find the LLM you’d like to use.
+#. On the page for the LLM you want to use (e.g. [mixtral-8x7b-instruct](<a class="reference external" href="https://build.nvidia.com/mistralai/mixtral-8x7b-instruct">https://build.nvidia.com/mistralai/mixtral-8x7b-instruct</a>)),
+click “Get API key” key above the code snippet. You may need to create an
+account. Copy this key.
+#. In your console, Set the <code class="docutils literal notranslate"><span class="pre">NIM_API_KEY</span></code> variable to this API key. On
+Linux, this might look like <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">NIM_API_KEY=&quot;nvapi-xXxXxXx&quot;</span></code>.
+#. Run garak, setting <code class="docutils literal notranslate"><span class="pre">--model_name</span></code> to <code class="docutils literal notranslate"><span class="pre">nim</span></code> and <code class="docutils literal notranslate"><span class="pre">--model_type</span></code> to
+the name of the model on [build.nvidia.com](<a class="reference external" href="https://build.nvidia.com/">https://build.nvidia.com/</a>)
+- e.g. <code class="docutils literal notranslate"><span class="pre">mistralai/mixtral-8x7b-instruct-v0.1</span></code>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.generators.nim.Vision">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.generators.nim.</span></span><span class="sig-name descname"><span class="pre">Vision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.generators.nim.Vision" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#garak.generators.nim.NVMultimodal" title="garak.generators.nim.NVMultimodal"><code class="xref py py-class docutils literal notranslate"><span class="pre">NVMultimodal</span></code></a></p>
+<p>Wrapper for text+image to text NIMs. Expects NIM_API_KEY environment variable.</p>
+<p>Following generators.huggingface.LLaVa, expects prompts to be a dict with keys
+“text” and “image”; text holds the text prompt, image holds a path to the image.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.nim.Vision.modality">
+<span class="sig-name descname"><span class="pre">modality</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'in':</span> <span class="pre">{'image',</span> <span class="pre">'text'},</span> <span class="pre">'out':</span> <span class="pre">{'text'}}</span></em><a class="headerlink" href="#garak.generators.nim.Vision.modality" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="garak.generators.nemo.html" class="btn btn-neutral float-left" title="garak.generators.nemo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="garak.generators.nvcf.html" class="btn btn-neutral float-right" title="garak.generators.nvcf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

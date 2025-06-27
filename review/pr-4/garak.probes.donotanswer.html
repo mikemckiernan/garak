@@ -1,0 +1,588 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>garak.probes.donotanswer &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="garak.probes.encoding" href="garak.probes.encoding.html" />
+    <link rel="prev" title="garak.probes.divergence" href="garak.probes.divergence.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using garak</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plugin structure</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="probes.html">garak.probes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.html">garak.probes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.base.html">garak.probes.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.ansiescape.html">garak.probes.ansiescape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.atkgen.html">garak.probes.atkgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.audio.html">garak.probes.audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.av_spam_scanning.html">garak.probes.av_spam_scanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.continuation.html">garak.probes.continuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.dan.html">garak.probes.dan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.divergence.html">garak.probes.divergence</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">garak.probes.donotanswer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive"><code class="docutils literal notranslate"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.active"><code class="docutils literal notranslate"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.description"><code class="docutils literal notranslate"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.dna_category"><code class="docutils literal notranslate"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive.dna_category</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.goal"><code class="docutils literal notranslate"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.lang"><code class="docutils literal notranslate"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.load_data"><code class="docutils literal notranslate"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive.load_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.primary_detector"><code class="docutils literal notranslate"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive.primary_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.prompts"><code class="docutils literal notranslate"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive.prompts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.tags"><code class="docutils literal notranslate"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.tier"><code class="docutils literal notranslate"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive.tier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.uri"><code class="docutils literal notranslate"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive.uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.donotanswer.HumanChatbox"><code class="docutils literal notranslate"><span class="pre">HumanChatbox</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.HumanChatbox.active"><code class="docutils literal notranslate"><span class="pre">HumanChatbox.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.HumanChatbox.description"><code class="docutils literal notranslate"><span class="pre">HumanChatbox.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.HumanChatbox.dna_category"><code class="docutils literal notranslate"><span class="pre">HumanChatbox.dna_category</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.HumanChatbox.goal"><code class="docutils literal notranslate"><span class="pre">HumanChatbox.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.HumanChatbox.lang"><code class="docutils literal notranslate"><span class="pre">HumanChatbox.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.HumanChatbox.load_data"><code class="docutils literal notranslate"><span class="pre">HumanChatbox.load_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.HumanChatbox.primary_detector"><code class="docutils literal notranslate"><span class="pre">HumanChatbox.primary_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.HumanChatbox.prompts"><code class="docutils literal notranslate"><span class="pre">HumanChatbox.prompts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.HumanChatbox.tags"><code class="docutils literal notranslate"><span class="pre">HumanChatbox.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.HumanChatbox.tier"><code class="docutils literal notranslate"><span class="pre">HumanChatbox.tier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.HumanChatbox.uri"><code class="docutils literal notranslate"><span class="pre">HumanChatbox.uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.donotanswer.InformationHazard"><code class="docutils literal notranslate"><span class="pre">InformationHazard</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.InformationHazard.active"><code class="docutils literal notranslate"><span class="pre">InformationHazard.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.InformationHazard.description"><code class="docutils literal notranslate"><span class="pre">InformationHazard.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.InformationHazard.dna_category"><code class="docutils literal notranslate"><span class="pre">InformationHazard.dna_category</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.InformationHazard.goal"><code class="docutils literal notranslate"><span class="pre">InformationHazard.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.InformationHazard.lang"><code class="docutils literal notranslate"><span class="pre">InformationHazard.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.InformationHazard.load_data"><code class="docutils literal notranslate"><span class="pre">InformationHazard.load_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.InformationHazard.primary_detector"><code class="docutils literal notranslate"><span class="pre">InformationHazard.primary_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.InformationHazard.prompts"><code class="docutils literal notranslate"><span class="pre">InformationHazard.prompts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.InformationHazard.tags"><code class="docutils literal notranslate"><span class="pre">InformationHazard.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.InformationHazard.tier"><code class="docutils literal notranslate"><span class="pre">InformationHazard.tier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.InformationHazard.uri"><code class="docutils literal notranslate"><span class="pre">InformationHazard.uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.donotanswer.MaliciousUses"><code class="docutils literal notranslate"><span class="pre">MaliciousUses</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MaliciousUses.active"><code class="docutils literal notranslate"><span class="pre">MaliciousUses.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MaliciousUses.description"><code class="docutils literal notranslate"><span class="pre">MaliciousUses.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MaliciousUses.dna_category"><code class="docutils literal notranslate"><span class="pre">MaliciousUses.dna_category</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MaliciousUses.goal"><code class="docutils literal notranslate"><span class="pre">MaliciousUses.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MaliciousUses.lang"><code class="docutils literal notranslate"><span class="pre">MaliciousUses.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MaliciousUses.load_data"><code class="docutils literal notranslate"><span class="pre">MaliciousUses.load_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MaliciousUses.primary_detector"><code class="docutils literal notranslate"><span class="pre">MaliciousUses.primary_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MaliciousUses.prompts"><code class="docutils literal notranslate"><span class="pre">MaliciousUses.prompts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MaliciousUses.tags"><code class="docutils literal notranslate"><span class="pre">MaliciousUses.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MaliciousUses.tier"><code class="docutils literal notranslate"><span class="pre">MaliciousUses.tier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MaliciousUses.uri"><code class="docutils literal notranslate"><span class="pre">MaliciousUses.uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.donotanswer.MisinformationHarms"><code class="docutils literal notranslate"><span class="pre">MisinformationHarms</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MisinformationHarms.active"><code class="docutils literal notranslate"><span class="pre">MisinformationHarms.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MisinformationHarms.description"><code class="docutils literal notranslate"><span class="pre">MisinformationHarms.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MisinformationHarms.dna_category"><code class="docutils literal notranslate"><span class="pre">MisinformationHarms.dna_category</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MisinformationHarms.goal"><code class="docutils literal notranslate"><span class="pre">MisinformationHarms.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MisinformationHarms.lang"><code class="docutils literal notranslate"><span class="pre">MisinformationHarms.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MisinformationHarms.load_data"><code class="docutils literal notranslate"><span class="pre">MisinformationHarms.load_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MisinformationHarms.primary_detector"><code class="docutils literal notranslate"><span class="pre">MisinformationHarms.primary_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MisinformationHarms.prompts"><code class="docutils literal notranslate"><span class="pre">MisinformationHarms.prompts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MisinformationHarms.tags"><code class="docutils literal notranslate"><span class="pre">MisinformationHarms.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MisinformationHarms.tier"><code class="docutils literal notranslate"><span class="pre">MisinformationHarms.tier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.donotanswer.MisinformationHarms.uri"><code class="docutils literal notranslate"><span class="pre">MisinformationHarms.uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.donotanswer.load_local_data"><code class="docutils literal notranslate"><span class="pre">load_local_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.donotanswer.local_constructor"><code class="docutils literal notranslate"><span class="pre">local_constructor()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.encoding.html">garak.probes.encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.exploitation.html">garak.probes.exploitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.fileformats.html">garak.probes.fileformats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.glitch.html">garak.probes.glitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.goodside.html">garak.probes.goodside</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.grandma.html">garak.probes.grandma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.latentinjection.html">garak.probes.latentinjection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.leakreplay.html">garak.probes.leakreplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.lmrc.html">garak.probes.lmrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.malwaregen.html">garak.probes.malwaregen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.misleading.html">garak.probes.misleading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.packagehallucination.html">garak.probes.packagehallucination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.phrasing.html">garak.probes.phrasing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.promptinject.html">garak.probes.promptinject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.realtoxicityprompts.html">garak.probes.realtoxicityprompts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.snowball.html">garak.probes.snowball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.suffix.html">garak.probes.suffix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.tap.html">garak.probes.tap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.test.html">garak.probes.test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.topic.html">garak.probes.topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.xss.html">garak.probes.xss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.visual_jailbreak.html">garak.probes.visual_jailbreak</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes._tier.html">garak.probes._tier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extending and Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.generator.html">Let’s build a generator!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.probe.html">Writing a Probe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="probes.html">garak.probes</a></li>
+      <li class="breadcrumb-item active">garak.probes.donotanswer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/garak.probes.donotanswer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-garak.probes.donotanswer">
+<span id="garak-probes-donotanswer"></span><h1>garak.probes.donotanswer<a class="headerlink" href="#module-garak.probes.donotanswer" title="Link to this heading"></a></h1>
+<p>Do-Not-Answer Probes</p>
+<p><a class="reference external" href="https://github.com/Libr-AI/do-not-answer">https://github.com/Libr-AI/do-not-answer</a>
+<a class="reference external" href="https://arxiv.org/abs/2308.13387">https://arxiv.org/abs/2308.13387</a></p>
+<p>An open-source dataset to evaluate LLMs’ safety mechanism at a low cost.
+The dataset consists of prompts to which language models are often trained not to answer.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.donotanswer.</span></span><span class="sig-name descname"><span class="pre">DiscriminationExclusionToxicityHatefulOffensive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>Do Not Answer probe</p>
+<p>A curated list of questions to which LLMs should not respond back, specifically testing discrimination exclusion toxicity hateful offensive</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Implementation</span> <span class="pre">of</span> <span class="pre">discrimination_exclusion_toxicity_hateful_offensive</span> <span class="pre">probes</span> <span class="pre">in</span> <span class="pre">DoNotAnswer_Prompts'</span></em><a class="headerlink" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.dna_category">
+<span class="sig-name descname"><span class="pre">dna_category</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'discrimination_exclusion_toxicity_hateful_offensive'</span></em><a class="headerlink" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.dna_category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'get</span> <span class="pre">model</span> <span class="pre">to</span> <span class="pre">respond</span> <span class="pre">as</span> <span class="pre">discrimination</span> <span class="pre">exclusion</span> <span class="pre">toxicity</span> <span class="pre">hateful</span> <span class="pre">offensive'</span></em><a class="headerlink" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.load_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.primary_detector">
+<span class="sig-name descname"><span class="pre">primary_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mitigation.MitigationBypass'</span></em><a class="headerlink" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.primary_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.prompts">
+<span class="sig-name descname"><span class="pre">prompts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.prompts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'quality:Behavioral:ContentSafety:Toxicity',</span> <span class="pre">'quality:Behavioral:ContentSafety:HateHarassment',</span> <span class="pre">'quality:Behavioral:ContentSafety:Violence',</span> <span class="pre">'quality:Behavioral:ContentSafety:Profanity']</span></em><a class="headerlink" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://arxiv.org/abs/2308.13387'</span></em><a class="headerlink" href="#garak.probes.donotanswer.DiscriminationExclusionToxicityHatefulOffensive.uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.HumanChatbox">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.donotanswer.</span></span><span class="sig-name descname"><span class="pre">HumanChatbox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.donotanswer.HumanChatbox" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>Do Not Answer probe</p>
+<p>A curated list of questions to which LLMs should not respond back, specifically testing human chatbox</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.HumanChatbox.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.donotanswer.HumanChatbox.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.HumanChatbox.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Implementation</span> <span class="pre">of</span> <span class="pre">human_chatbox</span> <span class="pre">probes</span> <span class="pre">in</span> <span class="pre">DoNotAnswer_Prompts'</span></em><a class="headerlink" href="#garak.probes.donotanswer.HumanChatbox.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.HumanChatbox.dna_category">
+<span class="sig-name descname"><span class="pre">dna_category</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'human_chatbox'</span></em><a class="headerlink" href="#garak.probes.donotanswer.HumanChatbox.dna_category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.HumanChatbox.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'get</span> <span class="pre">model</span> <span class="pre">to</span> <span class="pre">respond</span> <span class="pre">as</span> <span class="pre">human</span> <span class="pre">chatbox'</span></em><a class="headerlink" href="#garak.probes.donotanswer.HumanChatbox.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.HumanChatbox.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.donotanswer.HumanChatbox.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.HumanChatbox.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.donotanswer.HumanChatbox.load_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.HumanChatbox.primary_detector">
+<span class="sig-name descname"><span class="pre">primary_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mitigation.MitigationBypass'</span></em><a class="headerlink" href="#garak.probes.donotanswer.HumanChatbox.primary_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.HumanChatbox.prompts">
+<span class="sig-name descname"><span class="pre">prompts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#garak.probes.donotanswer.HumanChatbox.prompts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.HumanChatbox.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:security:S0301',</span> <span class="pre">'quality:Behavioral:ContentSafety:Unauthorized']</span></em><a class="headerlink" href="#garak.probes.donotanswer.HumanChatbox.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.HumanChatbox.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#garak.probes.donotanswer.HumanChatbox.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.HumanChatbox.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://arxiv.org/abs/2308.13387'</span></em><a class="headerlink" href="#garak.probes.donotanswer.HumanChatbox.uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.InformationHazard">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.donotanswer.</span></span><span class="sig-name descname"><span class="pre">InformationHazard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.donotanswer.InformationHazard" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>Do Not Answer probe</p>
+<p>A curated list of questions to which LLMs should not respond back, specifically testing information hazard</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.InformationHazard.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.donotanswer.InformationHazard.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.InformationHazard.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Implementation</span> <span class="pre">of</span> <span class="pre">information_hazard</span> <span class="pre">probes</span> <span class="pre">in</span> <span class="pre">DoNotAnswer_Prompts'</span></em><a class="headerlink" href="#garak.probes.donotanswer.InformationHazard.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.InformationHazard.dna_category">
+<span class="sig-name descname"><span class="pre">dna_category</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'information_hazard'</span></em><a class="headerlink" href="#garak.probes.donotanswer.InformationHazard.dna_category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.InformationHazard.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'get</span> <span class="pre">model</span> <span class="pre">to</span> <span class="pre">respond</span> <span class="pre">as</span> <span class="pre">information</span> <span class="pre">hazard'</span></em><a class="headerlink" href="#garak.probes.donotanswer.InformationHazard.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.InformationHazard.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.donotanswer.InformationHazard.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.InformationHazard.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.donotanswer.InformationHazard.load_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.InformationHazard.primary_detector">
+<span class="sig-name descname"><span class="pre">primary_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mitigation.MitigationBypass'</span></em><a class="headerlink" href="#garak.probes.donotanswer.InformationHazard.primary_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.InformationHazard.prompts">
+<span class="sig-name descname"><span class="pre">prompts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#garak.probes.donotanswer.InformationHazard.prompts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.InformationHazard.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['owasp:llm06',</span> <span class="pre">'avid-effect:security:S0301',</span> <span class="pre">'quality:Security:Confidentiality']</span></em><a class="headerlink" href="#garak.probes.donotanswer.InformationHazard.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.InformationHazard.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#garak.probes.donotanswer.InformationHazard.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.InformationHazard.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://arxiv.org/abs/2308.13387'</span></em><a class="headerlink" href="#garak.probes.donotanswer.InformationHazard.uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MaliciousUses">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.donotanswer.</span></span><span class="sig-name descname"><span class="pre">MaliciousUses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.donotanswer.MaliciousUses" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>Do Not Answer probe</p>
+<p>A curated list of questions to which LLMs should not respond back, specifically testing malicious uses</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MaliciousUses.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.donotanswer.MaliciousUses.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MaliciousUses.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Implementation</span> <span class="pre">of</span> <span class="pre">malicious_uses</span> <span class="pre">probes</span> <span class="pre">in</span> <span class="pre">DoNotAnswer_Prompts'</span></em><a class="headerlink" href="#garak.probes.donotanswer.MaliciousUses.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MaliciousUses.dna_category">
+<span class="sig-name descname"><span class="pre">dna_category</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'malicious_uses'</span></em><a class="headerlink" href="#garak.probes.donotanswer.MaliciousUses.dna_category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MaliciousUses.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'get</span> <span class="pre">model</span> <span class="pre">to</span> <span class="pre">respond</span> <span class="pre">as</span> <span class="pre">malicious</span> <span class="pre">uses'</span></em><a class="headerlink" href="#garak.probes.donotanswer.MaliciousUses.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MaliciousUses.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.donotanswer.MaliciousUses.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MaliciousUses.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.donotanswer.MaliciousUses.load_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MaliciousUses.primary_detector">
+<span class="sig-name descname"><span class="pre">primary_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mitigation.MitigationBypass'</span></em><a class="headerlink" href="#garak.probes.donotanswer.MaliciousUses.primary_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MaliciousUses.prompts">
+<span class="sig-name descname"><span class="pre">prompts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#garak.probes.donotanswer.MaliciousUses.prompts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MaliciousUses.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['quality:Behavioral:ContentSafety:LegalGoodsServices']</span></em><a class="headerlink" href="#garak.probes.donotanswer.MaliciousUses.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MaliciousUses.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#garak.probes.donotanswer.MaliciousUses.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MaliciousUses.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://arxiv.org/abs/2308.13387'</span></em><a class="headerlink" href="#garak.probes.donotanswer.MaliciousUses.uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MisinformationHarms">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.donotanswer.</span></span><span class="sig-name descname"><span class="pre">MisinformationHarms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.donotanswer.MisinformationHarms" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>Do Not Answer probe</p>
+<p>A curated list of questions to which LLMs should not respond back, specifically testing misinformation harms</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MisinformationHarms.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.donotanswer.MisinformationHarms.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MisinformationHarms.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Implementation</span> <span class="pre">of</span> <span class="pre">misinformation_harms</span> <span class="pre">probes</span> <span class="pre">in</span> <span class="pre">DoNotAnswer_Prompts'</span></em><a class="headerlink" href="#garak.probes.donotanswer.MisinformationHarms.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MisinformationHarms.dna_category">
+<span class="sig-name descname"><span class="pre">dna_category</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'misinformation_harms'</span></em><a class="headerlink" href="#garak.probes.donotanswer.MisinformationHarms.dna_category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MisinformationHarms.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'get</span> <span class="pre">model</span> <span class="pre">to</span> <span class="pre">respond</span> <span class="pre">as</span> <span class="pre">misinformation</span> <span class="pre">harms'</span></em><a class="headerlink" href="#garak.probes.donotanswer.MisinformationHarms.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MisinformationHarms.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.donotanswer.MisinformationHarms.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MisinformationHarms.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.donotanswer.MisinformationHarms.load_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MisinformationHarms.primary_detector">
+<span class="sig-name descname"><span class="pre">primary_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mitigation.MitigationBypass'</span></em><a class="headerlink" href="#garak.probes.donotanswer.MisinformationHarms.primary_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MisinformationHarms.prompts">
+<span class="sig-name descname"><span class="pre">prompts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#garak.probes.donotanswer.MisinformationHarms.prompts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MisinformationHarms.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['quality:Robustness:GenerativeMisinformation',</span> <span class="pre">'avid-effect:ethics:E0402',</span> <span class="pre">'owasp:llm09']</span></em><a class="headerlink" href="#garak.probes.donotanswer.MisinformationHarms.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MisinformationHarms.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#garak.probes.donotanswer.MisinformationHarms.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.MisinformationHarms.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://arxiv.org/abs/2308.13387'</span></em><a class="headerlink" href="#garak.probes.donotanswer.MisinformationHarms.uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.load_local_data">
+<span class="sig-prename descclassname"><span class="pre">garak.probes.donotanswer.</span></span><span class="sig-name descname"><span class="pre">load_local_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.donotanswer.load_local_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="garak.probes.donotanswer.local_constructor">
+<span class="sig-prename descclassname"><span class="pre">garak.probes.donotanswer.</span></span><span class="sig-name descname"><span class="pre">local_constructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.donotanswer.local_constructor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="garak.probes.divergence.html" class="btn btn-neutral float-left" title="garak.probes.divergence" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="garak.probes.encoding.html" class="btn btn-neutral float-right" title="garak.probes.encoding" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

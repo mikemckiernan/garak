@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contributing to garak &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Writing a Probe" href="extending.probe.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Using garak</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plugin structure</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extending and Contributing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.generator.html">Let’s build a generator!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending.probe.html">Writing a Probe</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-ready">Getting ready</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-your-contribution-is-within-scope">Checking your contribution is within scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connecting-with-the-garak-team-community">Connecting with the <code class="docutils literal notranslate"><span class="pre">garak</span></code> team &amp; community</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#coding-your-contribution">Coding your contribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checklist-for-contributing">Checklist for contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#describing-your-code-changes">Describing your code changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commit-messages">Commit messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pull-requests">Pull requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#review">Review</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/contributing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="contributing-to-garak">
+<h1>Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code><a class="headerlink" href="#contributing-to-garak" title="Link to this heading"></a></h1>
+<section id="getting-ready">
+<h2>Getting ready<a class="headerlink" href="#getting-ready" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">garak</span></code>’s codebase is managed using github.
+The best and only way to contribute to <code class="docutils literal notranslate"><span class="pre">garak</span></code> is to start by getting a copy of the source code.
+You can use github’s fork function to do this, which makes a copy of the <code class="docutils literal notranslate"><span class="pre">garak</span></code> codebase under your github account.
+In there, you can branch, edit code and build.
+Once you’re done, make a pull request to the main repo and describe what you’ve done – and we’ll take it from there!</p>
+</section>
+<section id="checking-your-contribution-is-within-scope">
+<h2>Checking your contribution is within scope<a class="headerlink" href="#checking-your-contribution-is-within-scope" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">garak</span></code> is a security toolkit rather than a content safety or bias toolkit.
+The project scope relates primarily to LLM &amp; dialog system security.
+<code class="docutils literal notranslate"><span class="pre">garak</span></code> is also focused on discovery rather than benchmarking, and so is comfortable with providing moving targets.
+LLM security is a huge area, and you can get an idea of the kind of contributions that are in scope from our <a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a> and our <a class="reference external" href="https://github.com/NVIDIA/garak/issues">Github issues</a> page.</p>
+</section>
+<section id="connecting-with-the-garak-team-community">
+<h2>Connecting with the <code class="docutils literal notranslate"><span class="pre">garak</span></code> team &amp; community<a class="headerlink" href="#connecting-with-the-garak-team-community" title="Link to this heading"></a></h2>
+<p>If you’re going to contribute, it’s a really good idea to reach out, so you have a source of help nearby, and so that we can make sure your valuable coding time is spent efficiently as a contributor.
+There are a number of ways you can reach out to us:</p>
+<ul class="simple">
+<li><p>GitHub discussions: <a class="reference external" href="https://github.com/NVIDIA/garak/discussions">https://github.com/NVIDIA/garak/discussions</a></p></li>
+<li><p>Twitter: <a class="reference external" href="https://twitter.com/garak_llm">https://twitter.com/garak_llm</a></p></li>
+<li><p>Discord: <a class="reference external" href="https://discord.gg/uVch4puUCs">https://discord.gg/uVch4puUCs</a></p></li>
+</ul>
+<p>We’d love to help, and we’re always interested to hear how you’re using garak.</p>
+</section>
+<section id="coding-your-contribution">
+<h2>Coding your contribution<a class="headerlink" href="#coding-your-contribution" title="Link to this heading"></a></h2>
+<p>This reference documentation includes a section on <a class="reference internal" href="extending.html"><span class="doc">extending garak</span></a>, including walkthroughs of how a custom <a class="reference internal" href="extending.probe.html"><span class="doc">probe</span></a> and custom <a class="reference internal" href="extending.generator.html"><span class="doc">generator</span></a> can be built.</p>
+</section>
+<section id="checklist-for-contributing">
+<h2>Checklist for contributing<a class="headerlink" href="#checklist-for-contributing" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Set up a <a class="reference external" href="https://github.com/">Github</a> account, if you don’t have one already. We develop in the open and the public repository is the authoritative one.</p></li>
+<li><p>Fork the <code class="docutils literal notranslate"><span class="pre">garak</span></code> repository - <a class="reference external" href="https://github.com/NVIDIA/garak/fork">https://github.com/NVIDIA/garak/fork</a></p></li>
+<li><p>Work out what you’re doing. If it’s from a good first issue (<a class="reference external" href="https://github.com/NVIDIA/garak/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22">see the list</a>), drop a note on that issue so that we know you’re working on it, and so that nobody else also starts working on it.</p></li>
+<li><p>Before you code anything: create a new branch for your work, e.g. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">feature/spicy_probe</span></code></p></li>
+<li><p>Check out the rest of this page which includes links to detailed step-by-step guides to developing garak plugins</p></li>
+<li><p>Code!</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">black</span></code> on your code, so that it’s well-formatted. Our github commit hook can refuse to accept <code class="docutils literal notranslate"><span class="pre">black</span></code>-passing code.</p></li>
+<li><p>Write your own tests - these are a requirement for merging!</p></li>
+<li><p>When you’re done, send a pull request. Github has big buttons for this and there’s a template for you to fill in.</p></li>
+<li><p>We’ll discuss the code together with you, tune it up, and hopefully merge it in, maybe with some edits!</p></li>
+<li><p>Now you’re an official <code class="docutils literal notranslate"><span class="pre">garak</span></code> contributor, and will be permanently recognized in the project credits from the next official  release. Thank you!</p></li>
+</ol>
+</section>
+<section id="describing-your-code-changes">
+<h2>Describing your code changes<a class="headerlink" href="#describing-your-code-changes" title="Link to this heading"></a></h2>
+<section id="commit-messages">
+<h3>Commit messages<a class="headerlink" href="#commit-messages" title="Link to this heading"></a></h3>
+<p>Commit messages should describe what is changed in the commit. Try to keep one “theme” per commit. We read commit messages to work out what the intent of the commit is. We’re all trying to save time here, and clear commit messages that include context can be a great time saver. Check out this guide to writing <a class="reference external" href="https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/">commit messages</a>.</p>
+</section>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h3>
+<p>Only code that passes the <code class="docutils literal notranslate"><span class="pre">garak</span></code> tests can be merged. Contributions must pass all tests.</p>
+<p>Please write running tests to validate any new components or functions that you add.
+They’re pretty straightforward - you can look at the existing code in <cite>tests</cite> to get an idea of how to write these.
+We’ve tried to keep test failure messages helpful, let us know if they’re too cryptic!</p>
+</section>
+<section id="pull-requests">
+<h3>Pull requests<a class="headerlink" href="#pull-requests" title="Link to this heading"></a></h3>
+<p>When you’re ready, send a pull request. Include as much context as possible here. It should be clear why the PR is a good idea, what it adds, how it works, where the code/resources come from if you didn’t create them yourself.</p>
+</section>
+<section id="review">
+<h3>Review<a class="headerlink" href="#review" title="Link to this heading"></a></h3>
+<p>We review almost all pull requests, and we’ll almost certainly chat with you about the code here. Please take this as a positive sign - we want to understand what’s happening in the code. If you can, please also be reasonably responsive during code review; it’s hard for us to merge code if we don’t understand it or it does unusual things, and we can’t contact the people who wrote it.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="extending.probe.html" class="btn btn-neutral float-left" title="Writing a Probe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
