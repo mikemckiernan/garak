@@ -1,0 +1,33 @@
+name: docs-preview-pr
+
+on:
+    workflow_run:
+        workflows: [docs-build]
+        types: [completed]
+        branches-ignore: [main]
+
+permissions:
+  actions: none
+  checks: none
+  contents: write
+  deployments: none
+  id-token: none
+  issues: write
+  discussions: none
+  packages: none
+  pages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
+
+env:
+    WF_ID: ${{ github.event.workflow_run.id }}
+
+jobs:
+    preview:
+        uses: nvidia-merlin/.github/.github/workflows/docs-preview-pr-common.yaml@main
