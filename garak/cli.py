@@ -3,6 +3,8 @@
 
 """Flow for invoking garak from the command line"""
 
+import argparse
+
 command_options = "list_detectors list_probes list_generators list_buffs list_config plugin_info interactive report version fix".split()
 
 
@@ -36,33 +38,10 @@ def parse_cli_plugin_config(plugin_type, args):
     return opts_cli_config
 
 
-def main(arguments=None) -> None:
-    """Main entry point for garak runs invoked from the CLI"""
-    import datetime
-
-    from garak import __description__
+def argparser() -> argparse.ArgumentParser:
     from garak import _config, _plugins
-    from garak.exception import GarakException
 
-    _config.transient.starttime = datetime.datetime.now()
-    _config.transient.starttime_iso = _config.transient.starttime.isoformat()
-
-    if arguments is None:
-        arguments = []
-
-    import garak.command as command
-    import logging
-    import re
-    from colorama import Fore, Style
-
-    log_filename = command.start_logging()
     _config.load_base_config()
-
-    print(
-        f"garak {__description__} v{_config.version} ( https://github.com/NVIDIA/garak ) at {_config.transient.starttime_iso}"
-    )
-
-    import argparse
 
     parser = argparse.ArgumentParser(
         prog="python -m garak",
@@ -189,9 +168,7 @@ def main(arguments=None) -> None:
         help="list of buffs to use. Default is none",
     )
     # file or json based config options
-    plugin_types = sorted(
-        zip([type.lower() for type in _plugins.PLUGIN_CLASSES], _plugins.PLUGIN_TYPES)
-    )
+    plugin_types = get_plugin_types()
     for plugin_type, _ in plugin_types:
         probe_args = parser.add_mutually_exclusive_group()
         probe_args.add_argument(
@@ -284,7 +261,47 @@ def main(arguments=None) -> None:
         )
         pass
 
+    return parser
+
+
+def get_plugin_types():
+    """Get the plugin types and their corresponding plural names"""
+    from garak import _plugins
+
+    return sorted(
+        zip([type.lower() for type in _plugins.PLUGIN_CLASSES], _plugins.PLUGIN_TYPES)
+    )
+
+
+def main(arguments=None) -> None:
+    """Main entry point for garak runs invoked from the CLI"""
+    import datetime
+
+    from garak import __description__
+    from garak import _config, _plugins
+    from garak.exception import GarakException
+
+    _config.transient.starttime = datetime.datetime.now()
+    _config.transient.starttime_iso = _config.transient.starttime.isoformat()
+
+    if arguments is None:
+        arguments = []
+
+    import garak.command as command
+    import logging
+    import re
+    from colorama import Fore, Style
+
+    log_filename = command.start_logging()
+    _config.load_base_config()
+
+    print(
+        f"garak {__description__} v{_config.version} ( https://github.com/NVIDIA/garak ) at {_config.transient.starttime_iso}"
+    )
+
     logging.debug("args - raw argument string received: %s", arguments)
+
+    parser = argparser()
 
     args = parser.parse_args(arguments)
     logging.debug("args - full argparse: %s", args)
@@ -412,6 +429,7 @@ def main(arguments=None) -> None:
     import garak.evaluators
 
     try:
+        plugin_types = get_plugin_types()
         has_config_file_or_json = False
         # do a special thing for CLI probe options, generator options
         for plugin_type, plugin_plural in plugin_types:
