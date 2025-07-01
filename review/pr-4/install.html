@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How garak runs &mdash; garak  documentation</title>
+  <title>Installation &mdash; garak  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -18,9 +18,7 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Started" href="usage.html" />
-    <link rel="prev" title="Welcome to the garak reference documentation" href="index.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,8 +41,8 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Using garak</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
@@ -94,9 +92,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</li>
+      <li class="breadcrumb-item active">Installation</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/how.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -104,45 +102,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="how-garak-runs">
-<h1>How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs<a class="headerlink" href="#how-garak-runs" title="Link to this heading"></a></h1>
-<p>In a typical run, <code class="docutils literal notranslate"><span class="pre">garak</span></code> will read a model type (and optionally model name)
-from the command line, then determine which <code class="docutils literal notranslate"><span class="pre">probe</span></code> and <code class="docutils literal notranslate"><span class="pre">detector</span></code> plugins to run,
-start up a <code class="docutils literal notranslate"><span class="pre">generator</span></code>, and then pass these to a <code class="docutils literal notranslate"><span class="pre">harness</span></code> to manage the probing;
-an <code class="docutils literal notranslate"><span class="pre">evaluator</span></code> deals with the results. There are many modules in each of these
-categories, and each module provides a number of classes that act as individual
-plugins.</p>
-<ul class="simple">
-<li><p><cite>garak/probes/</cite> - classes for generating interactions with LLMs</p></li>
-<li><p><cite>garak/detectors/</cite> - classes for detecting an LLM is exhibiting a given failure mode</p></li>
-<li><p><cite>garak/evaluators/</cite> - assessment reporting schemes</p></li>
-<li><p><cite>garak/generators/</cite> - plugins for LLMs to be probed</p></li>
-<li><p><cite>garak/harnesses/</cite> - classes for structuring testing</p></li>
-<li><p><cite>garak/buffs</cite> - classes for augmenting / fuzzing attacks</p></li>
-<li><p><cite>data/</cite> - ancillary data</p></li>
-<li><p><cite>resources/</cite> - ancillary code</p></li>
-</ul>
-<p>The default operating mode is to use the <a class="reference internal" href="garak.harnesses.probewise.html#module-garak.harnesses.probewise" title="garak.harnesses.probewise"><code class="xref py py-class docutils literal notranslate"><span class="pre">garak.harnesses.probewise</span></code></a> harness. Given a list of
-probe module names and probe plugin names, the <code class="docutils literal notranslate"><span class="pre">probewise</span></code> harness instantiates
-each probe, then for each probe reads its <code class="docutils literal notranslate"><span class="pre">recommended_detectors</span></code> attribute to
-get a list of <code class="docutils literal notranslate"><span class="pre">detector</span></code> s to run on the output.</p>
-<p>Each plugin category (<code class="docutils literal notranslate"><span class="pre">probes</span></code>, <code class="docutils literal notranslate"><span class="pre">detectors</span></code>, <code class="docutils literal notranslate"><span class="pre">evaluators</span></code>, <code class="docutils literal notranslate"><span class="pre">generators</span></code>,
-<code class="docutils literal notranslate"><span class="pre">harnesses</span></code>) includes a <code class="docutils literal notranslate"><span class="pre">base.py</span></code> which defines the base classes usable by
-plugins in that category. Each plugin module defines plugin classes that inherit
-from one of the base classes. For example, <a class="reference internal" href="garak.generators.openai.html#garak.generators.openai.OpenAIGenerator" title="garak.generators.openai.OpenAIGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">garak.generators.openai.OpenAIGenerator</span></code></a>
-descends from <a class="reference internal" href="garak.generators.base.html#garak.generators.base.Generator" title="garak.generators.base.Generator"><code class="xref py py-class docutils literal notranslate"><span class="pre">garak.generators.base.Generator</span></code></a>.</p>
-<p>Larger artefacts, like model files and bigger corpora, are kept out of the
-repository; they can be stored on e.g. Hugging Face Hub and loaded locally
-by clients using <code class="docutils literal notranslate"><span class="pre">garak</span></code>.</p>
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<p id="id1">garak is a command-line tool.
+It is developed in Linux and MacOS.</p>
+<section id="installing-with-pip">
+<h2>Installing with pip<a class="headerlink" href="#installing-with-pip" title="Link to this heading"></a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>garak
+</pre></div>
+</div>
+</section>
+<section id="installing-the-development-version">
+<h2>Installing the Development Version<a class="headerlink" href="#installing-the-development-version" title="Link to this heading"></a></h2>
+<p>The version of garak is updated periodically.
+To install from source in GitHub, run the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>git+https://github.com/NVIDIA/garak.git@main
+</pre></div>
+</div>
+</section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the garak reference documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="usage.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

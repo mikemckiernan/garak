@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="garak.exception" href="exception.html" />
+    <link rel="next" title="garak.detectors" href="detectors.html" />
     <link rel="prev" title="garak.cli" href="cli.html" /> 
 </head>
 
@@ -45,20 +45,18 @@
               <p class="caption" role="heading"><span class="caption-text">Using garak</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Advanced usage</span></p>
-<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Key Concepts and Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">garak.command</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#garak.command.end_run"><code class="docutils literal notranslate"><span class="pre">end_run()</span></code></a></li>
@@ -77,22 +75,18 @@
 <li class="toctree-l2"><a class="reference internal" href="#garak.command.write_report_digest"><code class="docutils literal notranslate"><span class="pre">write_report_digest()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
 <li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Plugin structure</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Extending and Contributing</span></p>
 <ul>
@@ -206,7 +200,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="cli.html" class="btn btn-neutral float-left" title="garak.cli" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="exception.html" class="btn btn-neutral float-right" title="garak.exception" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="detectors.html" class="btn btn-neutral float-right" title="garak.detectors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

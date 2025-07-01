@@ -34,17 +34,12 @@ Check out the :doc:`usage` section for further information, including :ref:`inst
 
    how
    usage
-   reporting
-   FAQ <https://github.com/NVIDIA/garak/blob/main/FAQ.md>
-
-.. toctree::
-   :caption: Advanced usage
-   :maxdepth: 1
-   :hidden:
-
    configurable
    cliref
+   reporting
    translation
+   FAQ <https://github.com/NVIDIA/garak/blob/main/FAQ.md>
+
 
 .. toctree::
    :caption: Reference
@@ -53,27 +48,21 @@ Check out the :doc:`usage` section for further information, including :ref:`inst
 
    basic
    attempt
+   buffs
    cli
    command
+   detectors
+   evaluators
    exception
+   generators
+   harnesses
    interactive
    langservice
    payloads
-   _config
-   _plugins
-
-.. toctree::
-   :caption: Plugin structure
-   :maxdepth: 1
-   :hidden:
-
-   buffs
-   detectors
-   evaluators
-   generators
-   harnesses
    probes
    report
+   _config
+   _plugins
 
 
 .. toctree::
