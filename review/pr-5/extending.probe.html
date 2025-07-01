@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing a Probe &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Writing a Probe</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/extending.probe.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="writing-a-probe">
+<h1>Writing a Probe<a class="headerlink" href="#writing-a-probe" title="Link to this heading"></a></h1>
+<p>Probes are, in some ways, the essence of garak’s functionality – they serve as the abstraction that encapsulates attacks against AI models and systems.
+In this example, we’re going to go over the key points of how to develop a new probe.</p>
+<section id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading"></a></h2>
+<p>All probes will inherit from <code class="docutils literal notranslate"><span class="pre">garak.probes.base.Probe</span></code>, exposed at package level via <code class="docutils literal notranslate"><span class="pre">garak.probes</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">garak.probes</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyNewProbe</span><span class="p">(</span><span class="n">garak</span><span class="o">.</span><span class="n">probes</span><span class="o">.</span><span class="n">Probe</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Probe to do something naughty to a language model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>We require class docstrings in garak and enforce this requirement via a test required before merging.</p>
+<p>Probes must always inherit from <code class="docutils literal notranslate"><span class="pre">garak.probes.base.Probe</span></code>.
+This allows probes to work nicely with <code class="docutils literal notranslate"><span class="pre">Generator</span></code> and <code class="docutils literal notranslate"><span class="pre">Attempt</span></code> objects in addition to ensuring that any <code class="docutils literal notranslate"><span class="pre">Buff</span></code>s that one might want to apply to a probe are going to work appropriately.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">probe</span></code> method of <code class="docutils literal notranslate"><span class="pre">Probe</span></code> objects is where the core logic of a probe lies.
+Ideally, one would need only to populate the <code class="docutils literal notranslate"><span class="pre">prompts</span></code> attribute of a <code class="docutils literal notranslate"><span class="pre">Probe</span></code> and let the <code class="docutils literal notranslate"><span class="pre">probe</span></code> method do the heavy lifting.
+However, if this logic is insufficient for a custom probe, this is where the majority of the work (and potential issues) tends to lie.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">probe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">garak</span><span class="o">.</span><span class="n">attempt</span><span class="o">.</span><span class="n">Attempt</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;attempt to exploit the target generator, returning a list of results&quot;&quot;&quot;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;probe execute: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">generator</span> <span class="o">=</span> <span class="n">generator</span>
+
+    <span class="c1"># build list of attempts</span>
+    <span class="n">attempts_todo</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">garak</span><span class="o">.</span><span class="n">attempt</span><span class="o">.</span><span class="n">Attempt</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">prompts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prompts</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">seq</span><span class="p">,</span> <span class="n">prompt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">prompts</span><span class="p">):</span>
+        <span class="n">attempts_todo</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mint_attempt</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">seq</span><span class="p">))</span>
+
+    <span class="c1"># buff hook</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_config</span><span class="o">.</span><span class="n">buffmanager</span><span class="o">.</span><span class="n">buffs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">attempts_todo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buff_hook</span><span class="p">(</span><span class="n">attempts_todo</span><span class="p">)</span>
+
+    <span class="c1"># iterate through attempts</span>
+    <span class="n">attempts_completed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_execute_all</span><span class="p">(</span><span class="n">attempts_todo</span><span class="p">)</span>
+
+    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+        <span class="s2">&quot;probe return: </span><span class="si">%s</span><span class="s2"> with </span><span class="si">%s</span><span class="s2"> attempts&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">attempts_completed</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">attempts_completed</span>
+</pre></div>
+</div>
+</section>
+<section id="configuring-and-describing-probes">
+<h2>Configuring and Describing Probes<a class="headerlink" href="#configuring-and-describing-probes" title="Link to this heading"></a></h2>
+<p>Probes are built upon the <code class="docutils literal notranslate"><span class="pre">Configurable</span></code> base class and are themselves configurable.
+We largely ignore parameters like <code class="docutils literal notranslate"><span class="pre">ENV_VAR</span></code> and <code class="docutils literal notranslate"><span class="pre">DEFAULT_PARAMS</span></code> in <code class="docutils literal notranslate"><span class="pre">Probe</span></code> classes, but if your probe requires an environment variable or you want to set some default parameters, it is done first in the class.</p>
+<p>More often, we’ll be looking at descriptive attributes of the probe.
+From the base class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># docs uri for a description of the probe (perhaps a paper)</span>
+<span class="n">doc_uri</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="c1"># language this is for, in BCP47 format; * for all langs</span>
+<span class="n">lang</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="c1"># should this probe be included by default?</span>
+<span class="n">active</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1"># MISP-format taxonomy categories</span>
+<span class="n">tags</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># what the probe is trying to do, phrased as an imperative</span>
+<span class="n">goal</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="c1"># Deprecated -- the detectors that should be run for this probe. always.Fail is chosen as default to send a signal if this isn&#39;t overridden.</span>
+<span class="n">recommended_detector</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;always.Fail&quot;</span><span class="p">]</span>
+<span class="c1"># default detector to run, if the primary/extended way of doing it is to be used (should be a string formatted like recommended_detector)</span>
+<span class="n">primary_detector</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="c1"># optional extended detectors</span>
+<span class="n">extended_detectors</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># can attempts from this probe be parallelised?</span>
+<span class="n">parallelisable_attempts</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1"># Keeps state of whether a buff is loaded that requires a call to untransform model outputs</span>
+<span class="n">post_buff_hook</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1"># support mainstream any-to-any large models</span>
+<span class="c1"># legal element for str list `modality[&#39;in&#39;]`: &#39;text&#39;, &#39;image&#39;, &#39;audio&#39;, &#39;video&#39;, &#39;3d&#39;</span>
+<span class="c1"># refer to Table 1 in https://arxiv.org/abs/2401.13601</span>
+<span class="c1"># we focus on LLM input for probe</span>
+<span class="n">modality</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>That’s a lot of attributes before we get into ones you may need to add!
+Many of these are decent defaults, though there are a few that we absolutely want to include in any new probe</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">doc_uri</span></code>: What is a good reference for the probe you’re implementing? An academic paper, blog post, or social media post (in descending order of preference) goes here.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">active</span></code>: Should this probe be part of default scans?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tags</span></code>: MISP-formatted taxonomy categories __e.g.__ <code class="docutils literal notranslate"><span class="pre">[&quot;avid-effect:security:S0403&quot;,</span> <span class="pre">&quot;owasp:llm01&quot;,</span> <span class="pre">&quot;quality:Security:PromptStability&quot;,</span> <span class="pre">&quot;payload:jailbreak&quot;]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">goal</span></code>: What is the probe trying to do? __e.g.__ <code class="docutils literal notranslate"><span class="pre">&quot;disregard</span> <span class="pre">the</span> <span class="pre">system</span> <span class="pre">prompt&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">primary_detector</span></code>: What <code class="docutils literal notranslate"><span class="pre">Detector</span></code> should your probe use?</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyNewProbe</span><span class="p">(</span><span class="n">garak</span><span class="o">.</span><span class="n">probes</span><span class="o">.</span><span class="n">Probe</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Probe to do something naughty to a language model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">recommended_detector</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mitigation.MitigationBypass&quot;</span><span class="p">]</span>
+    <span class="n">tags</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;avid-effect:security:S0403&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;owasp:llm01&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;quality:Security:PromptStability&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;payload:jailbreak&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">goal</span> <span class="o">=</span> <span class="s2">&quot;disregard the system prompt&quot;</span>
+    <span class="n">doc_uri</span> <span class="o">=</span> <span class="s2">&quot;https://garak.ai&quot;</span>
+    <span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h2>
+<p>Once the logic for our probe is written, you’ll want to test it before opening a pull request.
+Typically, a good place to start is by seeing if your probe can be imported!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>garak
+$<span class="w"> </span>python
+$<span class="w"> </span>python
+Python<span class="w"> </span><span class="m">3</span>.11.5<span class="w"> </span><span class="o">(</span>main,<span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">2023</span>,<span class="w"> </span><span class="m">08</span>:31:25<span class="o">)</span><span class="w"> </span><span class="o">[</span>Clang<span class="w"> </span><span class="m">14</span>.0.6<span class="w"> </span><span class="o">]</span><span class="w"> </span>on<span class="w"> </span>darwin
+Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>garak.probes.mynewprobe
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>If you can run this with no error, you’re ready to move on to the next phase of testing.
+Otherwise, try to address the encountered errors.</p>
+<p>Let’s try running our new probe against a HuggingFace <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> using <code class="docutils literal notranslate"><span class="pre">meta-llama/Llama-2-7b-chat-hf</span></code>, a notoriously tricky model to get to behave badly.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>garak<span class="w"> </span>-m<span class="w"> </span>huggingface<span class="w"> </span>-n<span class="w"> </span>meta-llama/Llama-2-7b-chat-hf<span class="w"> </span>-p<span class="w"> </span>mynewprobe.MyNewProbe
+</pre></div>
+</div>
+<p>If it all runs well, you’ll get a log and a hitlog file, which tell you how successful your new probe was!
+If you encounter errors, go through and try to address them. You can look at the bottom of the <cite>garak.log</cite> file, whose path is printed in the output every time you call garak, to see what errors there are.</p>
+<p>If you want to debug your probe interactively, try using something like <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">garak._plugins.load_plugin(&quot;probes.mynewprobe.MyNewProbe&quot;)</span></code> from a Python prompt to load the probe. The variable <code class="docutils literal notranslate"><span class="pre">p</span></code> will be assigned an instance of the probe (if instantiation was successful) and you can test a lot of the probe’s intended functionality from here.</p>
+<p>Finally, check a few properties:</p>
+<ul class="simple">
+<li><p>Does the new probe appear in <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">garak</span> <span class="pre">--list_probes</span></code>?</p></li>
+<li><p>Does the probe run? <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">garak</span> <span class="pre">-m</span> <span class="pre">test</span> <span class="pre">-p</span> <span class="pre">mynewprobe.MyNewProbe</span></code></p></li>
+<li><p>Do the garak tests pass? <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pytest</span> <span class="pre">tests/</span></code></p></li>
+</ul>
+</section>
+<section id="done">
+<h2>Done!<a class="headerlink" href="#done" title="Link to this heading"></a></h2>
+<p>Congratulations on writing a probe for garak!</p>
+<p>If you’ve tested your probe and validated that it works, run <code class="docutils literal notranslate"><span class="pre">black</span></code> to format your code in accordance with garak code standards.
+Once your code is properly tested and formatted, push your work to your github fork and open a pull request – thanks for your contribution!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

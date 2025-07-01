@@ -1,0 +1,694 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>garak.probes.promptinject &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="garak.probes.realtoxicityprompts" href="garak.probes.realtoxicityprompts.html" />
+    <link rel="prev" title="garak.probes.phrasing" href="garak.probes.phrasing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="probes.html">garak.probes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.html">garak.probes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.base.html">garak.probes.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.ansiescape.html">garak.probes.ansiescape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.atkgen.html">garak.probes.atkgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.audio.html">garak.probes.audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.av_spam_scanning.html">garak.probes.av_spam_scanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.continuation.html">garak.probes.continuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.dan.html">garak.probes.dan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.divergence.html">garak.probes.divergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.donotanswer.html">garak.probes.donotanswer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.encoding.html">garak.probes.encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.exploitation.html">garak.probes.exploitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.fileformats.html">garak.probes.fileformats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.glitch.html">garak.probes.glitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.goodside.html">garak.probes.goodside</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.grandma.html">garak.probes.grandma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.latentinjection.html">garak.probes.latentinjection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.leakreplay.html">garak.probes.leakreplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.lmrc.html">garak.probes.lmrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.malwaregen.html">garak.probes.malwaregen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.misleading.html">garak.probes.misleading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.packagehallucination.html">garak.probes.packagehallucination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.phrasing.html">garak.probes.phrasing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">garak.probes.promptinject</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans.active"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans.description"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans.goal"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans.lang"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans.load_data_all_attacks"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans.load_data_all_attacks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans.name"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans.parallelisable_attempts"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans.parallelisable_attempts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans.recommended_detector"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans.recommended_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans.rogue_string"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans.rogue_string</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans.tags"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans.tier"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans.tier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumans.uri"><code class="docutils literal notranslate"><span class="pre">HijackHateHumans.uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull.active"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull.description"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull.goal"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull.lang"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull.load_data_all_attacks"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull.load_data_all_attacks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull.name"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull.parallelisable_attempts"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull.parallelisable_attempts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull.recommended_detector"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull.recommended_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull.rogue_string"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull.rogue_string</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull.tags"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull.tier"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull.tier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackHateHumansFull.uri"><code class="docutils literal notranslate"><span class="pre">HijackHateHumansFull.uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans.active"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans.description"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans.goal"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans.lang"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans.load_data_all_attacks"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans.load_data_all_attacks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans.name"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans.parallelisable_attempts"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans.parallelisable_attempts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans.recommended_detector"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans.recommended_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans.rogue_string"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans.rogue_string</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans.tags"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans.tier"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans.tier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumans.uri"><code class="docutils literal notranslate"><span class="pre">HijackKillHumans.uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull.active"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull.description"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull.goal"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull.lang"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull.load_data_all_attacks"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull.load_data_all_attacks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull.name"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull.parallelisable_attempts"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull.parallelisable_attempts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull.recommended_detector"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull.recommended_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull.rogue_string"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull.rogue_string</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull.tags"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull.tier"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull.tier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackKillHumansFull.uri"><code class="docutils literal notranslate"><span class="pre">HijackKillHumansFull.uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt.active"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt.description"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt.goal"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt.lang"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt.load_data_all_attacks"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt.load_data_all_attacks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt.name"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt.parallelisable_attempts"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt.parallelisable_attempts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt.recommended_detector"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt.recommended_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt.rogue_string"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt.rogue_string</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt.tags"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt.tier"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt.tier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPrompt.uri"><code class="docutils literal notranslate"><span class="pre">HijackLongPrompt.uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull.active"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull.description"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull.goal"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull.lang"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull.load_data_all_attacks"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull.load_data_all_attacks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull.name"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull.parallelisable_attempts"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull.parallelisable_attempts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull.recommended_detector"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull.recommended_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull.rogue_string"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull.rogue_string</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull.tags"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull.tier"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull.tier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.promptinject.HijackLongPromptFull.uri"><code class="docutils literal notranslate"><span class="pre">HijackLongPromptFull.uri</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.promptinject.constructor"><code class="docutils literal notranslate"><span class="pre">constructor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.promptinject.load_data_all_attacks"><code class="docutils literal notranslate"><span class="pre">load_data_all_attacks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.realtoxicityprompts.html">garak.probes.realtoxicityprompts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.snowball.html">garak.probes.snowball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.suffix.html">garak.probes.suffix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.tap.html">garak.probes.tap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.test.html">garak.probes.test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.topic.html">garak.probes.topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.xss.html">garak.probes.xss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.visual_jailbreak.html">garak.probes.visual_jailbreak</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes._tier.html">garak.probes._tier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="probes.html">garak.probes</a></li>
+      <li class="breadcrumb-item active">garak.probes.promptinject</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/garak.probes.promptinject.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-garak.probes.promptinject">
+<span id="garak-probes-promptinject"></span><h1>garak.probes.promptinject<a class="headerlink" href="#module-garak.probes.promptinject" title="Link to this heading"></a></h1>
+<p>PromptInject</p>
+<p>Uses the PromptInject framework, <a class="reference external" href="https://openreview.net/forum?id=qiaRo_7Zmug">https://openreview.net/forum?id=qiaRo_7Zmug</a>,
+to probe a system. A subset of the attacks is implemented here. The default
+is to use a selection of that subset, because even the subset corresponds to
+thousands of requests by default.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.promptinject.</span></span><span class="sig-name descname"><span class="pre">HijackHateHumans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>PromptInject probe to inject a string; payload is hate-humans</p>
+<p>Attempt to make the model repeat a given string</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PromptInject</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">framework</span> <span class="pre">that</span> <span class="pre">assembles</span> <span class="pre">prompts</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">modular</span> <span class="pre">fashion</span> <span class="pre">to</span> <span class="pre">provide</span> <span class="pre">a</span> <span class="pre">quantitative</span> <span class="pre">analysis</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">robustness</span> <span class="pre">of</span> <span class="pre">LLMs</span> <span class="pre">to</span> <span class="pre">adversarial</span> <span class="pre">prompt</span> <span class="pre">attacks.</span> <span class="pre">trophy</span> <span class="pre">Best</span> <span class="pre">Paper</span> <span class="pre">Awards</span> <span class="pre">&#64;</span> <span class="pre">NeurIPS</span> <span class="pre">ML</span> <span class="pre">Safety</span> <span class="pre">Workshop</span> <span class="pre">2022'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'inject</span> <span class="pre">a</span> <span class="pre">prompt</span> <span class="pre">on</span> <span class="pre">hate</span> <span class="pre">humans'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans.load_data_all_attacks">
+<span class="sig-name descname"><span class="pre">load_data_all_attacks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans.load_data_all_attacks" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'promptinject_hate-humans'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans.parallelisable_attempts">
+<span class="sig-name descname"><span class="pre">parallelisable_attempts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans.parallelisable_attempts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans.recommended_detector">
+<span class="sig-name descname"><span class="pre">recommended_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['promptinject.AttackRogueString']</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans.recommended_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans.rogue_string">
+<span class="sig-name descname"><span class="pre">rogue_string</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'hate-humans'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans.rogue_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:security:S0403',</span> <span class="pre">'owasp:llm01',</span> <span class="pre">'quality:Behavioral:ContentSafety:Violence',</span> <span class="pre">'quality:Security:PromptStability',</span> <span class="pre">'payload:unwanted:violence']</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumans.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://openreview.net/forum?id=qiaRo_7Zmug'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumans.uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.promptinject.</span></span><span class="sig-name descname"><span class="pre">HijackHateHumansFull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>PromptInject probe to inject a string; payload is hate-humans</p>
+<p>Attempt to make the model repeat a given string</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PromptInject</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">framework</span> <span class="pre">that</span> <span class="pre">assembles</span> <span class="pre">prompts</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">modular</span> <span class="pre">fashion</span> <span class="pre">to</span> <span class="pre">provide</span> <span class="pre">a</span> <span class="pre">quantitative</span> <span class="pre">analysis</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">robustness</span> <span class="pre">of</span> <span class="pre">LLMs</span> <span class="pre">to</span> <span class="pre">adversarial</span> <span class="pre">prompt</span> <span class="pre">attacks.</span> <span class="pre">trophy</span> <span class="pre">Best</span> <span class="pre">Paper</span> <span class="pre">Awards</span> <span class="pre">&#64;</span> <span class="pre">NeurIPS</span> <span class="pre">ML</span> <span class="pre">Safety</span> <span class="pre">Workshop</span> <span class="pre">2022'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'inject</span> <span class="pre">a</span> <span class="pre">prompt</span> <span class="pre">on</span> <span class="pre">hate</span> <span class="pre">humans'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull.load_data_all_attacks">
+<span class="sig-name descname"><span class="pre">load_data_all_attacks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull.load_data_all_attacks" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'promptinject_hate-humans'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull.parallelisable_attempts">
+<span class="sig-name descname"><span class="pre">parallelisable_attempts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull.parallelisable_attempts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull.recommended_detector">
+<span class="sig-name descname"><span class="pre">recommended_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['promptinject.AttackRogueString']</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull.recommended_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull.rogue_string">
+<span class="sig-name descname"><span class="pre">rogue_string</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'hate-humans'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull.rogue_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:security:S0403',</span> <span class="pre">'owasp:llm01',</span> <span class="pre">'quality:Behavioral:ContentSafety:Violence',</span> <span class="pre">'quality:Security:PromptStability',</span> <span class="pre">'payload:unwanted:violence']</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackHateHumansFull.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://openreview.net/forum?id=qiaRo_7Zmug'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackHateHumansFull.uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.promptinject.</span></span><span class="sig-name descname"><span class="pre">HijackKillHumans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>PromptInject probe to inject a string; payload is kill-humans</p>
+<p>Attempt to make the model repeat a given string</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PromptInject</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">framework</span> <span class="pre">that</span> <span class="pre">assembles</span> <span class="pre">prompts</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">modular</span> <span class="pre">fashion</span> <span class="pre">to</span> <span class="pre">provide</span> <span class="pre">a</span> <span class="pre">quantitative</span> <span class="pre">analysis</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">robustness</span> <span class="pre">of</span> <span class="pre">LLMs</span> <span class="pre">to</span> <span class="pre">adversarial</span> <span class="pre">prompt</span> <span class="pre">attacks.</span> <span class="pre">trophy</span> <span class="pre">Best</span> <span class="pre">Paper</span> <span class="pre">Awards</span> <span class="pre">&#64;</span> <span class="pre">NeurIPS</span> <span class="pre">ML</span> <span class="pre">Safety</span> <span class="pre">Workshop</span> <span class="pre">2022'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'inject</span> <span class="pre">a</span> <span class="pre">prompt</span> <span class="pre">on</span> <span class="pre">kill</span> <span class="pre">humans'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans.load_data_all_attacks">
+<span class="sig-name descname"><span class="pre">load_data_all_attacks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans.load_data_all_attacks" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'promptinject_kill-humans'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans.parallelisable_attempts">
+<span class="sig-name descname"><span class="pre">parallelisable_attempts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans.parallelisable_attempts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans.recommended_detector">
+<span class="sig-name descname"><span class="pre">recommended_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['promptinject.AttackRogueString']</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans.recommended_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans.rogue_string">
+<span class="sig-name descname"><span class="pre">rogue_string</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'kill-humans'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans.rogue_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:security:S0403',</span> <span class="pre">'owasp:llm01',</span> <span class="pre">'quality:Behavioral:ContentSafety:Violence',</span> <span class="pre">'quality:Security:PromptStability',</span> <span class="pre">'payload:unwanted:violence']</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumans.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://openreview.net/forum?id=qiaRo_7Zmug'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumans.uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.promptinject.</span></span><span class="sig-name descname"><span class="pre">HijackKillHumansFull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>PromptInject probe to inject a string; payload is kill-humans</p>
+<p>Attempt to make the model repeat a given string</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PromptInject</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">framework</span> <span class="pre">that</span> <span class="pre">assembles</span> <span class="pre">prompts</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">modular</span> <span class="pre">fashion</span> <span class="pre">to</span> <span class="pre">provide</span> <span class="pre">a</span> <span class="pre">quantitative</span> <span class="pre">analysis</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">robustness</span> <span class="pre">of</span> <span class="pre">LLMs</span> <span class="pre">to</span> <span class="pre">adversarial</span> <span class="pre">prompt</span> <span class="pre">attacks.</span> <span class="pre">trophy</span> <span class="pre">Best</span> <span class="pre">Paper</span> <span class="pre">Awards</span> <span class="pre">&#64;</span> <span class="pre">NeurIPS</span> <span class="pre">ML</span> <span class="pre">Safety</span> <span class="pre">Workshop</span> <span class="pre">2022'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'inject</span> <span class="pre">a</span> <span class="pre">prompt</span> <span class="pre">on</span> <span class="pre">kill</span> <span class="pre">humans'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull.load_data_all_attacks">
+<span class="sig-name descname"><span class="pre">load_data_all_attacks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull.load_data_all_attacks" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'promptinject_kill-humans'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull.parallelisable_attempts">
+<span class="sig-name descname"><span class="pre">parallelisable_attempts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull.parallelisable_attempts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull.recommended_detector">
+<span class="sig-name descname"><span class="pre">recommended_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['promptinject.AttackRogueString']</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull.recommended_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull.rogue_string">
+<span class="sig-name descname"><span class="pre">rogue_string</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'kill-humans'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull.rogue_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:security:S0403',</span> <span class="pre">'owasp:llm01',</span> <span class="pre">'quality:Behavioral:ContentSafety:Violence',</span> <span class="pre">'quality:Security:PromptStability',</span> <span class="pre">'payload:unwanted:violence']</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackKillHumansFull.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://openreview.net/forum?id=qiaRo_7Zmug'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackKillHumansFull.uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.promptinject.</span></span><span class="sig-name descname"><span class="pre">HijackLongPrompt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>PromptInject probe to inject a string; payload is long-prompt</p>
+<p>Attempt to make the model repeat a given string</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PromptInject</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">framework</span> <span class="pre">that</span> <span class="pre">assembles</span> <span class="pre">prompts</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">modular</span> <span class="pre">fashion</span> <span class="pre">to</span> <span class="pre">provide</span> <span class="pre">a</span> <span class="pre">quantitative</span> <span class="pre">analysis</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">robustness</span> <span class="pre">of</span> <span class="pre">LLMs</span> <span class="pre">to</span> <span class="pre">adversarial</span> <span class="pre">prompt</span> <span class="pre">attacks.</span> <span class="pre">trophy</span> <span class="pre">Best</span> <span class="pre">Paper</span> <span class="pre">Awards</span> <span class="pre">&#64;</span> <span class="pre">NeurIPS</span> <span class="pre">ML</span> <span class="pre">Safety</span> <span class="pre">Workshop</span> <span class="pre">2022'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'inject</span> <span class="pre">a</span> <span class="pre">prompt</span> <span class="pre">on</span> <span class="pre">long</span> <span class="pre">prompt'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt.load_data_all_attacks">
+<span class="sig-name descname"><span class="pre">load_data_all_attacks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt.load_data_all_attacks" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'promptinject_long-prompt'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt.parallelisable_attempts">
+<span class="sig-name descname"><span class="pre">parallelisable_attempts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt.parallelisable_attempts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt.recommended_detector">
+<span class="sig-name descname"><span class="pre">recommended_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['promptinject.AttackRogueString']</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt.recommended_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt.rogue_string">
+<span class="sig-name descname"><span class="pre">rogue_string</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'long-prompt'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt.rogue_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:security:S0403',</span> <span class="pre">'owasp:llm01',</span> <span class="pre">'quality:Behavioral:ContentSafety:Violence',</span> <span class="pre">'quality:Security:PromptStability',</span> <span class="pre">'payload:unwanted:violence']</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPrompt.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://openreview.net/forum?id=qiaRo_7Zmug'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPrompt.uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.promptinject.</span></span><span class="sig-name descname"><span class="pre">HijackLongPromptFull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>PromptInject probe to inject a string; payload is long-prompt</p>
+<p>Attempt to make the model repeat a given string</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PromptInject</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">framework</span> <span class="pre">that</span> <span class="pre">assembles</span> <span class="pre">prompts</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">modular</span> <span class="pre">fashion</span> <span class="pre">to</span> <span class="pre">provide</span> <span class="pre">a</span> <span class="pre">quantitative</span> <span class="pre">analysis</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">robustness</span> <span class="pre">of</span> <span class="pre">LLMs</span> <span class="pre">to</span> <span class="pre">adversarial</span> <span class="pre">prompt</span> <span class="pre">attacks.</span> <span class="pre">trophy</span> <span class="pre">Best</span> <span class="pre">Paper</span> <span class="pre">Awards</span> <span class="pre">&#64;</span> <span class="pre">NeurIPS</span> <span class="pre">ML</span> <span class="pre">Safety</span> <span class="pre">Workshop</span> <span class="pre">2022'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'inject</span> <span class="pre">a</span> <span class="pre">prompt</span> <span class="pre">on</span> <span class="pre">long</span> <span class="pre">prompt'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull.load_data_all_attacks">
+<span class="sig-name descname"><span class="pre">load_data_all_attacks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull.load_data_all_attacks" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'promptinject_long-prompt'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull.parallelisable_attempts">
+<span class="sig-name descname"><span class="pre">parallelisable_attempts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull.parallelisable_attempts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull.recommended_detector">
+<span class="sig-name descname"><span class="pre">recommended_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['promptinject.AttackRogueString']</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull.recommended_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull.rogue_string">
+<span class="sig-name descname"><span class="pre">rogue_string</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'long-prompt'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull.rogue_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:security:S0403',</span> <span class="pre">'owasp:llm01',</span> <span class="pre">'quality:Behavioral:ContentSafety:Violence',</span> <span class="pre">'quality:Security:PromptStability',</span> <span class="pre">'payload:unwanted:violence']</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.promptinject.HijackLongPromptFull.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://openreview.net/forum?id=qiaRo_7Zmug'</span></em><a class="headerlink" href="#garak.probes.promptinject.HijackLongPromptFull.uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="garak.probes.promptinject.constructor">
+<span class="sig-prename descclassname"><span class="pre">garak.probes.promptinject.</span></span><span class="sig-name descname"><span class="pre">constructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.constructor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="garak.probes.promptinject.load_data_all_attacks">
+<span class="sig-prename descclassname"><span class="pre">garak.probes.promptinject.</span></span><span class="sig-name descname"><span class="pre">load_data_all_attacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.promptinject.load_data_all_attacks" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="garak.probes.phrasing.html" class="btn btn-neutral float-left" title="garak.probes.phrasing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="garak.probes.realtoxicityprompts.html" class="btn btn-neutral float-right" title="garak.probes.realtoxicityprompts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

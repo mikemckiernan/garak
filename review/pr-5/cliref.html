@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLI reference for garak &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Translation support" href="translation.html" />
+    <link rel="prev" title="Configuring garak" href="configurable.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CLI reference for garak</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#garak.cli-argparser-named-arguments">Named Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CLI reference for garak</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cliref.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cli-reference-for-garak">
+<h1>CLI reference for garak<a class="headerlink" href="#cli-reference-for-garak" title="Link to this heading"></a></h1>
+<p><p>LLM safety &amp; security scanning tool</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">garak</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">verbose</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">report_prefix</span> <span class="n">REPORT_PREFIX</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">narrow_output</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">parallel_requests</span> <span class="n">PARALLEL_REQUESTS</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">parallel_attempts</span> <span class="n">PARALLEL_ATTEMPTS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">skip_unknown</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">seed</span> <span class="n">SEED</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">deprefix</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">eval_threshold</span> <span class="n">EVAL_THRESHOLD</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">generations</span> <span class="n">GENERATIONS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">config</span> <span class="n">CONFIG</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">model_type</span> <span class="n">MODEL_TYPE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">model_name</span> <span class="n">MODEL_NAME</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">probes</span> <span class="n">PROBES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">probe_tags</span> <span class="n">PROBE_TAGS</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">detectors</span> <span class="n">DETECTORS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">extended_detectors</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">buffs</span> <span class="n">BUFFS</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">buff_option_file</span> <span class="n">BUFF_OPTION_FILE</span> <span class="o">|</span> <span class="o">--</span><span class="n">buff_options</span> <span class="n">BUFF_OPTIONS</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">detector_option_file</span> <span class="n">DETECTOR_OPTION_FILE</span> <span class="o">|</span> <span class="o">--</span><span class="n">detector_options</span> <span class="n">DETECTOR_OPTIONS</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">generator_option_file</span> <span class="n">GENERATOR_OPTION_FILE</span> <span class="o">|</span> <span class="o">--</span><span class="n">generator_options</span> <span class="n">GENERATOR_OPTIONS</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">harness_option_file</span> <span class="n">HARNESS_OPTION_FILE</span> <span class="o">|</span> <span class="o">--</span><span class="n">harness_options</span> <span class="n">HARNESS_OPTIONS</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">probe_option_file</span> <span class="n">PROBE_OPTION_FILE</span> <span class="o">|</span> <span class="o">--</span><span class="n">probe_options</span> <span class="n">PROBE_OPTIONS</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">taxonomy</span> <span class="n">TAXONOMY</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">plugin_info</span> <span class="n">PLUGIN_INFO</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">list_probes</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">list_detectors</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">list_generators</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">list_buffs</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">list_config</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">version</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">report</span> <span class="n">REPORT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">interactive</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">generate_autodan</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">interactive</span><span class="o">.</span><span class="n">py</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">fix</span><span class="p">]</span>
+</pre></div>
+</div>
+<section id="garak.cli-argparser-named-arguments">
+<h2>Named Arguments<a class="headerlink" href="#garak.cli-argparser-named-arguments" title="Link to this heading"></a></h2>
+<dl class="option-list">
+<dt><kbd>--verbose, -v</kbd></dt>
+<dd><p>add one or more times to increase verbosity of output during runtime</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+<dt><kbd>--report_prefix</kbd></dt>
+<dd><p>Specify an optional prefix for the report and hit logs</p>
+</dd>
+<dt><kbd>--narrow_output</kbd></dt>
+<dd><p>give narrow CLI output</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--parallel_requests</kbd></dt>
+<dd><p>How many generator requests to launch in parallel for a given prompt. Ignored for models that support multiple generations per call.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--parallel_attempts</kbd></dt>
+<dd><p>How many probe attempts to launch in parallel. Raise this for faster runs when using non-local models.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--skip_unknown</kbd></dt>
+<dd><p>allow skip of unknown probes, detectors, or buffs</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--seed, -s</kbd></dt>
+<dd><p>random seed</p>
+</dd>
+<dt><kbd>--deprefix</kbd></dt>
+<dd><p>remove the prompt from the front of generator output</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+</dd>
+<dt><kbd>--eval_threshold</kbd></dt>
+<dd><p>minimum threshold for a successful hit</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">0.5</span></code></p>
+</dd>
+<dt><kbd>--generations, -g</kbd></dt>
+<dd><p>number of generations per prompt</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">5</span></code></p>
+</dd>
+<dt><kbd>--config</kbd></dt>
+<dd><p>YAML config file for this run</p>
+</dd>
+<dt><kbd>--model_type, -m</kbd></dt>
+<dd><p>module and optionally also class of the generator, e.g. ‘huggingface’, or ‘openai’</p>
+</dd>
+<dt><kbd>--model_name, -n</kbd></dt>
+<dd><p>name of the model, e.g. ‘timdettmers/guanaco-33b-merged’</p>
+</dd>
+<dt><kbd>--probes, -p</kbd></dt>
+<dd><p>list of probe names to use, or ‘all’ for all (default).</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">'all'</span></code></p>
+</dd>
+<dt><kbd>--probe_tags</kbd></dt>
+<dd><p>only include probes with a tag that starts with this value (e.g. owasp:llm01)</p>
+</dd>
+<dt><kbd>--detectors, -d</kbd></dt>
+<dd><p>list of detectors to use, or ‘all’ for all. Default is to use the probe’s suggestion.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">'auto'</span></code></p>
+</dd>
+<dt><kbd>--extended_detectors</kbd></dt>
+<dd><p>If detectors aren’t specified on the command line, should we run all detectors? (default is just the primary detector, if given, else everything)</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--buffs, -b</kbd></dt>
+<dd><p>list of buffs to use. Default is none</p>
+</dd>
+<dt><kbd>--buff_option_file, -B</kbd></dt>
+<dd><p>path to JSON file containing options to pass to buff</p>
+</dd>
+<dt><kbd>--buff_options</kbd></dt>
+<dd><p>options to pass to buff, formatted as a JSON dict</p>
+</dd>
+<dt><kbd>--detector_option_file, -D</kbd></dt>
+<dd><p>path to JSON file containing options to pass to detector</p>
+</dd>
+<dt><kbd>--detector_options</kbd></dt>
+<dd><p>options to pass to detector, formatted as a JSON dict</p>
+</dd>
+<dt><kbd>--generator_option_file, -G</kbd></dt>
+<dd><p>path to JSON file containing options to pass to generator</p>
+</dd>
+<dt><kbd>--generator_options</kbd></dt>
+<dd><p>options to pass to generator, formatted as a JSON dict</p>
+</dd>
+<dt><kbd>--harness_option_file, -H</kbd></dt>
+<dd><p>path to JSON file containing options to pass to harness</p>
+</dd>
+<dt><kbd>--harness_options</kbd></dt>
+<dd><p>options to pass to harness, formatted as a JSON dict</p>
+</dd>
+<dt><kbd>--probe_option_file, -P</kbd></dt>
+<dd><p>path to JSON file containing options to pass to probe</p>
+</dd>
+<dt><kbd>--probe_options</kbd></dt>
+<dd><p>options to pass to probe, formatted as a JSON dict</p>
+</dd>
+<dt><kbd>--taxonomy</kbd></dt>
+<dd><p>specify a MISP top-level taxonomy to be used for grouping probes in reporting. e.g. ‘avid-effect’, ‘owasp’</p>
+</dd>
+<dt><kbd>--plugin_info</kbd></dt>
+<dd><p>show info about one plugin; format as type.plugin.class, e.g. probes.lmrc.Profanity</p>
+</dd>
+<dt><kbd>--list_probes</kbd></dt>
+<dd><p>list available vulnerability probes</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--list_detectors</kbd></dt>
+<dd><p>list available detectors</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--list_generators</kbd></dt>
+<dd><p>list available generation model interfaces</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--list_buffs</kbd></dt>
+<dd><p>list available buffs/fuzzes</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--list_config</kbd></dt>
+<dd><p>print active config info (and don’t scan)</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--version, -V</kbd></dt>
+<dd><p>print version info &amp; exit</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--report, -r</kbd></dt>
+<dd><p>process garak report into a list of AVID reports</p>
+</dd>
+<dt><kbd>--interactive, -I</kbd></dt>
+<dd><p>Enter interactive probing mode</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--generate_autodan</kbd></dt>
+<dd><p>generate AutoDAN prompts; requires –prompt_options with JSON containing a prompt and target</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--interactive.py</kbd></dt>
+<dd><p>Launch garak in interactive.py mode</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt><kbd>--fix</kbd></dt>
+<dd><p>Update provided configuration with fixer migrations; requires one of –config / –<a href="#id1"><span class="problematic" id="id2">*</span></a>_option_file, / –<a href="#id3"><span class="problematic" id="id4">*</span></a>_options</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+</dl>
+</section>
+<p><p>See <a class="reference external" href="https://github.com/NVIDIA/garak">https://github.com/NVIDIA/garak</a></p>
+</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="configurable.html" class="btn btn-neutral float-left" title="Configuring garak" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="translation.html" class="btn btn-neutral float-right" title="Translation support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

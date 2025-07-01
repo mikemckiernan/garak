@@ -1,0 +1,784 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>garak.detectors.unsafe_content &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="garak.detectors.xss" href="garak.detectors.xss.html" />
+    <link rel="prev" title="garak.detectors.snowball" href="garak.detectors.snowball.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="detectors.html">garak.detectors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.html">garak.detectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.base.html">garak.detectors.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.always.html">garak.detectors.always</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.ansiescape.html">garak.detectors.ansiescape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.continuation.html">garak.detectors.continuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.dan.html">garak.detectors.dan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.divergence.html">garak.detectors.divergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.encoding.html">garak.detectors.encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.exploitation.html">garak.detectors.exploitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.fileformats.html">garak.detectors.fileformats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.goodside.html">garak.detectors.goodside</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.judge.html">garak.detectors.judge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.knownbadsignatures.html">garak.detectors.knownbadsignatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.leakreplay.html">garak.detectors.leakreplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.lmrc.html">garak.detectors.lmrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.malwaregen.html">garak.detectors.malwaregen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.misleading.html">garak.detectors.misleading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.mitigation.html">garak.detectors.mitigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.packagehallucination.html">garak.detectors.packagehallucination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.perspective.html">garak.detectors.perspective</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.promptinject.html">garak.detectors.promptinject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.productkey.html">garak.detectors.productkey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.shields.html">garak.detectors.shields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.snowball.html">garak.detectors.snowball</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">garak.detectors.unsafe_content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.LDNOOBW"><code class="docutils literal notranslate"><span class="pre">LDNOOBW</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.LDNOOBW.lang_spec"><code class="docutils literal notranslate"><span class="pre">LDNOOBW.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.LDNOOBW.tags"><code class="docutils literal notranslate"><span class="pre">LDNOOBW.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.Martin_haDistilbert"><code class="docutils literal notranslate"><span class="pre">Martin_haDistilbert</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.Martin_haDistilbert.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">Martin_haDistilbert.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.Martin_haDistilbert.doc_uri"><code class="docutils literal notranslate"><span class="pre">Martin_haDistilbert.doc_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.Martin_haDistilbert.lang_spec"><code class="docutils literal notranslate"><span class="pre">Martin_haDistilbert.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.Martin_haDistilbert.tags"><code class="docutils literal notranslate"><span class="pre">Martin_haDistilbert.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveDiscriminatory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveDiscriminatory.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory.lang_spec"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveDiscriminatory.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory.tags"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveDiscriminatory.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory.term"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveDiscriminatory.term</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveGeneral"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveGeneral</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveGeneral.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveGeneral.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveGeneral.lang_spec"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveGeneral.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveGeneral.tags"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveGeneral.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveGeneral.term"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveGeneral.term</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveMentalHealth"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveMentalHealth</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveMentalHealth.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveMentalHealth.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveMentalHealth.lang_spec"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveMentalHealth.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveMentalHealth.tags"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveMentalHealth.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveMentalHealth.term"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveMentalHealth.term</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveRaceEthnic</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveRaceEthnic.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic.lang_spec"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveRaceEthnic.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic.tags"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveRaceEthnic.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic.term"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveRaceEthnic.term</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveSexGender"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveSexGender</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveSexGender.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveSexGender.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveSexGender.lang_spec"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveSexGender.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveSexGender.tags"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveSexGender.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveSexGender.term"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveSexGender.term</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveSexual"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveSexual</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveSexual.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveSexual.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveSexual.lang_spec"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveSexual.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveSexual.tags"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveSexual.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.OfcomOffensiveSexual.term"><code class="docutils literal notranslate"><span class="pre">OfcomOffensiveSexual.term</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.S_nlpDetox"><code class="docutils literal notranslate"><span class="pre">S_nlpDetox</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.S_nlpDetox.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">S_nlpDetox.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.S_nlpDetox.doc_uri"><code class="docutils literal notranslate"><span class="pre">S_nlpDetox.doc_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.S_nlpDetox.lang_spec"><code class="docutils literal notranslate"><span class="pre">S_nlpDetox.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.S_nlpDetox.tags"><code class="docutils literal notranslate"><span class="pre">S_nlpDetox.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.SlursReclaimedSlurs"><code class="docutils literal notranslate"><span class="pre">SlursReclaimedSlurs</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SlursReclaimedSlurs.doc_uri"><code class="docutils literal notranslate"><span class="pre">SlursReclaimedSlurs.doc_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SlursReclaimedSlurs.lang_spec"><code class="docutils literal notranslate"><span class="pre">SlursReclaimedSlurs.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SlursReclaimedSlurs.tags"><code class="docutils literal notranslate"><span class="pre">SlursReclaimedSlurs.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityAnimalReferences"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityAnimalReferences</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityAnimalReferences.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityAnimalReferences.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityAnimalReferences.lang_spec"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityAnimalReferences.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityAnimalReferences.tags"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityAnimalReferences.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityBodilyFluids"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityBodilyFluids</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityBodilyFluids.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityBodilyFluids.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityBodilyFluids.lang_spec"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityBodilyFluids.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityBodilyFluids.tags"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityBodilyFluids.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityMentalDisability"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityMentalDisability</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityMentalDisability.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityMentalDisability.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityMentalDisability.lang_spec"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityMentalDisability.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityMentalDisability.tags"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityMentalDisability.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalAttributes"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityPhysicalAttributes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalAttributes.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityPhysicalAttributes.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalAttributes.lang_spec"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityPhysicalAttributes.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalAttributes.tags"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityPhysicalAttributes.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalDisability"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityPhysicalDisability</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalDisability.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityPhysicalDisability.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalDisability.lang_spec"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityPhysicalDisability.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalDisability.tags"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityPhysicalDisability.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityPolitical"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityPolitical</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityPolitical.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityPolitical.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityPolitical.lang_spec"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityPolitical.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityPolitical.tags"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityPolitical.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityRacialEthnic"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityRacialEthnic</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityRacialEthnic.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityRacialEthnic.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityRacialEthnic.lang_spec"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityRacialEthnic.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityRacialEthnic.tags"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityRacialEthnic.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityReligious"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityReligious</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityReligious.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityReligious.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityReligious.lang_spec"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityReligious.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanityReligious.tags"><code class="docutils literal notranslate"><span class="pre">SurgeProfanityReligious.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanitySexual"><code class="docutils literal notranslate"><span class="pre">SurgeProfanitySexual</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanitySexual.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">SurgeProfanitySexual.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanitySexual.lang_spec"><code class="docutils literal notranslate"><span class="pre">SurgeProfanitySexual.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanitySexual.tags"><code class="docutils literal notranslate"><span class="pre">SurgeProfanitySexual.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanitySexualOrientationGender"><code class="docutils literal notranslate"><span class="pre">SurgeProfanitySexualOrientationGender</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanitySexualOrientationGender.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">SurgeProfanitySexualOrientationGender.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanitySexualOrientationGender.lang_spec"><code class="docutils literal notranslate"><span class="pre">SurgeProfanitySexualOrientationGender.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.unsafe_content.SurgeProfanitySexualOrientationGender.tags"><code class="docutils literal notranslate"><span class="pre">SurgeProfanitySexualOrientationGender.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.unsafe_content.ToxicCommentModel"><code class="docutils literal notranslate"><span class="pre">ToxicCommentModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.xss.html">garak.detectors.xss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.visual_jailbreak.html">garak.detectors.visual_jailbreak</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="detectors.html">garak.detectors</a></li>
+      <li class="breadcrumb-item active">garak.detectors.unsafe_content</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/garak.detectors.unsafe_content.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-garak.detectors.unsafe_content">
+<span id="garak-detectors-unsafe-content"></span><h1>garak.detectors.unsafe_content<a class="headerlink" href="#module-garak.detectors.unsafe_content" title="Link to this heading"></a></h1>
+<p>Unsafe content detectors</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.LDNOOBW">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">LDNOOBW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.LDNOOBW" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>List of Dirty, Naughty, Obscene, and Otherwise Bad Words (English)</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.LDNOOBW.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.LDNOOBW.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.LDNOOBW.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.LDNOOBW.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.Martin_haDistilbert">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">Martin_haDistilbert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.Martin_haDistilbert" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.HFDetector" title="garak.detectors.base.HFDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">HFDetector</span></code></a></p>
+<p>Using backup of martin-ha/toxic-comment-model DistilBERT to detect toxic content</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.Martin_haDistilbert.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'detector_model_path':</span> <span class="pre">'garak-llm/toxic-comment-model',</span> <span class="pre">'detector_target_class':</span> <span class="pre">'toxic',</span> <span class="pre">'graceful_fail':</span> <span class="pre">True,</span> <span class="pre">'hf_args':</span> <span class="pre">{'device':</span> <span class="pre">'cpu'},</span> <span class="pre">'skip':</span> <span class="pre">False,</span> <span class="pre">'tokenizer_kwargs':</span> <span class="pre">{'padding':</span> <span class="pre">True,</span> <span class="pre">'truncation':</span> <span class="pre">True}}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.Martin_haDistilbert.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.Martin_haDistilbert.doc_uri">
+<span class="sig-name descname"><span class="pre">doc_uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://huggingface.co/garak-llm/toxic-comment-model'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.Martin_haDistilbert.doc_uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.Martin_haDistilbert.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.Martin_haDistilbert.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.Martin_haDistilbert.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.Martin_haDistilbert.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">OfcomOffensiveDiscriminatory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>UK OFCOM potentially offensive list: discriminatory</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory.term">
+<span class="sig-name descname"><span class="pre">term</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'discriminatory'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveDiscriminatory.term" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveGeneral">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">OfcomOffensiveGeneral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveGeneral" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>UK OFCOM potentially offensive list: general</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveGeneral.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveGeneral.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveGeneral.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveGeneral.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveGeneral.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveGeneral.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveGeneral.term">
+<span class="sig-name descname"><span class="pre">term</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'general'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveGeneral.term" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveMentalHealth">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">OfcomOffensiveMentalHealth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveMentalHealth" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>UK OFCOM potentially offensive list: mental health</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveMentalHealth.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveMentalHealth.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveMentalHealth.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveMentalHealth.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveMentalHealth.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveMentalHealth.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveMentalHealth.term">
+<span class="sig-name descname"><span class="pre">term</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mentalhealth'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveMentalHealth.term" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">OfcomOffensiveRaceEthnic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>UK OFCOM potentially offensive list: race / ethnic</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic.term">
+<span class="sig-name descname"><span class="pre">term</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'raceethnic'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveRaceEthnic.term" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveSexGender">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">OfcomOffensiveSexGender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveSexGender" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>UK OFCOM potentially offensive list: sex &amp; gender</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveSexGender.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveSexGender.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveSexGender.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveSexGender.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveSexGender.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveSexGender.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveSexGender.term">
+<span class="sig-name descname"><span class="pre">term</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sexgender'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveSexGender.term" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveSexual">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">OfcomOffensiveSexual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveSexual" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>UK OFCOM potentially offensive list: sexual</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveSexual.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveSexual.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveSexual.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveSexual.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveSexual.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveSexual.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.OfcomOffensiveSexual.term">
+<span class="sig-name descname"><span class="pre">term</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sexual'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.OfcomOffensiveSexual.term" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.S_nlpDetox">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">S_nlpDetox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.S_nlpDetox" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.HFDetector" title="garak.detectors.base.HFDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">HFDetector</span></code></a></p>
+<p>Using s-nlp Roberta model to detect toxic content</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.S_nlpDetox.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'detector_model_path':</span> <span class="pre">'garak-llm/roberta_toxicity_classifier',</span> <span class="pre">'detector_target_class':</span> <span class="pre">'toxic',</span> <span class="pre">'graceful_fail':</span> <span class="pre">True,</span> <span class="pre">'hf_args':</span> <span class="pre">{'device':</span> <span class="pre">'cpu'},</span> <span class="pre">'skip':</span> <span class="pre">False,</span> <span class="pre">'tokenizer_kwargs':</span> <span class="pre">{'padding':</span> <span class="pre">True,</span> <span class="pre">'truncation':</span> <span class="pre">True}}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.S_nlpDetox.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.S_nlpDetox.doc_uri">
+<span class="sig-name descname"><span class="pre">doc_uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://aclanthology.org/2022.acl-long.469'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.S_nlpDetox.doc_uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.S_nlpDetox.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.S_nlpDetox.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.S_nlpDetox.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.S_nlpDetox.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SlursReclaimedSlurs">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">SlursReclaimedSlurs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.SlursReclaimedSlurs" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>Slurs and reclaimed slurs. Detects presence of any of the items from an ethnic slur list, regardless of context.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SlursReclaimedSlurs.doc_uri">
+<span class="sig-name descname"><span class="pre">doc_uri</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://en.wikipedia.org/wiki/List_of_ethnic_slurs'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SlursReclaimedSlurs.doc_uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SlursReclaimedSlurs.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SlursReclaimedSlurs.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SlursReclaimedSlurs.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:ethics:E0302',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SlursReclaimedSlurs.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityAnimalReferences">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">SurgeProfanityAnimalReferences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityAnimalReferences" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>Surge AI list: animal references</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityAnimalReferences.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityAnimalReferences.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityAnimalReferences.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityAnimalReferences.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityAnimalReferences.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityAnimalReferences.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityBodilyFluids">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">SurgeProfanityBodilyFluids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityBodilyFluids" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>Surge AI list: bodily fluids / excrement</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityBodilyFluids.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityBodilyFluids.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityBodilyFluids.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityBodilyFluids.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityBodilyFluids.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityBodilyFluids.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityMentalDisability">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">SurgeProfanityMentalDisability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityMentalDisability" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>Surge AI list: mental disability</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityMentalDisability.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityMentalDisability.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityMentalDisability.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityMentalDisability.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityMentalDisability.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityMentalDisability.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityPhysicalAttributes">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">SurgeProfanityPhysicalAttributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalAttributes" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>Surge AI list: physical attributes</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityPhysicalAttributes.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalAttributes.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityPhysicalAttributes.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalAttributes.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityPhysicalAttributes.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalAttributes.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityPhysicalDisability">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">SurgeProfanityPhysicalDisability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalDisability" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>Surge AI list: physical disability</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityPhysicalDisability.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalDisability.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityPhysicalDisability.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalDisability.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityPhysicalDisability.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityPhysicalDisability.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityPolitical">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">SurgeProfanityPolitical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityPolitical" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>Surge AI list: political</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityPolitical.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityPolitical.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityPolitical.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityPolitical.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityPolitical.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:ethics:E0302',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityPolitical.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityRacialEthnic">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">SurgeProfanityRacialEthnic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityRacialEthnic" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>Surge AI list: racial / ethnic</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityRacialEthnic.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityRacialEthnic.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityRacialEthnic.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityRacialEthnic.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityRacialEthnic.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityRacialEthnic.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityReligious">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">SurgeProfanityReligious</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityReligious" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>Surge AI list: religious offense</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityReligious.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityReligious.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityReligious.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityReligious.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanityReligious.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanityReligious.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanitySexual">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">SurgeProfanitySexual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanitySexual" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>Surge AI list: sexual anatomy / sexual acts</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanitySexual.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanitySexual.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanitySexual.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanitySexual.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanitySexual.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanitySexual.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanitySexualOrientationGender">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">SurgeProfanitySexualOrientationGender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanitySexualOrientationGender" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.StringDetector" title="garak.detectors.base.StringDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringDetector</span></code></a></p>
+<p>Surge AI list: sexual orientation / gender</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanitySexualOrientationGender.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'matchtype':</span> <span class="pre">'word',</span> <span class="pre">'skip':</span> <span class="pre">False}</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanitySexualOrientationGender.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanitySexualOrientationGender.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanitySexualOrientationGender.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.SurgeProfanitySexualOrientationGender.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.unsafe_content.SurgeProfanitySexualOrientationGender.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.unsafe_content.ToxicCommentModel">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.unsafe_content.</span></span><span class="sig-name descname"><span class="pre">ToxicCommentModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.unsafe_content.ToxicCommentModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#garak.detectors.unsafe_content.S_nlpDetox" title="garak.detectors.unsafe_content.S_nlpDetox"><code class="xref py py-class docutils literal notranslate"><span class="pre">S_nlpDetox</span></code></a></p>
+<p>Garak’s default toxicity detector</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="garak.detectors.snowball.html" class="btn btn-neutral float-left" title="garak.detectors.snowball" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="garak.detectors.xss.html" class="btn btn-neutral float-right" title="garak.detectors.xss" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

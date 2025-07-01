@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Translation support &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Top-level concepts in garak" href="basic.html" />
+    <link rel="prev" title="CLI reference for garak" href="cliref.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Translation support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-translation-services">Supported translation services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-key-requirements">API KEY Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">DeepL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#riva">RIVA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-file">Configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples-for-translation-configuration">Examples for translation configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">DeepL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Riva</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local">Local</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Translation support</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/translation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="translation-support">
+<h1>Translation support<a class="headerlink" href="#translation-support" title="Link to this heading"></a></h1>
+<p>Garak enables translation support for probe and detector keywords and triggers.
+Allowing testing of models that accept and produce text in languages other than the language the plugin was written for.</p>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>This functionality is strongly coupled to <code class="docutils literal notranslate"><span class="pre">BCP47</span></code> code “en” for sentence detection and structure at this time.</p></li>
+<li><p>Reverse translation is required for snowball probes, and Huggingface detectors due to model load formats.</p></li>
+<li><p>Huggingface detectors primarily load English models. Requiring a target language NLI model for the detector.</p></li>
+<li><p>If probes or detectors fail to load, you need may need to choose a smaller local translation model or utilize a remote service.</p></li>
+<li><p>Translation may add significant execution time to the run depending on resources available.</p></li>
+</ul>
+</section>
+<section id="supported-translation-services">
+<h2>Supported translation services<a class="headerlink" href="#supported-translation-services" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Huggingface: This project supports usage of the following translation models:</dt><dd><ul>
+<li><p><a class="reference external" href="https://huggingface.co/docs/transformers/model_doc/marian">Helsinki-NLP/opus-mt-{&lt;source_lang&gt;-&lt;target_lang&gt;}</a></p></li>
+<li><p><a class="reference external" href="https://huggingface.co/facebook/m2m100_418M">facebook/m2m100_418M</a></p></li>
+<li><p><a class="reference external" href="https://huggingface.co/facebook/m2m100_1.2B">facebook/m2m100_1.2B</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference external" href="http://www.deepl.com">DeepL</a></p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/riva">NVIDIA Riva for Developers</a></p></li>
+</ul>
+</section>
+<section id="api-key-requirements">
+<h2>API KEY Requirements<a class="headerlink" href="#api-key-requirements" title="Link to this heading"></a></h2>
+<p>To use use DeepL API or Riva API to translate probe and detector keywords and triggers from cloud services an API key must be supplied.</p>
+<p>API keys for the preferred service can be obtained in following locations:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.deepl.com/en/pro-api">DeepL Pro-API</a></p></li>
+<li><p><a class="reference external" href="https://build.nvidia.com/nvidia/megatron-1b-nmt">Riva on build.nvidia.com</a></p></li>
+</ul>
+<p>Supported languages for remote services:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.deepl.com/docs/resources/supported-languages">DeepL Languages Supported | DeepL API documentation</a></p></li>
+<li><p><a class="reference external" href="https://docs.nvidia.com/nim/riva/nmt/latest/getting-started.html#supported-languages">Riva support matrix: supported languages</a></p></li>
+</ul>
+<p>API keys can be stored in environment variables with the following commands:</p>
+<section id="id1">
+<h3>DeepL<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">DEEPL_API_KEY</span><span class="o">=</span>xxxx
+</pre></div>
+</div>
+</section>
+<section id="riva">
+<h3>RIVA<a class="headerlink" href="#riva" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">RIVA_API_KEY</span><span class="o">=</span>xxxx
+</pre></div>
+</div>
+</section>
+</section>
+<section id="configuration-file">
+<h2>Configuration file<a class="headerlink" href="#configuration-file" title="Link to this heading"></a></h2>
+<p>Translation function is configured in the <code class="docutils literal notranslate"><span class="pre">run</span></code> section of a configuration with the following keys:</p>
+<p><code class="docutils literal notranslate"><span class="pre">target_lang</span></code>   - A single <code class="docutils literal notranslate"><span class="pre">BCP47</span></code> entry designating the language of the target under test. “ja”, “fr”, “jap” etc.
+<code class="docutils literal notranslate"><span class="pre">langproviders</span></code> - A list of language pair designated translator configurations.</p>
+<ul class="simple">
+<li><p>Note: The <cite>Helsinki-NLP/opus-mt-{source},{target}</cite> case uses different language formats.
+The language codes used to name models are inconsistent.
+Two-letter codes can usually be found in the <a class="reference external" href="https://developers.google.com/admin-sdk/directory/v1/languages">Google Admin SDK</a>, while three-letter codes require
+a search such as “language code {code}”. More details can be found in the <a class="reference external" href="https://github.com/Helsinki-NLP/OPUS-MT-train/tree/master/models">OPUS-MT-train</a> repository.</p></li>
+</ul>
+<p>A language provider configuration is provided using the project’s configurable pattern with the following keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">language</span></code>   - (required) A <code class="docutils literal notranslate"><span class="pre">,</span></code> separated pair of <code class="docutils literal notranslate"><span class="pre">BCP47</span></code> entires describing translation format provided by the configuration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model_type</span></code> - (required) the <code class="docutils literal notranslate"><span class="pre">langproviders</span></code> module and optional instance class to be instantiated; <code class="docutils literal notranslate"><span class="pre">local</span></code>, <code class="docutils literal notranslate"><span class="pre">remote</span></code>, <code class="docutils literal notranslate"><span class="pre">remote.DeeplTranslator</span></code> etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model_name</span></code> - (conditional) the model name loaded for translation. This field is required for <code class="docutils literal notranslate"><span class="pre">local</span></code> translator <code class="docutils literal notranslate"><span class="pre">model_type</span></code></p></li>
+</ul>
+<p>(Optional) Model specific parameters defined by the translator model type may exist.</p>
+<ul class="simple">
+<li><p>Note: local translation support loads a model and is not designed to support crossing the multi-processing boundary.</p></li>
+</ul>
+<p>The translator configuration can be written to a file and the path passed, with the <code class="docutils literal notranslate"><span class="pre">--config</span></code> cli option.</p>
+<p>An example template is provided below.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">run</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">target_lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;target-language-code&gt;</span>
+<span class="w">  </span><span class="nt">langproviders</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;source-language-code&gt;,&lt;target-language-code&gt;</span>
+<span class="w">      </span><span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;your-API-key&gt;</span>
+<span class="w">      </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;translator-module-or-module.classname&gt;</span>
+<span class="w">      </span><span class="nt">model_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;huggingface-model-name&gt;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;target-language-code&gt;,&lt;source-language-code&gt;</span>
+<span class="w">      </span><span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;your-API-key&gt;</span>
+<span class="w">      </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;translator-module-or-module.classname&gt;</span>
+<span class="w">      </span><span class="nt">model_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;huggingface-model-name&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Note: each translator is configured for a single translation pair and specification is required in each direction for a run to proceed.</p></li>
+</ul>
+</section>
+<section id="examples-for-translation-configuration">
+<h2>Examples for translation configuration<a class="headerlink" href="#examples-for-translation-configuration" title="Link to this heading"></a></h2>
+<section id="id2">
+<h3>DeepL<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>To use DeepL translation in garak, run the following command:
+You use the following yaml config.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">run</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">target_lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;target-language-code&gt;</span>
+<span class="w">  </span><span class="nt">langproviders</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;source-language-code&gt;,&lt;target-language-code&gt;</span>
+<span class="w">      </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">remote.DeeplTranslator</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;target-language-code&gt;,&lt;source-language-code&gt;</span>
+<span class="w">      </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">remote.DeeplTranslator</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">DEEPL_API_KEY</span><span class="o">=</span>xxxx
+python3<span class="w"> </span>-m<span class="w"> </span>garak<span class="w"> </span>--model_type<span class="w"> </span>nim<span class="w"> </span>--model_name<span class="w"> </span>meta/llama-3.1-8b-instruct<span class="w"> </span>--probes<span class="w"> </span>encoding<span class="w"> </span>--config<span class="w"> </span><span class="o">{</span>path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>yaml<span class="w"> </span>config<span class="w"> </span>file<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>Riva<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>For Riva, run the following command:
+You use the following yaml config.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">run</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">target_lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;target-language-code&gt;</span>
+<span class="w">  </span><span class="nt">langproviders</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;source-language-code&gt;,&lt;target-language-code&gt;</span>
+<span class="w">      </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">remote</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;target-language-code&gt;,&lt;source-language-code&gt;</span>
+<span class="w">      </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">remote</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">RIVA_API_KEY</span><span class="o">=</span>xxxx
+python3<span class="w"> </span>-m<span class="w"> </span>garak<span class="w"> </span>--model_type<span class="w"> </span>nim<span class="w"> </span>--model_name<span class="w"> </span>meta/llama-3.1-8b-instruct<span class="w"> </span>--probes<span class="w"> </span>encoding<span class="w"> </span>--config<span class="w"> </span><span class="o">{</span>path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>yaml<span class="w"> </span>config<span class="w"> </span>file<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="local">
+<h3>Local<a class="headerlink" href="#local" title="Link to this heading"></a></h3>
+<p>For local translation, use the following command:
+You use the following yaml config.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">run</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">target_lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jap</span>
+<span class="w">  </span><span class="nt">langproviders</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en,jap</span>
+<span class="w">      </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jap,en</span>
+<span class="w">      </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>garak<span class="w"> </span>--model_type<span class="w"> </span>nim<span class="w"> </span>--model_name<span class="w"> </span>meta/llama-3.1-8b-instruct<span class="w"> </span>--probes<span class="w"> </span>encoding<span class="w"> </span>--config<span class="w"> </span><span class="o">{</span>path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>yaml<span class="w"> </span>config<span class="w"> </span>file<span class="o">}</span>
+</pre></div>
+</div>
+<p>The default configuration will load <a class="reference external" href="https://huggingface.co/docs/transformers/model_doc/marian">Helsinki-NLP MarianMT</a> models for local translation.</p>
+<p>Additional support for Huggingface <code class="docutils literal notranslate"><span class="pre">M2M100Model</span></code> type only is enabled by providing <code class="docutils literal notranslate"><span class="pre">model_name</span></code> for local translators. The model name provided must
+contain <code class="docutils literal notranslate"><span class="pre">m2m100</span></code> to be loaded by garak.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">run</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">target_lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ja</span>
+<span class="w">  </span><span class="nt">langproviders</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en,ja</span>
+<span class="w">      </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">      </span><span class="nt">model_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">facebook/m2m100_418M</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jap,en</span>
+<span class="w">      </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">      </span><span class="nt">model_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">facebook/m2m100_418M</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>garak<span class="w"> </span>--model_type<span class="w"> </span>nim<span class="w"> </span>--model_name<span class="w"> </span>meta/llama-3.1-8b-instruct<span class="w"> </span>--probes<span class="w"> </span>encoding<span class="w"> </span>--config<span class="w"> </span><span class="o">{</span>path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>yaml<span class="w"> </span>config<span class="w"> </span>file<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cliref.html" class="btn btn-neutral float-left" title="CLI reference for garak" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="basic.html" class="btn btn-neutral float-right" title="Top-level concepts in garak" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

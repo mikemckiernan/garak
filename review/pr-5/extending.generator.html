@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Let’s build a generator! &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Let’s build a generator!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/extending.generator.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="let-s-build-a-generator">
+<h1>Let’s build a generator!<a class="headerlink" href="#let-s-build-a-generator" title="Link to this heading"></a></h1>
+<p>Let’s build a garak generator. In garak, generators provide abstraction between the main code base and a dialogue system. That system is often an LLM, but can be anything that accepts and returns text (or text plus some other modality).</p>
+<p>In this example, we’re going to build a module for interfacing with the LLMs hosted by <a class="reference external" href="https://replicate.com/">Replicate</a>, using the Replicate API (<a class="reference external" href="https://replicate.com/docs/get-started/python">docs</a>). We’ll assume that we’re working in a file called <code class="docutils literal notranslate"><span class="pre">replicate.py</span></code>.</p>
+<section id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading"></a></h2>
+<p>All generators in garak must descend from <code class="docutils literal notranslate"><span class="pre">garak.generators.base.Generator</span></code>. So, new generators start out like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">garak.generators.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Generator</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ReplicateGenerator</span><span class="p">(</span><span class="n">Generator</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interface for public endpoints of models hosted in Replicate (replicate.com).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Class docstrings are mandatory in garak, enforced by a test that’s required to pass before merging. And they’re just sensible practice anyway. So we add a brief docstring here too.</p>
+<p>It’s important that generators always inheirt from <code class="docutils literal notranslate"><span class="pre">garak.generators.base.Generator</span></code>. Not only does this often save a lot of work - using the logic in base’s <code class="docutils literal notranslate"><span class="pre">generate()</span></code> is helpful - plugin listing also checks the parents of each class in each plugin when choosing to show a plugin as available. If there’s a class in a module in <code class="docutils literal notranslate"><span class="pre">garak/generators/</span></code> that doesn’t inherit from Generator, then it won’t be listed as available.</p>
+</section>
+<section id="setting-the-default-generator">
+<h2>Setting the default generator<a class="headerlink" href="#setting-the-default-generator" title="Link to this heading"></a></h2>
+<p>Before we go ahead and code up the generator, we need to tell garak which generator to use by default in this class. This helps save users from always having to specify a model name. We do this in a default class module variable:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DEFAULT_CLASS</span> <span class="o">=</span> <span class="s2">&quot;ReplicateGenerator&quot;</span>
+</pre></div>
+</div>
+<p>When this generator module is selected using <code class="docutils literal notranslate"><span class="pre">--model_type</span> <span class="pre">replicate</span></code>, with <code class="docutils literal notranslate"><span class="pre">replicate</span></code> being the name of the Python module we’re working in, the generator loader (in <code class="docutils literal notranslate"><span class="pre">garak/generators/__init__.py</span></code>) will search for the <code class="docutils literal notranslate"><span class="pre">DEFAULT_CLASS</span></code> constant and use its value to determine which class to instantiate.</p>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<p>Like many garak plugins, generators are configurable. This is achieved by the base class inheriting from <code class="docutils literal notranslate"><span class="pre">Configurable</span></code>. So, the first code we see in a generator class looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ENV_VAR</span> <span class="o">=</span> <span class="s2">&quot;REPLICATE_API_TOKEN&quot;</span>
+<span class="n">DEFAULT_PARAMS</span> <span class="o">=</span> <span class="n">Generator</span><span class="o">.</span><span class="n">DEFAULT_PARAMS</span> <span class="o">|</span> <span class="p">{</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="s2">&quot;repetition_penalty&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, we set reserved name <code class="docutils literal notranslate"><span class="pre">ENV_VAR</span></code> to the name of the environment variable to look in for an API key. This API key can also be specified by configuration, instead of environment variable, so this step is optional. If you’re coding a generator that doesn’t need an API key, you can skip this.</p>
+<p>The second block, <code class="docutils literal notranslate"><span class="pre">DEFAULT_PARAMS</span></code>, lists configurable values for this generator. These are values that aren’t static and that makes for users to be able to adjust. It is defined by merging with the base generator’s configurable parameters. The contents are a dictionary, where keys are parameter names and the values are default values. The parameter names will become variables within this generator object at instantiation – and they’re also the names of configuration variables that garak will look for in its YAML configs.</p>
+<p>In this case, we set a few default inference parameters that reflect how the model is invoked; we’ll set <code class="docutils literal notranslate"><span class="pre">temperature</span></code>, <code class="docutils literal notranslate"><span class="pre">top_p</span></code>, and <code class="docutils literal notranslate"><span class="pre">repetition_penalty</span></code>. Setting these variables in the class also indicates that this generator class supports those values, and they might be worth adjusting</p>
+</section>
+<section id="descriptive-params">
+<h2>Descriptive params<a class="headerlink" href="#descriptive-params" title="Link to this heading"></a></h2>
+<p>The next things we need to define in this new class are the core generator parameters, that describe a bit about how this generator behaves and what default values it should have.</p>
+<p>In the class, we’ll set the <code class="docutils literal notranslate"><span class="pre">generator_family_name</span></code> to <code class="docutils literal notranslate"><span class="pre">Replicate</span></code>. This can be the same for every generator in a module, or can vary a bit, but it should be a descriptive name that reflects what this class is for - the generator family name is printed to garak users at run time. Finally, because Replicate endpoints aren’t guaranteed to support a single request for multiple generations at a time, we set <code class="docutils literal notranslate"><span class="pre">supports_multiple_generations</span></code> false. This is also the default value, so technically we don’t have to do it, but it’s OK to be explicit here.</p>
+<p>We end up with this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Class</span> <span class="n">ReplicateGenerator</span><span class="p">(</span><span class="n">Generator</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interface for public endpoints of models hosted in Replicate (replicate.com).</span>
+<span class="sd">    Expects API key in REPLICATE_API_TOKEN environment variable.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">generator_family_name</span> <span class="o">=</span> <span class="s2">&quot;Replicate&quot;</span>
+    <span class="n">supports_multiple_generations</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</section>
+<section id="constructor">
+<h2>Constructor<a class="headerlink" href="#constructor" title="Link to this heading"></a></h2>
+<p>Garak supports both a model type and a model name. Model type refers to the name of the class that will be used. Model name is an optional parameter that provides further detail. In the case of Replicate, they offer a selection of models which can be requested, each referred to by a name, such as <code class="docutils literal notranslate"><span class="pre">meta/llama-2-70b-chat</span></code>. We’ll use the model name to track this information. It’s collected on the command line as the parameter to <code class="docutils literal notranslate"><span class="pre">--model_name</span></code>, and passed to a generator constructor in the sole mandatory positional argument, <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+<p>Sometimes, we can leave the generator constructor alone and just inherit from <code class="docutils literal notranslate"><span class="pre">base.Generator</span></code>. In the case of replicate, though, we want to check that there’s a Replicate API key in place, and fail early if it’s missing. Replicate calls require a user to add an API key, and garak won’t be able to do a run without that key - so the polite thing to do is fail as early as we can. Generator load seems like a fine place to do that. The parent class’ constructor already manages tracking this value and storing it in <code class="docutils literal notranslate"><span class="pre">self.name</span></code>.</p>
+<p>Thinking more about user experience - when is a good time to quit because of a missing key? If we quit quietly before the module loads, it might be unclear to the user why. So, we first print a progress message about trying to load <code class="docutils literal notranslate"><span class="pre">ReplicateGenerator</span></code>, and then afterwards check the key. This message printing is handled by the parent class.</p>
+<p>So, in the constructor, we first call the parent constructor using <code class="docutils literal notranslate"><span class="pre">super().__init__()</span></code>, and then do a check for the API key. If the key is missing, we should print a clear message to the user, showing them what the key might look like, and where it should go. And we draw attention to that helpful message with a clear emoji.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">config_root</span><span class="o">=</span><span class="n">_config</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">config_root</span><span class="o">=</span><span class="n">config_root</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># ensure the token is in the expected runtime env var</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ENV_VAR</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">replicate</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">&quot;replicate&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The configuration machinery will handle populating <code class="docutils literal notranslate"><span class="pre">self.api_key</span></code>. Here, the code overrides the local environment variable in case we obtained <code class="docutils literal notranslate"><span class="pre">api_key</span></code> from somewhere else (e.g. a YAML config). We’ll also import a copy of the <code class="docutils literal notranslate"><span class="pre">replicate</span></code> module in this instance, for local access. This is done because a garak run can involve multiple generator instances.</p>
+<p>If a generator needs more complex environment variable loading and detection, or needs a different key populated from the <code class="docutils literal notranslate"><span class="pre">ENV_VAR</span></code>, it should implement <code class="docutils literal notranslate"><span class="pre">_validate_env_var()</span></code>. Examples of this can be found in the codebase.</p>
+<p>Populating a different value than api_key:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_validate_env_var</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uri</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;key_env_var&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uri</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key_env_var</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uri</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid API endpoint URI&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(from garak/generators/langchain_serve.py)</p>
+<p>Populating from additional environment vars – notice the call to super()._validate_env_var() at the end is important to still set self.api_key:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_validate_env_var</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">org_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;org_env_var&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">org_env_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ORG_ENV_VAR</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">org_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">org_env_var</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">org_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">APIKeyMissingError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;Put your org ID in the </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">org_env_var</span><span class="si">}</span><span class="s1"> environment variable (this was empty)</span><span class="se">\n</span><span class="s1"> </span><span class="se">\</span>
+<span class="s1">            e.g.: export </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">org_env_var</span><span class="si">}</span><span class="s1">=&quot;xxxx8yyyy/org-name&quot;</span><span class="se">\n</span><span class="s1"> </span><span class="se">\</span>
+<span class="s1">            Check &quot;view code&quot; on https://llm.ngc.nvidia.com/playground to see the ID&#39;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_validate_env_var</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(garak/generators/nemo.py)</p>
+<p>Finally, if the key check passed, let’s try to load up the Replicate API using the <code class="docutils literal notranslate"><span class="pre">replicate</span></code> module and the user-supplied key. We don’t want to do speculative loading in garak - everything should be imported as late as reasonable, to keep user experience fast.</p>
+<p>How one handles this can vary. It’s done this way here because replicate holds a <code class="docutils literal notranslate"><span class="pre">Client()</span></code> object, and the import there may not support if more than one <code class="docutils literal notranslate"><span class="pre">ReplicateGenerator</span></code> needed to exist at the same time using different API keys. This is a quirk of the replicate library’s design.</p>
+<p>So in this case, we import the <code class="docutils literal notranslate"><span class="pre">replicate</span></code> API module after the initial validation. Finally, to give the module some persistence, it’s loaded at the level of our generator module, instead of just in this method. We add this to the end of <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">replicate</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">&quot;replicate&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, don’t forget to import <code class="docutils literal notranslate"><span class="pre">importlib</span></code> at the top!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+</pre></div>
+</div>
+</section>
+<section id="calling-the-model">
+<h2>Calling the model<a class="headerlink" href="#calling-the-model" title="Link to this heading"></a></h2>
+<p>The core part of getting a result out of LLMs represented using the Replicate API is to submit a text prompt, and capture a single response to that. Within garak, functionality is handled by <code class="docutils literal notranslate"><span class="pre">Generator</span></code>’s private <code class="docutils literal notranslate"><span class="pre">_call_model()</span></code> method - and so that’s what we will overload in the <code class="docutils literal notranslate"><span class="pre">ReplicateGenerator</span></code> class.</p>
+<p>The call is to the <code class="docutils literal notranslate"><span class="pre">replicate</span></code> module’s <code class="docutils literal notranslate"><span class="pre">run()</span></code> method, which takes first the name of the particular hosted model requested - which we’re tracking in <code class="docutils literal notranslate"><span class="pre">self.name</span></code> - and a dictionary parameter named <code class="docutils literal notranslate"><span class="pre">input</span></code>. Relevant params are <code class="docutils literal notranslate"><span class="pre">prompt</span></code> for the input text; <code class="docutils literal notranslate"><span class="pre">max_length</span></code> for the upper limit on output generation size; <code class="docutils literal notranslate"><span class="pre">temperature</span></code>, <code class="docutils literal notranslate"><span class="pre">top_k</span></code> and <code class="docutils literal notranslate"><span class="pre">repetition_penalty</span></code> to shape output text; and <code class="docutils literal notranslate"><span class="pre">seed</span></code> for random seed. We can access the instance of the <code class="docutils literal notranslate"><span class="pre">replicate</span></code> API module we created in the <code class="docutils literal notranslate"><span class="pre">ReplicateGenerator</span></code> constructor.</p>
+<p>Let’s start the <code class="docutils literal notranslate"><span class="pre">_call_model</span></code> method like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_call_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">generations_this_call</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">response_iterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">replicate</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+        <span class="nb">input</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">,</span>
+            <span class="s2">&quot;max_length&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span><span class="p">,</span>
+            <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span><span class="p">,</span>
+            <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_p</span><span class="p">,</span>
+            <span class="s2">&quot;repetition_penalty&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">repetition_penalty</span><span class="p">,</span>
+            <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">seed</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Replicate allows streaming responses, and so results are returned piecemeal, token by token, using an iterator. This means that we need to stitch the response back together again. Finally, <code class="docutils literal notranslate"><span class="pre">_call_model()</span></code> has to return a list, so we wrap this result in a list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">response_iterator</span><span class="p">)]</span>
+</pre></div>
+</div>
+</section>
+<section id="exception-handling">
+<h2>Exception handling<a class="headerlink" href="#exception-handling" title="Link to this heading"></a></h2>
+<p>Many things can go wrong when trying to get inference out of LLMs. Things that can go wrong with web-hosted services, such as Replicate, include running out of funds, or the model going down, or hitting a rate limit. These are sometimes presented to the coder in the form of exceptions.</p>
+<section id="backoff">
+<h3>Backoff<a class="headerlink" href="#backoff" title="Link to this heading"></a></h3>
+<p>We need to work out a strategy of what to do when these exceptions are raised. Fortunately, the Replicate API module is fairly well-coded, and handles a lot of the recoverable failure cases itself. However, transient exceptions shouldn’t stop a garak run - runs can take days, and aborting a run with an uncaught exception after dozens of hours is probably less desirable. So we should handle them</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">backoff</span></code> module offers a decorator that controls behaviour in response to specified exceptions being raised. We can use this to implement Fibonacci backoff on <code class="docutils literal notranslate"><span class="pre">_call_model()</span></code> if a Replicate exception is raised. The decorator looks like this, and goes right above our method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@backoff</span><span class="o">.</span><span class="n">on_exception</span><span class="p">(</span>
+    <span class="n">backoff</span><span class="o">.</span><span class="n">fibo</span><span class="p">,</span> <span class="n">replicate</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ReplicateError</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">70</span>
+<span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_call_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">generations_this_call</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">max_value</span></code> param means to never wait more than 70 seconds. API modules like Replicate’s often use the <code class="docutils literal notranslate"><span class="pre">logging</span></code> module to give more detailed info, which is stored in <code class="docutils literal notranslate"><span class="pre">garak.log</span></code>, if one wants to troubleshoot.</p>
+<p>One housekeeping point: because we lazy-import <code class="docutils literal notranslate"><span class="pre">replicate</span></code>, the requested backoff exception <code class="docutils literal notranslate"><span class="pre">replicate.exceptions.ReplicateError</span></code> doesn’t exist at compile time, and looks like a syntax error to Python. So, we need to add one top-level import to the module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">replicate.exceptions</span>
+</pre></div>
+</div>
+</section>
+<section id="generator-failure">
+<h3>Generator failure<a class="headerlink" href="#generator-failure" title="Link to this heading"></a></h3>
+<p>If the request really can’t be served - maybe the prompt is longer than the context window and there’s no specific handling in this case - then <code class="docutils literal notranslate"><span class="pre">_call_model</span></code> can return a <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+In the case of models that support multiple generations, <code class="docutils literal notranslate"><span class="pre">_call_model</span></code> should return a list of outputs and, optionally, <code class="docutils literal notranslate"><span class="pre">None</span></code>s, with one list entry per requested generation.</p>
+</section>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h3>
+<p>Now that the pieces for our generator are in place - a subclass of <code class="docutils literal notranslate"><span class="pre">garak.generators.base.Generator</span></code>, with some customisation in the constructor, and an overridden <code class="docutils literal notranslate"><span class="pre">_call_model()</span></code> method, plus a <code class="docutils literal notranslate"><span class="pre">DEFAULT_CLASS</span></code> given at module level - we can start to test.</p>
+<p>A good first step is to fire up the Python interpreter and try to import the module. Garak supports a specific range of tested Python versions (listed in <a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/pyproject.toml">pyproject.toml</a>, under the <code class="docutils literal notranslate"><span class="pre">classifiers</span></code> descriptor), so remember to use the right Python version for testing.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>garak
+$<span class="w"> </span>python
+$<span class="w"> </span>python
+Python<span class="w"> </span><span class="m">3</span>.11.9<span class="w"> </span><span class="o">(</span>main,<span class="w"> </span>Apr<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">2024</span>,<span class="w"> </span><span class="m">16</span>:48:06<span class="o">)</span><span class="w"> </span><span class="o">[</span>GCC<span class="w"> </span><span class="m">11</span>.2.0<span class="o">]</span><span class="w"> </span>on<span class="w"> </span>linux
+Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>garak.generators.replicate
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>If all goes well, no errors will appear. If some turn up, try and address those.</p>
+<p>The next step is to instantiate the class. Let’s try with that <code class="docutils literal notranslate"><span class="pre">meta/llama-2-70b-chat</span></code> model.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>garak.generators.replicate.ReplicateGenerator<span class="o">(</span><span class="s2">&quot;meta/llama-2-70b-chat&quot;</span><span class="o">)</span>
+Traceback<span class="w"> </span><span class="o">(</span>most<span class="w"> </span>recent<span class="w"> </span>call<span class="w"> </span>last<span class="o">)</span>:
+File<span class="w"> </span><span class="s2">&quot;&lt;stdin&gt;&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>&lt;module&gt;
+File<span class="w"> </span><span class="s2">&quot;/home/lderczynski/dev/garak/garak/generators/replicate.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">44</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>__init__
+<span class="w">    </span>super<span class="o">()</span>.__init__<span class="o">(</span>name,<span class="w"> </span><span class="nv">generations</span><span class="o">=</span>generations,<span class="w"> </span><span class="nv">config_root</span><span class="o">=</span>config_root<span class="o">)</span>
+File<span class="w"> </span><span class="s2">&quot;/home/lderczynski/dev/garak/garak/generators/base.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">43</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>__init__
+<span class="w">    </span>self._load_config<span class="o">(</span>config_root<span class="o">)</span>
+File<span class="w"> </span><span class="s2">&quot;/home/lderczynski/dev/garak/garak/configurable.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">60</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>_load_config
+<span class="w">    </span>self._validate_env_var<span class="o">()</span>
+File<span class="w"> </span><span class="s2">&quot;/home/lderczynski/dev/garak/garak/configurable.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">116</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>_validate_env_var
+<span class="w">    </span>raise<span class="w"> </span>APIKeyMissingError<span class="o">(</span>
+garak.exception.APIKeyMissingError:<span class="w"> </span>🛑<span class="w"> </span>Put<span class="w"> </span>the<span class="w"> </span>Replicate<span class="w"> </span>API<span class="w"> </span>key<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>REPLICATE_API_TOKEN<span class="w"> </span>environment<span class="w"> </span>variable<span class="w"> </span><span class="o">(</span>this<span class="w"> </span>was<span class="w"> </span>empty<span class="o">)</span>
+<span class="w">                        </span>e.g.:<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">REPLICATE_API_TOKEN</span><span class="o">=</span><span class="s2">&quot;XXXXXXX&quot;</span>
+</pre></div>
+</div>
+<p>Oh, that’s right! No API key. This stack trace is an example of how the <code class="docutils literal notranslate"><span class="pre">Configurable</span></code> interface (superclass in Python) handles the <code class="docutils literal notranslate"><span class="pre">ENV_VAR</span></code> load for the generator without the developer having to do it manually. Looks like the validation exception is working as intended. Let’s set up that value (maybe quit the interpreter, add it using the helpful suggestion in the exception method, and load up Python again).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">REPLICATE_API_TOKEN</span><span class="o">=</span><span class="s2">&quot;r8-not-a-real-token&quot;</span>
+$<span class="w"> </span>python
+Python<span class="w"> </span><span class="m">3</span>.11.9<span class="w"> </span><span class="o">(</span>main,<span class="w"> </span>Apr<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">2024</span>,<span class="w"> </span><span class="m">16</span>:48:06<span class="o">)</span><span class="w"> </span><span class="o">[</span>GCC<span class="w"> </span><span class="m">11</span>.2.0<span class="o">]</span><span class="w"> </span>on<span class="w"> </span>linux
+Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>garak.generators.replicate
+&gt;&gt;&gt;<span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>garak.generators.replicate.ReplicateGenerator<span class="o">(</span><span class="s2">&quot;meta/llama-2-70b-chat&quot;</span><span class="o">)</span>
+🦜<span class="w"> </span>loading<span class="w"> </span>generator:<span class="w"> </span>Replicate:<span class="w"> </span>meta/llama-2-70b-chat
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>Excellent! Now let’s try a test generation (remember to do the export of the API token using a real token):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python
+Python<span class="w"> </span><span class="m">3</span>.11.9<span class="w"> </span><span class="o">(</span>main,<span class="w"> </span>Apr<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">2024</span>,<span class="w"> </span><span class="m">16</span>:48:06<span class="o">)</span><span class="w"> </span><span class="o">[</span>GCC<span class="w"> </span><span class="m">11</span>.2.0<span class="o">]</span><span class="w"> </span>on<span class="w"> </span>linux
+Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>garak.generators.replicate
+&gt;&gt;&gt;<span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>garak.generators.replicate.ReplicateGenerator<span class="o">(</span><span class="s2">&quot;meta/llama-2-70b-chat&quot;</span><span class="o">)</span>
+🦜<span class="w"> </span>loading<span class="w"> </span>generator:<span class="w"> </span>Replicate:<span class="w"> </span>meta/llama-2-70b-chat
+&gt;&gt;&gt;<span class="w"> </span>g.generate<span class="o">(</span><span class="s2">&quot;test prompt&quot;</span>,<span class="w"> </span><span class="nv">generations_this_call</span><span class="o">=</span><span class="m">1</span><span class="o">)</span>
+<span class="o">[</span><span class="s2">&quot; Sure, I&#39;m happy to help! Can you please provide an actual prompt or question you&#39;d like me to assist with? I&#39;ll do my best to provide a helpful and informative response while adhering to the guidelines you&#39;ve outlined.&quot;</span><span class="o">]</span>
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>Well, this looks promising.</p>
+<p>The next step is to try some integration tests - executing garak from the command line, accessing this generator. There are some pointers in <a class="reference internal" href="contributing.html"><span class="doc">Contributing to garak</span></a>. You might need to execute garak by specifying it as a Python module, running the command from the garak root code directory. Things to test are:</p>
+<ul class="simple">
+<li><p>Does the new generator appear in <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">garak</span> <span class="pre">--list_generators</span></code>?</p></li>
+<li><p>Does the generator work with a test probe, via <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">garak</span> <span class="pre">-m</span> <span class="pre">replicate</span> <span class="pre">-n</span> <span class="pre">meta/llama-2-70b-chat</span> <span class="pre">-p</span> <span class="pre">test.Blank</span></code>?</p></li>
+<li><p>Do the garak tests pass? <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pytest</span> <span class="pre">tests/</span></code></p></li>
+</ul>
+<p>Add some of your own tests if there are edge-case behaviours, general validation, or other things in <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>, <code class="docutils literal notranslate"><span class="pre">_call_model()</span></code>, and other new methods that can be checked. Plugin-specific tests should go into a new file, <code class="docutils literal notranslate"><span class="pre">tests/generators/test_[modulename].py</span></code>.</p>
+<p>If you want to see the full, live code for the Replicate garak generator, it’s here: <a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/garak/generators/replicate.py">garak/generators/replicate.py</a> .</p>
+</section>
+<section id="done">
+<h3>Done!<a class="headerlink" href="#done" title="Link to this heading"></a></h3>
+<p>Congratulations - you’ve written a garak plugin!</p>
+<p>If it’s all tested and working, then it’s time to send the code. You should first run <code class="docutils literal notranslate"><span class="pre">black</span></code> to format your code in the standard that the garak repository expects (Python 3.10 style, 88 columns). Then, push your work to your github fork, and finally, send us a pull request - and we’ll take it from there!</p>
+</section>
+<section id="advanced-modalities">
+<h3>Advanced: Modalities<a class="headerlink" href="#advanced-modalities" title="Link to this heading"></a></h3>
+<p>This tutorial covered a tool that takes text as input and produces text as output. Garak supports multimodality - the kinds of format that a generator supports are covered in a modality dictionary, with two keys, in and out. The default is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">modality</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">},</span> <span class="s2">&quot;out&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>For an example of a multimodal model, check out LLaVa in <a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/garak/generators/huggingface.py">garak.generators.huggingface</a> .</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

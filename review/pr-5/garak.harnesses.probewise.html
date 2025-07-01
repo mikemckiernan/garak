@@ -1,0 +1,191 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>garak.harnesses.probewise &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="garak.harnesses.pxd" href="garak.harnesses.pxd.html" />
+    <link rel="prev" title="garak.harnesses.base" href="garak.harnesses.base.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="harnesses.html">garak.harnesses</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="garak.harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.harnesses.base.html">garak.harnesses.base</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">garak.harnesses.probewise</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#garak.harnesses.probewise.ProbewiseHarness"><code class="docutils literal notranslate"><span class="pre">ProbewiseHarness</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.harnesses.probewise.ProbewiseHarness.run"><code class="docutils literal notranslate"><span class="pre">ProbewiseHarness.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="garak.harnesses.pxd.html">garak.harnesses.pxd</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="harnesses.html">garak.harnesses</a></li>
+      <li class="breadcrumb-item active">garak.harnesses.probewise</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/garak.harnesses.probewise.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-garak.harnesses.probewise">
+<span id="garak-harnesses-probewise"></span><h1>garak.harnesses.probewise<a class="headerlink" href="#module-garak.harnesses.probewise" title="Link to this heading"></a></h1>
+<p>Probewise harness</p>
+<p>Selects detectors to run for each probe based on that probe’s recommendations</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.harnesses.probewise.ProbewiseHarness">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.harnesses.probewise.</span></span><span class="sig-name descname"><span class="pre">ProbewiseHarness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.harnesses.probewise.ProbewiseHarness" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.harnesses.base.html#garak.harnesses.base.Harness" title="garak.harnesses.base.Harness"><code class="xref py py-class docutils literal notranslate"><span class="pre">Harness</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.harnesses.probewise.ProbewiseHarness.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">probenames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buff_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.harnesses.probewise.ProbewiseHarness.run" title="Link to this definition"></a></dt>
+<dd><p>Execute a probe-by-probe scan</p>
+<p>Probes are executed in name order. For each probe, the detectors
+recommended by that probe are loaded and used to provide scores
+of the results. The detector(s) to be used are determined with the
+following formula:
+* if the probe specifies a <code class="docutils literal notranslate"><span class="pre">primary_detector</span></code>; <code class="docutils literal notranslate"><span class="pre">_config.args</span></code> is
+set; and <code class="docutils literal notranslate"><span class="pre">_config.args.extended_detectors</span></code> is true; the union of
+<code class="docutils literal notranslate"><span class="pre">primary_detector</span></code> and <code class="docutils literal notranslate"><span class="pre">extended_detectors</span></code> are used.
+* if the probe specifices a <code class="docutils literal notranslate"><span class="pre">primary_detector</span></code> and <code class="docutils literal notranslate"><span class="pre">_config.args.extended_detectors</span></code>
+if false, or <code class="docutils literal notranslate"><span class="pre">_config.args</span></code> is not set, then only the detector in
+<code class="docutils literal notranslate"><span class="pre">primary_detector</span></code> is used.
+* if the probe does not specify <code class="docutils literal notranslate"><span class="pre">primary_detector</span></code> value, or this is
+<code class="docutils literal notranslate"><span class="pre">None</span></code>, then detectors are queued based on the from the probe’s
+<code class="docutils literal notranslate"><span class="pre">recommended_detectors</span></code> value; see <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">garak.probes.base.Probe</span></code></a> for the defaults.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference internal" href="garak.generators.base.html#garak.generators.base.Generator" title="garak.generators.base.Generator"><em>garak.generators.base.Generator</em></a>) – an instantiated generator providing an interface to the model to be examined</p></li>
+<li><p><strong>probenames</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em>) – a list of probe names to be run</p></li>
+<li><p><strong>evaluator</strong> (<a class="reference internal" href="garak.evaluators.base.html#garak.evaluators.base.Evaluator" title="garak.evaluators.base.Evaluator"><em>garak.evaluators.base.Evaluator</em></a>) – an instantiated evaluator for judging detector results</p></li>
+<li><p><strong>buff_names</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em>) – a list of buff names to be used this run</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="garak.harnesses.base.html" class="btn btn-neutral float-left" title="garak.harnesses.base" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="garak.harnesses.pxd.html" class="btn btn-neutral float-right" title="garak.harnesses.pxd" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

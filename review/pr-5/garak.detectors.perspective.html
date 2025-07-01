@@ -1,0 +1,1399 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>garak.detectors.perspective &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="garak.detectors.promptinject" href="garak.detectors.promptinject.html" />
+    <link rel="prev" title="garak.detectors.packagehallucination" href="garak.detectors.packagehallucination.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="detectors.html">garak.detectors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.html">garak.detectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.base.html">garak.detectors.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.always.html">garak.detectors.always</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.ansiescape.html">garak.detectors.ansiescape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.continuation.html">garak.detectors.continuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.dan.html">garak.detectors.dan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.divergence.html">garak.detectors.divergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.encoding.html">garak.detectors.encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.exploitation.html">garak.detectors.exploitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.fileformats.html">garak.detectors.fileformats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.goodside.html">garak.detectors.goodside</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.judge.html">garak.detectors.judge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.knownbadsignatures.html">garak.detectors.knownbadsignatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.leakreplay.html">garak.detectors.leakreplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.lmrc.html">garak.detectors.lmrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.malwaregen.html">garak.detectors.malwaregen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.misleading.html">garak.detectors.misleading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.mitigation.html">garak.detectors.mitigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.packagehallucination.html">garak.detectors.packagehallucination</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">garak.detectors.perspective</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Author"><code class="docutils literal notranslate"><span class="pre">Attack_On_Author</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Author.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Attack_On_Author.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Author.active"><code class="docutils literal notranslate"><span class="pre">Attack_On_Author.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Author.description"><code class="docutils literal notranslate"><span class="pre">Attack_On_Author.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Author.detect"><code class="docutils literal notranslate"><span class="pre">Attack_On_Author.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Author.endpoint"><code class="docutils literal notranslate"><span class="pre">Attack_On_Author.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Author.lang_spec"><code class="docutils literal notranslate"><span class="pre">Attack_On_Author.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Author.tags"><code class="docutils literal notranslate"><span class="pre">Attack_On_Author.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Commenter"><code class="docutils literal notranslate"><span class="pre">Attack_On_Commenter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Commenter.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Attack_On_Commenter.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Commenter.active"><code class="docutils literal notranslate"><span class="pre">Attack_On_Commenter.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Commenter.description"><code class="docutils literal notranslate"><span class="pre">Attack_On_Commenter.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Commenter.detect"><code class="docutils literal notranslate"><span class="pre">Attack_On_Commenter.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Commenter.endpoint"><code class="docutils literal notranslate"><span class="pre">Attack_On_Commenter.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Commenter.lang_spec"><code class="docutils literal notranslate"><span class="pre">Attack_On_Commenter.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Attack_On_Commenter.tags"><code class="docutils literal notranslate"><span class="pre">Attack_On_Commenter.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Flirtation"><code class="docutils literal notranslate"><span class="pre">Flirtation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Flirtation.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Flirtation.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Flirtation.active"><code class="docutils literal notranslate"><span class="pre">Flirtation.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Flirtation.description"><code class="docutils literal notranslate"><span class="pre">Flirtation.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Flirtation.detect"><code class="docutils literal notranslate"><span class="pre">Flirtation.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Flirtation.endpoint"><code class="docutils literal notranslate"><span class="pre">Flirtation.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Flirtation.lang_spec"><code class="docutils literal notranslate"><span class="pre">Flirtation.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Flirtation.tags"><code class="docutils literal notranslate"><span class="pre">Flirtation.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack"><code class="docutils literal notranslate"><span class="pre">Identity_Attack</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Identity_Attack.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack.active"><code class="docutils literal notranslate"><span class="pre">Identity_Attack.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack.description"><code class="docutils literal notranslate"><span class="pre">Identity_Attack.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack.detect"><code class="docutils literal notranslate"><span class="pre">Identity_Attack.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack.endpoint"><code class="docutils literal notranslate"><span class="pre">Identity_Attack.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack.lang_spec"><code class="docutils literal notranslate"><span class="pre">Identity_Attack.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack.tags"><code class="docutils literal notranslate"><span class="pre">Identity_Attack.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack_Experimental"><code class="docutils literal notranslate"><span class="pre">Identity_Attack_Experimental</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack_Experimental.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Identity_Attack_Experimental.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack_Experimental.active"><code class="docutils literal notranslate"><span class="pre">Identity_Attack_Experimental.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack_Experimental.description"><code class="docutils literal notranslate"><span class="pre">Identity_Attack_Experimental.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack_Experimental.detect"><code class="docutils literal notranslate"><span class="pre">Identity_Attack_Experimental.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack_Experimental.endpoint"><code class="docutils literal notranslate"><span class="pre">Identity_Attack_Experimental.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack_Experimental.lang_spec"><code class="docutils literal notranslate"><span class="pre">Identity_Attack_Experimental.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Identity_Attack_Experimental.tags"><code class="docutils literal notranslate"><span class="pre">Identity_Attack_Experimental.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Incoherent"><code class="docutils literal notranslate"><span class="pre">Incoherent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Incoherent.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Incoherent.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Incoherent.active"><code class="docutils literal notranslate"><span class="pre">Incoherent.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Incoherent.description"><code class="docutils literal notranslate"><span class="pre">Incoherent.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Incoherent.detect"><code class="docutils literal notranslate"><span class="pre">Incoherent.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Incoherent.endpoint"><code class="docutils literal notranslate"><span class="pre">Incoherent.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Incoherent.lang_spec"><code class="docutils literal notranslate"><span class="pre">Incoherent.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Incoherent.tags"><code class="docutils literal notranslate"><span class="pre">Incoherent.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Inflammatory"><code class="docutils literal notranslate"><span class="pre">Inflammatory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Inflammatory.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Inflammatory.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Inflammatory.active"><code class="docutils literal notranslate"><span class="pre">Inflammatory.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Inflammatory.description"><code class="docutils literal notranslate"><span class="pre">Inflammatory.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Inflammatory.detect"><code class="docutils literal notranslate"><span class="pre">Inflammatory.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Inflammatory.endpoint"><code class="docutils literal notranslate"><span class="pre">Inflammatory.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Inflammatory.lang_spec"><code class="docutils literal notranslate"><span class="pre">Inflammatory.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Inflammatory.tags"><code class="docutils literal notranslate"><span class="pre">Inflammatory.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Insult"><code class="docutils literal notranslate"><span class="pre">Insult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Insult.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult.active"><code class="docutils literal notranslate"><span class="pre">Insult.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult.description"><code class="docutils literal notranslate"><span class="pre">Insult.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult.detect"><code class="docutils literal notranslate"><span class="pre">Insult.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult.endpoint"><code class="docutils literal notranslate"><span class="pre">Insult.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult.lang_spec"><code class="docutils literal notranslate"><span class="pre">Insult.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult.tags"><code class="docutils literal notranslate"><span class="pre">Insult.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Insult_Experimental"><code class="docutils literal notranslate"><span class="pre">Insult_Experimental</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult_Experimental.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Insult_Experimental.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult_Experimental.active"><code class="docutils literal notranslate"><span class="pre">Insult_Experimental.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult_Experimental.description"><code class="docutils literal notranslate"><span class="pre">Insult_Experimental.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult_Experimental.detect"><code class="docutils literal notranslate"><span class="pre">Insult_Experimental.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult_Experimental.endpoint"><code class="docutils literal notranslate"><span class="pre">Insult_Experimental.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult_Experimental.lang_spec"><code class="docutils literal notranslate"><span class="pre">Insult_Experimental.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Insult_Experimental.tags"><code class="docutils literal notranslate"><span class="pre">Insult_Experimental.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Likely_To_Reject"><code class="docutils literal notranslate"><span class="pre">Likely_To_Reject</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Likely_To_Reject.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Likely_To_Reject.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Likely_To_Reject.active"><code class="docutils literal notranslate"><span class="pre">Likely_To_Reject.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Likely_To_Reject.description"><code class="docutils literal notranslate"><span class="pre">Likely_To_Reject.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Likely_To_Reject.detect"><code class="docutils literal notranslate"><span class="pre">Likely_To_Reject.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Likely_To_Reject.endpoint"><code class="docutils literal notranslate"><span class="pre">Likely_To_Reject.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Likely_To_Reject.lang_spec"><code class="docutils literal notranslate"><span class="pre">Likely_To_Reject.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Likely_To_Reject.tags"><code class="docutils literal notranslate"><span class="pre">Likely_To_Reject.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Obscene"><code class="docutils literal notranslate"><span class="pre">Obscene</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Obscene.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Obscene.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Obscene.active"><code class="docutils literal notranslate"><span class="pre">Obscene.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Obscene.description"><code class="docutils literal notranslate"><span class="pre">Obscene.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Obscene.detect"><code class="docutils literal notranslate"><span class="pre">Obscene.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Obscene.endpoint"><code class="docutils literal notranslate"><span class="pre">Obscene.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Obscene.lang_spec"><code class="docutils literal notranslate"><span class="pre">Obscene.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Obscene.tags"><code class="docutils literal notranslate"><span class="pre">Obscene.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Profanity"><code class="docutils literal notranslate"><span class="pre">Profanity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Profanity.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity.active"><code class="docutils literal notranslate"><span class="pre">Profanity.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity.description"><code class="docutils literal notranslate"><span class="pre">Profanity.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity.detect"><code class="docutils literal notranslate"><span class="pre">Profanity.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity.endpoint"><code class="docutils literal notranslate"><span class="pre">Profanity.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity.lang_spec"><code class="docutils literal notranslate"><span class="pre">Profanity.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity.tags"><code class="docutils literal notranslate"><span class="pre">Profanity.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Profanity_Experimental"><code class="docutils literal notranslate"><span class="pre">Profanity_Experimental</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity_Experimental.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Profanity_Experimental.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity_Experimental.active"><code class="docutils literal notranslate"><span class="pre">Profanity_Experimental.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity_Experimental.description"><code class="docutils literal notranslate"><span class="pre">Profanity_Experimental.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity_Experimental.detect"><code class="docutils literal notranslate"><span class="pre">Profanity_Experimental.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity_Experimental.endpoint"><code class="docutils literal notranslate"><span class="pre">Profanity_Experimental.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity_Experimental.lang_spec"><code class="docutils literal notranslate"><span class="pre">Profanity_Experimental.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Profanity_Experimental.tags"><code class="docutils literal notranslate"><span class="pre">Profanity_Experimental.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity.active"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity.description"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity.detect"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity.endpoint"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity.lang_spec"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity.tags"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity_Experimental"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity_Experimental</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity_Experimental.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.active"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity_Experimental.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.description"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity_Experimental.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.detect"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity_Experimental.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.endpoint"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity_Experimental.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.lang_spec"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity_Experimental.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.tags"><code class="docutils literal notranslate"><span class="pre">Severe_Toxicity_Experimental.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Sexually_Explicit"><code class="docutils literal notranslate"><span class="pre">Sexually_Explicit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Sexually_Explicit.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Sexually_Explicit.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Sexually_Explicit.active"><code class="docutils literal notranslate"><span class="pre">Sexually_Explicit.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Sexually_Explicit.description"><code class="docutils literal notranslate"><span class="pre">Sexually_Explicit.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Sexually_Explicit.detect"><code class="docutils literal notranslate"><span class="pre">Sexually_Explicit.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Sexually_Explicit.endpoint"><code class="docutils literal notranslate"><span class="pre">Sexually_Explicit.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Sexually_Explicit.lang_spec"><code class="docutils literal notranslate"><span class="pre">Sexually_Explicit.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Sexually_Explicit.tags"><code class="docutils literal notranslate"><span class="pre">Sexually_Explicit.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Spam"><code class="docutils literal notranslate"><span class="pre">Spam</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Spam.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Spam.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Spam.active"><code class="docutils literal notranslate"><span class="pre">Spam.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Spam.description"><code class="docutils literal notranslate"><span class="pre">Spam.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Spam.detect"><code class="docutils literal notranslate"><span class="pre">Spam.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Spam.endpoint"><code class="docutils literal notranslate"><span class="pre">Spam.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Spam.lang_spec"><code class="docutils literal notranslate"><span class="pre">Spam.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Spam.tags"><code class="docutils literal notranslate"><span class="pre">Spam.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Threat"><code class="docutils literal notranslate"><span class="pre">Threat</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Threat.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat.active"><code class="docutils literal notranslate"><span class="pre">Threat.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat.description"><code class="docutils literal notranslate"><span class="pre">Threat.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat.detect"><code class="docutils literal notranslate"><span class="pre">Threat.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat.endpoint"><code class="docutils literal notranslate"><span class="pre">Threat.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat.lang_spec"><code class="docutils literal notranslate"><span class="pre">Threat.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat.tags"><code class="docutils literal notranslate"><span class="pre">Threat.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Threat_Experimental"><code class="docutils literal notranslate"><span class="pre">Threat_Experimental</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat_Experimental.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Threat_Experimental.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat_Experimental.active"><code class="docutils literal notranslate"><span class="pre">Threat_Experimental.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat_Experimental.description"><code class="docutils literal notranslate"><span class="pre">Threat_Experimental.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat_Experimental.detect"><code class="docutils literal notranslate"><span class="pre">Threat_Experimental.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat_Experimental.endpoint"><code class="docutils literal notranslate"><span class="pre">Threat_Experimental.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat_Experimental.lang_spec"><code class="docutils literal notranslate"><span class="pre">Threat_Experimental.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Threat_Experimental.tags"><code class="docutils literal notranslate"><span class="pre">Threat_Experimental.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Toxicity"><code class="docutils literal notranslate"><span class="pre">Toxicity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Toxicity.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity.active"><code class="docutils literal notranslate"><span class="pre">Toxicity.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity.description"><code class="docutils literal notranslate"><span class="pre">Toxicity.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity.detect"><code class="docutils literal notranslate"><span class="pre">Toxicity.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity.endpoint"><code class="docutils literal notranslate"><span class="pre">Toxicity.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity.lang_spec"><code class="docutils literal notranslate"><span class="pre">Toxicity.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity.tags"><code class="docutils literal notranslate"><span class="pre">Toxicity.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Toxicity_Experimental"><code class="docutils literal notranslate"><span class="pre">Toxicity_Experimental</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity_Experimental.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Toxicity_Experimental.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity_Experimental.active"><code class="docutils literal notranslate"><span class="pre">Toxicity_Experimental.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity_Experimental.description"><code class="docutils literal notranslate"><span class="pre">Toxicity_Experimental.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity_Experimental.detect"><code class="docutils literal notranslate"><span class="pre">Toxicity_Experimental.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity_Experimental.endpoint"><code class="docutils literal notranslate"><span class="pre">Toxicity_Experimental.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity_Experimental.lang_spec"><code class="docutils literal notranslate"><span class="pre">Toxicity_Experimental.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Toxicity_Experimental.tags"><code class="docutils literal notranslate"><span class="pre">Toxicity_Experimental.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.Unsubstantial"><code class="docutils literal notranslate"><span class="pre">Unsubstantial</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Unsubstantial.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">Unsubstantial.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Unsubstantial.active"><code class="docutils literal notranslate"><span class="pre">Unsubstantial.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Unsubstantial.description"><code class="docutils literal notranslate"><span class="pre">Unsubstantial.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Unsubstantial.detect"><code class="docutils literal notranslate"><span class="pre">Unsubstantial.detect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Unsubstantial.endpoint"><code class="docutils literal notranslate"><span class="pre">Unsubstantial.endpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Unsubstantial.lang_spec"><code class="docutils literal notranslate"><span class="pre">Unsubstantial.lang_spec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.detectors.perspective.Unsubstantial.tags"><code class="docutils literal notranslate"><span class="pre">Unsubstantial.tags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.constructor"><code class="docutils literal notranslate"><span class="pre">constructor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.detectors.perspective.detect"><code class="docutils literal notranslate"><span class="pre">detect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.promptinject.html">garak.detectors.promptinject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.productkey.html">garak.detectors.productkey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.shields.html">garak.detectors.shields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.snowball.html">garak.detectors.snowball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.unsafe_content.html">garak.detectors.unsafe_content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.xss.html">garak.detectors.xss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.detectors.visual_jailbreak.html">garak.detectors.visual_jailbreak</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="detectors.html">garak.detectors</a></li>
+      <li class="breadcrumb-item active">garak.detectors.perspective</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/garak.detectors.perspective.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-garak.detectors.perspective">
+<span id="garak-detectors-perspective"></span><h1>garak.detectors.perspective<a class="headerlink" href="#module-garak.detectors.perspective" title="Link to this heading"></a></h1>
+<p>Perspective API Detectors</p>
+<p>Detectors using the Perspective API</p>
+<p>Requires a key set as an environment variable PERSPECTIVE_API_KEY</p>
+<p>Get a key here, <a class="reference external" href="https://developers.google.com/codelabs/setup-perspective-api#0">https://developers.google.com/codelabs/setup-perspective-api#0</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Author">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Attack_On_Author</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Author" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for ATTACK_ON_AUTHOR - Attack on the author of an article or post.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Author.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Author.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Author.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Author.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Author.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Attack</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">author</span> <span class="pre">of</span> <span class="pre">an</span> <span class="pre">article</span> <span class="pre">or</span> <span class="pre">post.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Author.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Author.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Author.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Author.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ATTACK_ON_AUTHOR'</span></em><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Author.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Author.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Author.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Author.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Author.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Commenter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Attack_On_Commenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Commenter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for ATTACK_ON_COMMENTER - Attack on fellow commenter.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Commenter.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Commenter.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Commenter.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Commenter.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Commenter.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Attack</span> <span class="pre">on</span> <span class="pre">fellow</span> <span class="pre">commenter.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Commenter.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Commenter.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Commenter.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Commenter.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ATTACK_ON_COMMENTER'</span></em><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Commenter.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Commenter.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Commenter.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Attack_On_Commenter.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Attack_On_Commenter.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Flirtation">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Flirtation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Flirtation" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for FLIRTATION - Pickup lines, complimenting appearance, subtle sexual innuendos, etc.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Flirtation.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Flirtation.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Flirtation.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Flirtation.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Flirtation.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Pickup</span> <span class="pre">lines,</span> <span class="pre">complimenting</span> <span class="pre">appearance,</span> <span class="pre">subtle</span> <span class="pre">sexual</span> <span class="pre">innuendos,</span> <span class="pre">etc.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Flirtation.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Flirtation.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Flirtation.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Flirtation.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FLIRTATION'</span></em><a class="headerlink" href="#garak.detectors.perspective.Flirtation.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Flirtation.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Flirtation.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Flirtation.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Flirtation.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Identity_Attack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for IDENTITY_ATTACK - Negative or hateful comments targeting someone because of their identity.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Negative</span> <span class="pre">or</span> <span class="pre">hateful</span> <span class="pre">comments</span> <span class="pre">targeting</span> <span class="pre">someone</span> <span class="pre">because</span> <span class="pre">of</span> <span class="pre">their</span> <span class="pre">identity.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'IDENTITY_ATTACK'</span></em><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ar,zh,cs,nl,en,fr,de,hi,hi-Latn,id,it,ja,ko,pl,pt,ru,es,sv'</span></em><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:ethics:E0302',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack_Experimental">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Identity_Attack_Experimental</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack_Experimental" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for IDENTITY_ATTACK_EXPERIMENTAL - Negative or hateful comments targeting someone because of their identity.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack_Experimental.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack_Experimental.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack_Experimental.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack_Experimental.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack_Experimental.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Negative</span> <span class="pre">or</span> <span class="pre">hateful</span> <span class="pre">comments</span> <span class="pre">targeting</span> <span class="pre">someone</span> <span class="pre">because</span> <span class="pre">of</span> <span class="pre">their</span> <span class="pre">identity.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack_Experimental.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack_Experimental.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack_Experimental.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack_Experimental.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'IDENTITY_ATTACK_EXPERIMENTAL'</span></em><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack_Experimental.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack_Experimental.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack_Experimental.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Identity_Attack_Experimental.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:ethics:E0302',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Identity_Attack_Experimental.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Incoherent">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Incoherent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Incoherent" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for INCOHERENT - Difficult to understand, nonsensical.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Incoherent.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Incoherent.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Incoherent.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Incoherent.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Incoherent.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Difficult</span> <span class="pre">to</span> <span class="pre">understand,</span> <span class="pre">nonsensical.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Incoherent.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Incoherent.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Incoherent.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Incoherent.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'INCOHERENT'</span></em><a class="headerlink" href="#garak.detectors.perspective.Incoherent.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Incoherent.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Incoherent.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Incoherent.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:performance:P0204']</span></em><a class="headerlink" href="#garak.detectors.perspective.Incoherent.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Inflammatory">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Inflammatory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Inflammatory" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for INFLAMMATORY - Intending to provoke or inflame.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Inflammatory.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Inflammatory.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Inflammatory.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Inflammatory.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Inflammatory.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Intending</span> <span class="pre">to</span> <span class="pre">provoke</span> <span class="pre">or</span> <span class="pre">inflame.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Inflammatory.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Inflammatory.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Inflammatory.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Inflammatory.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'INFLAMMATORY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Inflammatory.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Inflammatory.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Inflammatory.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Inflammatory.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:ethics:E0302',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Inflammatory.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Insult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Insult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for INSULT - Insulting, inflammatory, or negative comment towards a person or a group of people.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Insult.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Insult.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Insulting,</span> <span class="pre">inflammatory,</span> <span class="pre">or</span> <span class="pre">negative</span> <span class="pre">comment</span> <span class="pre">towards</span> <span class="pre">a</span> <span class="pre">person</span> <span class="pre">or</span> <span class="pre">a</span> <span class="pre">group</span> <span class="pre">of</span> <span class="pre">people.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Insult.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Insult.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'INSULT'</span></em><a class="headerlink" href="#garak.detectors.perspective.Insult.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ar,zh,cs,nl,en,fr,de,hi,hi-Latn,id,it,ja,ko,pl,pt,ru,es,sv'</span></em><a class="headerlink" href="#garak.detectors.perspective.Insult.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Insult.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult_Experimental">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Insult_Experimental</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Insult_Experimental" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for INSULT_EXPERIMENTAL - Insulting, inflammatory, or negative comment towards a person or a group of people.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult_Experimental.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Insult_Experimental.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult_Experimental.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Insult_Experimental.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult_Experimental.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Insulting,</span> <span class="pre">inflammatory,</span> <span class="pre">or</span> <span class="pre">negative</span> <span class="pre">comment</span> <span class="pre">towards</span> <span class="pre">a</span> <span class="pre">person</span> <span class="pre">or</span> <span class="pre">a</span> <span class="pre">group</span> <span class="pre">of</span> <span class="pre">people.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Insult_Experimental.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult_Experimental.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Insult_Experimental.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult_Experimental.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'INSULT_EXPERIMENTAL'</span></em><a class="headerlink" href="#garak.detectors.perspective.Insult_Experimental.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult_Experimental.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Insult_Experimental.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Insult_Experimental.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Insult_Experimental.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Likely_To_Reject">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Likely_To_Reject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Likely_To_Reject" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for LIKELY_TO_REJECT - Overall measure of the likelihood for the comment to be rejected according to the NYT’s moderation.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Likely_To_Reject.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Likely_To_Reject.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Likely_To_Reject.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Likely_To_Reject.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Likely_To_Reject.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;Targets:</span> <span class="pre">Overall</span> <span class="pre">measure</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">likelihood</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">comment</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">rejected</span> <span class="pre">according</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">NYT's</span> <span class="pre">moderation.&quot;</span></em><a class="headerlink" href="#garak.detectors.perspective.Likely_To_Reject.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Likely_To_Reject.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Likely_To_Reject.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Likely_To_Reject.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LIKELY_TO_REJECT'</span></em><a class="headerlink" href="#garak.detectors.perspective.Likely_To_Reject.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Likely_To_Reject.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Likely_To_Reject.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Likely_To_Reject.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#garak.detectors.perspective.Likely_To_Reject.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Obscene">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Obscene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Obscene" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for OBSCENE - Obscene or vulgar language such as cursing.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Obscene.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Obscene.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Obscene.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Obscene.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Obscene.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Obscene</span> <span class="pre">or</span> <span class="pre">vulgar</span> <span class="pre">language</span> <span class="pre">such</span> <span class="pre">as</span> <span class="pre">cursing.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Obscene.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Obscene.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Obscene.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Obscene.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OBSCENE'</span></em><a class="headerlink" href="#garak.detectors.perspective.Obscene.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Obscene.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Obscene.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Obscene.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Obscene.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Profanity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Profanity" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for PROFANITY - Swear words, curse words, or other obscene or profane language.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Profanity.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Profanity.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Swear</span> <span class="pre">words,</span> <span class="pre">curse</span> <span class="pre">words,</span> <span class="pre">or</span> <span class="pre">other</span> <span class="pre">obscene</span> <span class="pre">or</span> <span class="pre">profane</span> <span class="pre">language.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Profanity.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Profanity.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PROFANITY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Profanity.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ar,zh,cs,nl,en,fr,de,hi,hi-Latn,id,it,ja,ko,pl,pt,ru,es,sv'</span></em><a class="headerlink" href="#garak.detectors.perspective.Profanity.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Profanity.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity_Experimental">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Profanity_Experimental</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Profanity_Experimental" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for PROFANITY_EXPERIMENTAL - Swear words, curse words, or other obscene or profane language.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity_Experimental.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Profanity_Experimental.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity_Experimental.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Profanity_Experimental.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity_Experimental.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Swear</span> <span class="pre">words,</span> <span class="pre">curse</span> <span class="pre">words,</span> <span class="pre">or</span> <span class="pre">other</span> <span class="pre">obscene</span> <span class="pre">or</span> <span class="pre">profane</span> <span class="pre">language.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Profanity_Experimental.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity_Experimental.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Profanity_Experimental.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity_Experimental.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PROFANITY_EXPERIMENTAL'</span></em><a class="headerlink" href="#garak.detectors.perspective.Profanity_Experimental.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity_Experimental.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Profanity_Experimental.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Profanity_Experimental.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Profanity_Experimental.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Severe_Toxicity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for SEVERE_TOXICITY - A very hateful, aggressive, disrespectful comment or otherwise very likely to make a user leave a discussion or give up on sharing their perspective. This attribute is much less sensitive to more mild forms of toxicity, such as comments that include positive uses of curse words.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">A</span> <span class="pre">very</span> <span class="pre">hateful,</span> <span class="pre">aggressive,</span> <span class="pre">disrespectful</span> <span class="pre">comment</span> <span class="pre">or</span> <span class="pre">otherwise</span> <span class="pre">very</span> <span class="pre">likely</span> <span class="pre">to</span> <span class="pre">make</span> <span class="pre">a</span> <span class="pre">user</span> <span class="pre">leave</span> <span class="pre">a</span> <span class="pre">discussion</span> <span class="pre">or</span> <span class="pre">give</span> <span class="pre">up</span> <span class="pre">on</span> <span class="pre">sharing</span> <span class="pre">their</span> <span class="pre">perspective.</span> <span class="pre">This</span> <span class="pre">attribute</span> <span class="pre">is</span> <span class="pre">much</span> <span class="pre">less</span> <span class="pre">sensitive</span> <span class="pre">to</span> <span class="pre">more</span> <span class="pre">mild</span> <span class="pre">forms</span> <span class="pre">of</span> <span class="pre">toxicity,</span> <span class="pre">such</span> <span class="pre">as</span> <span class="pre">comments</span> <span class="pre">that</span> <span class="pre">include</span> <span class="pre">positive</span> <span class="pre">uses</span> <span class="pre">of</span> <span class="pre">curse</span> <span class="pre">words.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SEVERE_TOXICITY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ar,zh,cs,nl,en,fr,de,hi,hi-Latn,id,it,ja,ko,pl,pt,ru,es,sv'</span></em><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301']</span></em><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity_Experimental">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Severe_Toxicity_Experimental</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity_Experimental" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for SEVERE_TOXICITY_EXPERIMENTAL - A very hateful, aggressive, disrespectful comment or otherwise very likely to make a user leave a discussion or give up on sharing their perspective. This attribute is much less sensitive to more mild forms of toxicity, such as comments that include positive uses of curse words.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity_Experimental.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity_Experimental.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity_Experimental.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">A</span> <span class="pre">very</span> <span class="pre">hateful,</span> <span class="pre">aggressive,</span> <span class="pre">disrespectful</span> <span class="pre">comment</span> <span class="pre">or</span> <span class="pre">otherwise</span> <span class="pre">very</span> <span class="pre">likely</span> <span class="pre">to</span> <span class="pre">make</span> <span class="pre">a</span> <span class="pre">user</span> <span class="pre">leave</span> <span class="pre">a</span> <span class="pre">discussion</span> <span class="pre">or</span> <span class="pre">give</span> <span class="pre">up</span> <span class="pre">on</span> <span class="pre">sharing</span> <span class="pre">their</span> <span class="pre">perspective.</span> <span class="pre">This</span> <span class="pre">attribute</span> <span class="pre">is</span> <span class="pre">much</span> <span class="pre">less</span> <span class="pre">sensitive</span> <span class="pre">to</span> <span class="pre">more</span> <span class="pre">mild</span> <span class="pre">forms</span> <span class="pre">of</span> <span class="pre">toxicity,</span> <span class="pre">such</span> <span class="pre">as</span> <span class="pre">comments</span> <span class="pre">that</span> <span class="pre">include</span> <span class="pre">positive</span> <span class="pre">uses</span> <span class="pre">of</span> <span class="pre">curse</span> <span class="pre">words.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity_Experimental.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity_Experimental.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SEVERE_TOXICITY_EXPERIMENTAL'</span></em><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity_Experimental.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Severe_Toxicity_Experimental.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:ethics:E0302',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Severe_Toxicity_Experimental.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Sexually_Explicit">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Sexually_Explicit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Sexually_Explicit" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for SEXUALLY_EXPLICIT - Contains references to sexual acts, body parts, or other lewd content.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Sexually_Explicit.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Sexually_Explicit.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Sexually_Explicit.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Sexually_Explicit.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Sexually_Explicit.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Contains</span> <span class="pre">references</span> <span class="pre">to</span> <span class="pre">sexual</span> <span class="pre">acts,</span> <span class="pre">body</span> <span class="pre">parts,</span> <span class="pre">or</span> <span class="pre">other</span> <span class="pre">lewd</span> <span class="pre">content.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Sexually_Explicit.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Sexually_Explicit.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Sexually_Explicit.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Sexually_Explicit.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SEXUALLY_EXPLICIT'</span></em><a class="headerlink" href="#garak.detectors.perspective.Sexually_Explicit.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Sexually_Explicit.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Sexually_Explicit.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Sexually_Explicit.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301']</span></em><a class="headerlink" href="#garak.detectors.perspective.Sexually_Explicit.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Spam">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Spam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Spam" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for SPAM - Irrelevant and unsolicited commercial content.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Spam.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Spam.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Spam.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Spam.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Spam.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Irrelevant</span> <span class="pre">and</span> <span class="pre">unsolicited</span> <span class="pre">commercial</span> <span class="pre">content.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Spam.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Spam.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Spam.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Spam.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SPAM'</span></em><a class="headerlink" href="#garak.detectors.perspective.Spam.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Spam.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Spam.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Spam.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:performance:P0204']</span></em><a class="headerlink" href="#garak.detectors.perspective.Spam.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Threat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Threat" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for THREAT - Describes an intention to inflict pain, injury, or violence against an individual or group.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Threat.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Threat.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Describes</span> <span class="pre">an</span> <span class="pre">intention</span> <span class="pre">to</span> <span class="pre">inflict</span> <span class="pre">pain,</span> <span class="pre">injury,</span> <span class="pre">or</span> <span class="pre">violence</span> <span class="pre">against</span> <span class="pre">an</span> <span class="pre">individual</span> <span class="pre">or</span> <span class="pre">group.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Threat.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Threat.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'THREAT'</span></em><a class="headerlink" href="#garak.detectors.perspective.Threat.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ar,zh,cs,nl,en,fr,de,hi,hi-Latn,id,it,ja,ko,pl,pt,ru,es,sv'</span></em><a class="headerlink" href="#garak.detectors.perspective.Threat.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0101',</span> <span class="pre">'avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0400']</span></em><a class="headerlink" href="#garak.detectors.perspective.Threat.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat_Experimental">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Threat_Experimental</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Threat_Experimental" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for THREAT_EXPERIMENTAL - Describes an intention to inflict pain, injury, or violence against an individual or group.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat_Experimental.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Threat_Experimental.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat_Experimental.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Threat_Experimental.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat_Experimental.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Describes</span> <span class="pre">an</span> <span class="pre">intention</span> <span class="pre">to</span> <span class="pre">inflict</span> <span class="pre">pain,</span> <span class="pre">injury,</span> <span class="pre">or</span> <span class="pre">violence</span> <span class="pre">against</span> <span class="pre">an</span> <span class="pre">individual</span> <span class="pre">or</span> <span class="pre">group.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Threat_Experimental.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat_Experimental.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Threat_Experimental.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat_Experimental.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'THREAT_EXPERIMENTAL'</span></em><a class="headerlink" href="#garak.detectors.perspective.Threat_Experimental.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat_Experimental.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Threat_Experimental.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Threat_Experimental.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Threat_Experimental.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Toxicity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Toxicity" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for TOXICITY - A rude, disrespectful, or unreasonable comment that is likely to make people leave a discussion.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Toxicity.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Toxicity.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">A</span> <span class="pre">rude,</span> <span class="pre">disrespectful,</span> <span class="pre">or</span> <span class="pre">unreasonable</span> <span class="pre">comment</span> <span class="pre">that</span> <span class="pre">is</span> <span class="pre">likely</span> <span class="pre">to</span> <span class="pre">make</span> <span class="pre">people</span> <span class="pre">leave</span> <span class="pre">a</span> <span class="pre">discussion.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Toxicity.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Toxicity.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TOXICITY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Toxicity.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ar,zh,cs,nl,en,fr,de,hi,hi-Latn,id,it,ja,ko,pl,pt,ru,es,sv'</span></em><a class="headerlink" href="#garak.detectors.perspective.Toxicity.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301']</span></em><a class="headerlink" href="#garak.detectors.perspective.Toxicity.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity_Experimental">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Toxicity_Experimental</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Toxicity_Experimental" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for TOXICITY_EXPERIMENTAL - A rude, disrespectful, or unreasonable comment that is likely to make people leave a discussion.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity_Experimental.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Toxicity_Experimental.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity_Experimental.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Toxicity_Experimental.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity_Experimental.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">A</span> <span class="pre">rude,</span> <span class="pre">disrespectful,</span> <span class="pre">or</span> <span class="pre">unreasonable</span> <span class="pre">comment</span> <span class="pre">that</span> <span class="pre">is</span> <span class="pre">likely</span> <span class="pre">to</span> <span class="pre">make</span> <span class="pre">people</span> <span class="pre">leave</span> <span class="pre">a</span> <span class="pre">discussion.'</span></em><a class="headerlink" href="#garak.detectors.perspective.Toxicity_Experimental.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity_Experimental.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Toxicity_Experimental.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity_Experimental.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TOXICITY_EXPERIMENTAL'</span></em><a class="headerlink" href="#garak.detectors.perspective.Toxicity_Experimental.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity_Experimental.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Toxicity_Experimental.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Toxicity_Experimental.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:ethics:E0301',</span> <span class="pre">'avid-effect:performance:P0401']</span></em><a class="headerlink" href="#garak.detectors.perspective.Toxicity_Experimental.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Unsubstantial">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">Unsubstantial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Unsubstantial" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.detectors.base.html#garak.detectors.base.Detector" title="garak.detectors.base.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
+<p>Perspective API interface for UNSUBSTANTIAL - Trivial or short comments</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Unsubstantial.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PERSPECTIVE_API_KEY'</span></em><a class="headerlink" href="#garak.detectors.perspective.Unsubstantial.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Unsubstantial.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.detectors.perspective.Unsubstantial.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Unsubstantial.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Targets:</span> <span class="pre">Trivial</span> <span class="pre">or</span> <span class="pre">short</span> <span class="pre">comments'</span></em><a class="headerlink" href="#garak.detectors.perspective.Unsubstantial.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Unsubstantial.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.Unsubstantial.detect" title="Link to this definition"></a></dt>
+<dd><p>Takes a list of Attempts; classifies them; returns a list of results
+in the range 0.0-1.0 where 0.0 represents no hit, 1.0 represents successful hit
+(i.e. vulnerability found).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Unsubstantial.endpoint">
+<span class="sig-name descname"><span class="pre">endpoint</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'UNSUBSTANTIAL'</span></em><a class="headerlink" href="#garak.detectors.perspective.Unsubstantial.endpoint" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Unsubstantial.lang_spec">
+<span class="sig-name descname"><span class="pre">lang_spec</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.detectors.perspective.Unsubstantial.lang_spec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.detectors.perspective.Unsubstantial.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:performance:P0204']</span></em><a class="headerlink" href="#garak.detectors.perspective.Unsubstantial.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="garak.detectors.perspective.constructor">
+<span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">constructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.constructor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="garak.detectors.perspective.detect">
+<span class="sig-prename descclassname"><span class="pre">garak.detectors.perspective.</span></span><span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attempt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.detectors.perspective.detect" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="garak.detectors.packagehallucination.html" class="btn btn-neutral float-left" title="garak.detectors.packagehallucination" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="garak.detectors.promptinject.html" class="btn btn-neutral float-right" title="garak.detectors.promptinject" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

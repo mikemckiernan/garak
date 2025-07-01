@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuring garak &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CLI reference for garak" href="cliref.html" />
+    <link rel="prev" title="Reporting" href="reporting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#specifying-custom-configuration">Specifying custom configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#garak-s-config-hierarchy">Garak’s config hierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#config-yaml">Config YAML</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#system-config-items"><code class="docutils literal notranslate"><span class="pre">system</span></code> config items</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-config-items"><code class="docutils literal notranslate"><span class="pre">run</span></code> config items</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plugins-config-items"><code class="docutils literal notranslate"><span class="pre">plugins</span></code> config items</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reporting-config-items"><code class="docutils literal notranslate"><span class="pre">reporting</span></code> config items</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bundled-quick-configs">Bundled quick configs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-a-custom-config">Using a custom config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-a-custom-json-config">Using a custom JSON config</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-plugins">Configuring Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-plugin-parameters">Viewing plugin parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-plugins-with-yaml">Configuring plugins with YAML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-restgenerator">Example: RestGenerator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#restgenerator-with-yaml">RestGenerator with YAML</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restgenerator-config-with-json">RestGenerator config with JSON</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-in-code">Configuration in code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#openaigenerator-config-with-dictionary">OpenAIGenerator config with dictionary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/configurable.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuring-garak">
+<h1>Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code><a class="headerlink" href="#configuring-garak" title="Link to this heading"></a></h1>
+<p>Beyond the standard CLI options, garak is highly configurable.
+You can use YAML files to configure a garak run, down to the level
+of exactly how each plugin behaves.</p>
+<section id="specifying-custom-configuration">
+<h2>Specifying custom configuration<a class="headerlink" href="#specifying-custom-configuration" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">garak</span></code> can be configured in multiple ways:</p>
+<ul class="simple">
+<li><p>Via command-line parameters</p></li>
+<li><p>Using YAML configs</p></li>
+<li><p>Through specifying JSON on the command line</p></li>
+</ul>
+<p>The easiest way is often to use a YAML config, and how to do that is
+described below.</p>
+<section id="garak-s-config-hierarchy">
+<h3>Garak’s config hierarchy<a class="headerlink" href="#garak-s-config-hierarchy" title="Link to this heading"></a></h3>
+<p>Configuration values can come from multiple places. At garak load, the
+<code class="docutils literal notranslate"><span class="pre">_config</span></code> module manages parsing configuration. This includes determining
+the priority of which values go where. The hierarchy is as follows:</p>
+<ol class="arabic simple">
+<li><p>Values given at the command line</p></li>
+<li><p>Config values given in a YAML file passed via <code class="docutils literal notranslate"><span class="pre">--config</span></code></p></li>
+<li><p>Values in a YAML site config, <code class="docutils literal notranslate"><span class="pre">garak.site.yaml</span></code>, placed in the config directory (<code class="docutils literal notranslate"><span class="pre">XDG_CONFIG_DIR</span></code>, which is <code class="docutils literal notranslate"><span class="pre">~/.config/garak/</span></code> on Linux; see XDG spec for details)</p></li>
+<li><p>Fixed values kept in the garak core config - don’t edit this. Package updates will overwrite it, and you might break your garak install. It’s in <code class="docutils literal notranslate"><span class="pre">garak/resources</span></code> if you want to take a look.</p></li>
+<li><p>Default values specified in plugin code</p></li>
+</ol>
+</section>
+<section id="config-yaml">
+<h3>Config YAML<a class="headerlink" href="#config-yaml" title="Link to this heading"></a></h3>
+<p>Let’s take a look at the core config.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">system</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">narrow_output</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">parallel_requests</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">parallel_attempts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">lite</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">show_z</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">enable_experimental</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">max_workers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span>
+
+<span class="nt">run</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">seed</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">deprefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">eval_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span>
+<span class="w">    </span><span class="nt">generations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">    </span><span class="nt">probe_tags</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">user_agent</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;garak/{version}</span><span class="nv"> </span><span class="s">(LLM</span><span class="nv"> </span><span class="s">vulnerability</span><span class="nv"> </span><span class="s">scanner</span><span class="nv"> </span><span class="s">https://garak.ai)&quot;</span>
+<span class="w">    </span><span class="nt">soft_probe_prompt_cap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">256</span>
+
+<span class="nt">plugins</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">model_type</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">model_name</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">probe_spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">    </span><span class="nt">detector_spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">auto</span>
+<span class="w">    </span><span class="nt">extended_detectors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">buff_spec</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">buffs_include_original_prompt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">buff_max</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">detectors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">    </span><span class="nt">generators</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">    </span><span class="nt">buffs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">    </span><span class="nt">harnesses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">    </span><span class="nt">probes</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">encoding</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">payloads</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+
+<span class="nt">reporting</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">report_prefix</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">taxonomy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">report_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">garak_runs</span>
+<span class="w">    </span><span class="nt">show_100_pass_modules</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">group_aggregation_function</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">minimum</span>
+</pre></div>
+</div>
+<p>Here we can see many entries that correspond to command line options, such as
+<code class="docutils literal notranslate"><span class="pre">model_name</span></code> and <code class="docutils literal notranslate"><span class="pre">model_type</span></code>, as well as some entried not exposed via CLI
+such as <code class="docutils literal notranslate"><span class="pre">show_100_pass_modules</span></code>.</p>
+<section id="system-config-items">
+<h4><code class="docutils literal notranslate"><span class="pre">system</span></code> config items<a class="headerlink" href="#system-config-items" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">parallel_requests</span></code> - For generators not supporting multiple responses per prompt: how many requests to send in parallel with the same prompt? (raising <code class="docutils literal notranslate"><span class="pre">parallel_attempts</span></code> generally yields higher performance, depending on how high <code class="docutils literal notranslate"><span class="pre">generations</span></code> is set)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parallel_attempts</span></code> - For parallelisable generators, how many attempts should be run in parallel? Raising this is a great way of speeding up garak runs for API-based models</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lite</span></code> - Should we display a caution message that the run might not give very thorough results?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code> - Degree of verbosity (values above 0 are experimental, the report &amp; log are authoritative)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">narrow_output</span></code> - Support output on narrower CLIs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show_z</span></code> - Display Z-scores and visual indicators on CLI. It’s good, but may be too much info until one has seen garak run a couple of times</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enable_experimental</span></code> - Enable experimental function CLI flags. Disabled by default. Experimental functions may disrupt your installation and provide unusual/unstable results. Can only be set by editing core config, so a git checkout of garak is recommended for this.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_workers</span></code> - Cap on how many parallel workers can be requested. When raising this in order to use higher parallelisation, keep an eye on system resources (e.g. <cite>ulimit -n 4026</cite> on Linux)</p></li>
+</ul>
+</section>
+<section id="run-config-items">
+<h4><code class="docutils literal notranslate"><span class="pre">run</span></code> config items<a class="headerlink" href="#run-config-items" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">probe_tags</span></code> - If given, the probe selection is filtered according to these tags; probes that don’t match the tags are not selected</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">generations</span></code> - How many times to send each prompt for inference</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deprefix</span></code> - Remove the prompt from the start of the output (some models return the prompt as part of their output)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seed</span></code> - An optional random seed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eval_threshold</span></code> - At what point in the 0..1 range output by detectors does a result count as a successful attack / hit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user_agent</span></code> - What HTTP user agent string should garak use? <code class="docutils literal notranslate"><span class="pre">{version}</span></code> can be used to signify where garak version ID should go</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">soft_probe_prompt_cap</span></code> - For probes that auto-scale their prompt count, the preferred limit of prompts per probe</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target_lang</span></code> - A single language (as BCP47 that the target application for LLM accepts as prompt and output</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">langproviders</span></code> - A list of configurations representing providers for converting from probe language to lang_spec target languages (BCP47)</p></li>
+</ul>
+</section>
+<section id="plugins-config-items">
+<h4><code class="docutils literal notranslate"><span class="pre">plugins</span></code> config items<a class="headerlink" href="#plugins-config-items" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">model_type</span></code> - The generator model type, e.g. “nim” or “huggingface”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model_name</span></code> - The name of the model to be used (optional - if blank, type-specific default is used)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">probe_spec</span></code> - A comma-separated list of probe modules or probe classnames (in <code class="docutils literal notranslate"><span class="pre">module.classname</span></code>) format to be used. If a module is given, only <code class="docutils literal notranslate"><span class="pre">active</span></code> plugin in that module are chosen, this is equivalent to passing <cite>-p</cite> to the CLI</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">detector_spec</span></code> - An optional spec of detectors to be used, if overriding those recommended in probes. Specifying <code class="docutils literal notranslate"><span class="pre">detector_spec</span></code> means the <code class="docutils literal notranslate"><span class="pre">pxd</span></code> harness will be used. This is equivalent to passing <cite>-d</cite> to the CLI</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extended_detectors</span></code> - Should just the primary detector be used per probe, or should the extended detectors also be run? The former is fast, the latter thorough.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buff_spec</span></code> - Comma-separated list of buffs and buff modules to use; same format as <code class="docutils literal notranslate"><span class="pre">probe_spec</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buffs_include_original_prompt</span></code> - When buffing, should the original pre-buff prompt still be included in those posed to the model?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buff_max</span></code> - Upper bound on how many items a buff should return</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">detectors</span></code> - Root node for detector plugin configs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">generators</span></code> - Root note for generator plugin configs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buffs</span></code> - Root note for buff plugin configs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">harnesses</span></code> - Root note for harness plugin configs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">probes</span></code> - Root note for probe plugin configs</p></li>
+</ul>
+<p>For an example of how to use the <code class="docutils literal notranslate"><span class="pre">detectors</span></code>, <code class="docutils literal notranslate"><span class="pre">generators</span></code>, <code class="docutils literal notranslate"><span class="pre">buffs</span></code>,
+<code class="docutils literal notranslate"><span class="pre">harnesses</span></code>, and <code class="docutils literal notranslate"><span class="pre">probes</span></code> root entries, see <a class="reference internal" href="#config-with-yaml"><span class="std std-ref">Configuring plugins with YAML</span></a> below.</p>
+</section>
+<section id="reporting-config-items">
+<h4><code class="docutils literal notranslate"><span class="pre">reporting</span></code> config items<a class="headerlink" href="#reporting-config-items" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">report_dir</span></code> - Directory for reporting; defaults to <code class="docutils literal notranslate"><span class="pre">$XDG_DATA/garak/garak_runs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">report_prefix</span></code> - Prefix for report files. Defaults to <code class="docutils literal notranslate"><span class="pre">garak.$RUN_UUID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">taxonomy</span></code> - Which taxonomy to use to group probes when creating HTML report</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show_100_pass_modules</span></code> - Should entries scoring 100% still be detailed in the HTML report?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show_group_score</span></code> - Should an aggregated score per group be shown in reports?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_aggregation_function</span></code> - How should scored of probe groups (e.g. plugin modules or taxonomy categories) be aggregrated in the HTML report? Options are <code class="docutils literal notranslate"><span class="pre">minimum</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">mean_minus_sd</span></code>, <code class="docutils literal notranslate"><span class="pre">lower_quartile</span></code>, and <code class="docutils literal notranslate"><span class="pre">proportion_passing</span></code>. NB averages like <code class="docutils literal notranslate"><span class="pre">mean</span></code> and <code class="docutils literal notranslate"><span class="pre">median</span></code> hide a lot of information and aren’t recommended.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show_top_group_score</span></code> - Should the aggregated score be shown as a top-level figure in report concertinas?</p></li>
+</ul>
+</section>
+</section>
+<section id="bundled-quick-configs">
+<h3>Bundled quick configs<a class="headerlink" href="#bundled-quick-configs" title="Link to this heading"></a></h3>
+<p>Garak comes bundled with some quick configs that can be loaded directly using <code class="docutils literal notranslate"><span class="pre">--config</span></code>.
+These don’t need the <code class="docutils literal notranslate"><span class="pre">.yml</span></code> extension when being requested. They include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">broad</span></code> - Run all active probes, just once each, for a rapid broad test</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fast</span></code> - Go through a selection of light probes; skip extended detectors</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">full</span></code> - Select many probes, and multiple payloads; use a paraphrase buff to get multiple variations on each prompt</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">long_attack_gen</span></code> - Focus on <code class="docutils literal notranslate"><span class="pre">atkgen</span></code>, with many generations, to give a higher chance of breaking through (i.e. yielding toxicity)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">notox</span></code> - Scan without any toxicity-inducing probes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tox_and_buffs</span></code> - Go through toxicity &amp; slur probes, using only relevant payloads, and a fast paraphraser</p></li>
+</ul>
+<p>These are great places to look at to get an idea of how garak YAML configs can look.
+Quick configs are stored under <code class="docutils literal notranslate"><span class="pre">garak/configs/</span></code> in the source code/install.</p>
+</section>
+<section id="using-a-custom-config">
+<h3>Using a custom config<a class="headerlink" href="#using-a-custom-config" title="Link to this heading"></a></h3>
+<p>To override values in this we can create a new YAML file and point to it from the
+command line using <code class="docutils literal notranslate"><span class="pre">--config</span></code>. For example, to select just <code class="docutils literal notranslate"><span class="pre">latentinjection</span></code>
+probes and run each prompt just once:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">run</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">generations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">plugins</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">probe_spec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">latentinjection</span>
+</pre></div>
+</div>
+<p>If we save this as <code class="docutils literal notranslate"><span class="pre">latent1.yaml</span></code> somewhere, then we can use it with <code class="docutils literal notranslate"><span class="pre">garak</span> <span class="pre">--config</span> <span class="pre">latent1.yaml</span></code>.</p>
+</section>
+<section id="using-a-custom-json-config">
+<h3>Using a custom JSON config<a class="headerlink" href="#using-a-custom-json-config" title="Link to this heading"></a></h3>
+<p>Some plugins can take a JSON config specified on the command line. This config
+has the same structure as a YAML config, starting with the plugin model/type.
+The config can either be written to a file and the path passed, with
+<cite>–generator_option_file</cite> or <cite>–probe_option_file</cite>, or directly as JSON on the
+command prompt, with <cite>–generator_options</cite> or <cite>–probe_options</cite>. An example
+is given in <a class="reference internal" href="#rest-generator-with-json"><span class="std std-ref">RestGenerator Config with JSON</span></a> below.</p>
+</section>
+</section>
+<section id="configuring-plugins">
+<h2>Configuring Plugins<a class="headerlink" href="#configuring-plugins" title="Link to this heading"></a></h2>
+<p>Garak’s functions are through its plugins. Most parts of garak are plugins,
+like the <code class="docutils literal notranslate"><span class="pre">probes</span></code> and <code class="docutils literal notranslate"><span class="pre">detectors</span></code> that do the actual examination of the target,
+the <code class="docutils literal notranslate"><span class="pre">generators</span></code> that interface with models, and even the <code class="docutils literal notranslate"><span class="pre">harnesses</span></code>
+that manage run orchestration. Each plugin is a class that has both descriptive
+and configurable parameters.</p>
+<section id="viewing-plugin-parameters">
+<h3>Viewing plugin parameters<a class="headerlink" href="#viewing-plugin-parameters" title="Link to this heading"></a></h3>
+<p>You can see the parameters for any given plugin using garak <code class="docutils literal notranslate"><span class="pre">--plugin_info</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ python -m garak --plugin_info probes.grandma.Win10
+garak LLM vulnerability scanner v0.10.0 ( https://github.com/NVIDIA/garak ) at 2024-09-11T11:54:07.215242
+Configured info on probes.grandma.Win10:
+                        description: Will the model yield a Windows 10 product key if we beg it to?
+                     DEFAULT_PARAMS: {&#39;generations&#39;: 1}
+                             active: True
+                               lang: en
+                            doc_uri: https://www.independent.co.uk/tech/chatgpt-microsoft-windows-11-grandma-exploit-b2360213.html
+                 extended_detectors: [&#39;mitigation.MitigationBypass&#39;]
+                               goal: get model to output Win 10 product keys
+                           modality: {&#39;in&#39;: [&#39;text&#39;]}
+            parallelisable_attempts: True
+                   primary_detector: productkey.Win5x5
+                               tags: [&#39;avid-effect:security:S0300&#39;, &#39;owasp:llm06&#39;, &#39;risk-cards:lmrc:providing_illegal_info&#39;, &#39;quality:Behavioral:ContentSafety:LegalGoodsServices&#39;]
+                           mod_time: 2024-07-01 04:16:40 +0000
+</pre></div>
+</div>
+<p>Here, we see a list of the descriptive parameters of the plugin. We can see
+a link to documentation about it, which detectors it uses, tags describing
+the probe in various typologies, which languages and modalities it supports, and more.</p>
+<p>We can also see a <code class="docutils literal notranslate"><span class="pre">DEFAULT_PARAMS</span></code> entry. This is a dictionary containing
+configurable parameters for this plugin. In this case, there’s a <code class="docutils literal notranslate"><span class="pre">generations</span></code>
+parameter set to <code class="docutils literal notranslate"><span class="pre">1</span></code>; this is the default value for <code class="docutils literal notranslate"><span class="pre">probes</span></code>, but is often
+overridden at run time by the CLI setup.</p>
+<p>At plugin load, the plugin instance has attributes named in <code class="docutils literal notranslate"><span class="pre">DEFAULT_PARAMS</span></code>
+automatically created, and populated with either values given in the supplied
+config, or the default.</p>
+</section>
+<section id="configuring-plugins-with-yaml">
+<span id="config-with-yaml"></span><h3>Configuring plugins with YAML<a class="headerlink" href="#configuring-plugins-with-yaml" title="Link to this heading"></a></h3>
+<p>Plugin config happens inside the <code class="docutils literal notranslate"><span class="pre">plugins</span></code> block. Multiple plugins can be
+configured in the same YAML. Descend through this specifying plugin type,
+model, and optionally class, and set variables in the end. These will then
+be loaded as the plugin’s <code class="docutils literal notranslate"><span class="pre">DEFAULT_PARAMS</span></code> attribute is parsed and used to
+populate instance attributes.</p>
+<p>Here’s an example of setting the temperature on an OpenAIGenerator:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">plugins</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">generators</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">openai</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">OpenAIGenerator</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">temperature</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
+</pre></div>
+</div>
+<p>As noted the class is optional, if the configuration defines keys at the module level
+these will be applied to the instance and can be overridden by the class level. Here
+is an example that is equivalent to the configuration above:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">plugins</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">generators</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">openai</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">temperature</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
+</pre></div>
+</div>
+</section>
+<section id="example-restgenerator">
+<h3>Example: RestGenerator<a class="headerlink" href="#example-restgenerator" title="Link to this heading"></a></h3>
+<p>RestGenerator is a slightly complex generator, though mostly because it exposes
+so many config values, allowing flexible integrations. This example sets
+<code class="docutils literal notranslate"><span class="pre">model_type:</span> <span class="pre">rest</span></code> to ensure that this model is selected for the run; that might
+not always be wanted, and it isn’t compulsory.</p>
+<section id="restgenerator-with-yaml">
+<h4>RestGenerator with YAML<a class="headerlink" href="#restgenerator-with-yaml" title="Link to this heading"></a></h4>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">plugins</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest</span>
+<span class="w">    </span><span class="nt">generators</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">rest</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">RestGenerator</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.example.ai/v1/</span>
+<span class="w">                </span><span class="nt">key_env_var</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EXAMPLE_KEY</span>
+<span class="w">                </span><span class="nt">headers: Authentication</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$KEY</span>
+<span class="w">                </span><span class="nt">response_json_field</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">                </span><span class="nt">request_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60</span>
+</pre></div>
+</div>
+<p>This defines a REST endpoint where:</p>
+<ul class="simple">
+<li><p>The URI is <a class="reference external" href="https://api.example.ai/v1/">https://api.example.ai/v1/</a></p></li>
+<li><p>The API key can be found in the <code class="docutils literal notranslate"><span class="pre">EXAMPLE_KEY</span></code> environment variable’s value (if unspecified, <cite>REST_API_KEY</cite> is checked)</p></li>
+<li><p>The HTTP header <code class="docutils literal notranslate"><span class="pre">&quot;Authentication:&quot;</span></code> should be sent in every request, with the API key as its parameter</p></li>
+<li><p>The output is JSON and the top-level field <code class="docutils literal notranslate"><span class="pre">text</span></code> holds the model’s response</p></li>
+<li><p>Wait up to 60 seconds before timing out (the generator will backoff and retry when this is reached)</p></li>
+</ul>
+</section>
+<section id="restgenerator-config-with-json">
+<span id="rest-generator-with-json"></span><h4>RestGenerator config with JSON<a class="headerlink" href="#restgenerator-config-with-json" title="Link to this heading"></a></h4>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;rest&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;RestGenerator&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example service&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://127.0.0.1/llm&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;headers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;X-Authorization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$KEY&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;req_template_json_object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$INPUT&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;response_json&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;response_json_field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This defines a REST endpoint where:</p>
+<ul class="simple">
+<li><p>The URI is <a class="reference external" href="https://127.0.0.1/llm">https://127.0.0.1/llm</a></p></li>
+<li><p>We’ll use HTTP <cite>POST</cite> on requests</p></li>
+<li><p>The HTTP header <code class="docutils literal notranslate"><span class="pre">&quot;X-Authorization:&quot;</span></code> should be sent in every request, with the API key as its parameter</p></li>
+<li><p>The request template is to be a JSON dict with one key, <cite>text</cite>, holding the prompt</p></li>
+<li><p>The output is JSON and the top-level field <code class="docutils literal notranslate"><span class="pre">text</span></code> holds the model’s response</p></li>
+</ul>
+<p>This should be written to a file, and the file’s path passed on the command
+line with <cite>-G</cite>.</p>
+</section>
+</section>
+</section>
+<section id="configuration-in-code">
+<h2>Configuration in code<a class="headerlink" href="#configuration-in-code" title="Link to this heading"></a></h2>
+<p>The preferred way to instantiate a plugin is using <code class="docutils literal notranslate"><span class="pre">garak._plugins.load_plugin()</span></code>.
+This function takes two parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>, the plugin’s package, module, and class - e.g. <code class="docutils literal notranslate"><span class="pre">generator.test.Lipsum</span></code></p></li>
+<li><p>(optional) <code class="docutils literal notranslate"><span class="pre">config_root</span></code>, either garak._config or a dictionary of a config, beginning at a top-level plugin type.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">load_plugin()</span></code> returns a configured instance of the requested plugin.</p>
+<section id="openaigenerator-config-with-dictionary">
+<h3>OpenAIGenerator config with dictionary<a class="headerlink" href="#openaigenerator-config-with-dictionary" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">garak._plugins</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;generators&quot;</span><span class="p">:{</span><span class="s2">&quot;openai&quot;</span><span class="p">:{</span><span class="s2">&quot;OpenAIGenerator&quot;</span><span class="p">:{</span><span class="s2">&quot;seed&quot;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;gpt-4&quot;</span><span class="p">}}}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">garak</span><span class="o">.</span><span class="n">_plugins</span><span class="o">.</span><span class="n">load_plugin</span><span class="p">(</span><span class="s2">&quot;generators.openai.OpenAIGenerator&quot;</span><span class="p">,</span> <span class="n">config_root</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+<span class="go">🦜 loading generator: OpenAI: gpt-4</span>
+<span class="go">&lt;garak.generators.openai.OpenAIGenerator object at 0x71bc97693d70&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="reporting.html" class="btn btn-neutral float-left" title="Reporting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cliref.html" class="btn btn-neutral float-right" title="CLI reference for garak" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

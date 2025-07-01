@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>garak.probes.snowball &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="garak.probes.suffix" href="garak.probes.suffix.html" />
+    <link rel="prev" title="garak.probes.realtoxicityprompts" href="garak.probes.realtoxicityprompts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generators.html">garak.generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="probes.html">garak.probes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.html">garak.probes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.base.html">garak.probes.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.ansiescape.html">garak.probes.ansiescape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.atkgen.html">garak.probes.atkgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.audio.html">garak.probes.audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.av_spam_scanning.html">garak.probes.av_spam_scanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.continuation.html">garak.probes.continuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.dan.html">garak.probes.dan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.divergence.html">garak.probes.divergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.donotanswer.html">garak.probes.donotanswer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.encoding.html">garak.probes.encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.exploitation.html">garak.probes.exploitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.fileformats.html">garak.probes.fileformats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.glitch.html">garak.probes.glitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.goodside.html">garak.probes.goodside</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.grandma.html">garak.probes.grandma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.latentinjection.html">garak.probes.latentinjection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.leakreplay.html">garak.probes.leakreplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.lmrc.html">garak.probes.lmrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.malwaregen.html">garak.probes.malwaregen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.misleading.html">garak.probes.misleading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.packagehallucination.html">garak.probes.packagehallucination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.phrasing.html">garak.probes.phrasing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.promptinject.html">garak.probes.promptinject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.realtoxicityprompts.html">garak.probes.realtoxicityprompts</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">garak.probes.snowball</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.snowball.GraphConnectivity"><code class="docutils literal notranslate"><span class="pre">GraphConnectivity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.GraphConnectivity.active"><code class="docutils literal notranslate"><span class="pre">GraphConnectivity.active</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.snowball.GraphConnectivityFull"><code class="docutils literal notranslate"><span class="pre">GraphConnectivityFull</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.GraphConnectivityFull.active"><code class="docutils literal notranslate"><span class="pre">GraphConnectivityFull.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.GraphConnectivityFull.doc_uri"><code class="docutils literal notranslate"><span class="pre">GraphConnectivityFull.doc_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.GraphConnectivityFull.goal"><code class="docutils literal notranslate"><span class="pre">GraphConnectivityFull.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.GraphConnectivityFull.lang"><code class="docutils literal notranslate"><span class="pre">GraphConnectivityFull.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.GraphConnectivityFull.recommended_detector"><code class="docutils literal notranslate"><span class="pre">GraphConnectivityFull.recommended_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.GraphConnectivityFull.tags"><code class="docutils literal notranslate"><span class="pre">GraphConnectivityFull.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.GraphConnectivityFull.tier"><code class="docutils literal notranslate"><span class="pre">GraphConnectivityFull.tier</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.snowball.Primes"><code class="docutils literal notranslate"><span class="pre">Primes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.Primes.active"><code class="docutils literal notranslate"><span class="pre">Primes.active</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.snowball.PrimesFull"><code class="docutils literal notranslate"><span class="pre">PrimesFull</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.PrimesFull.active"><code class="docutils literal notranslate"><span class="pre">PrimesFull.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.PrimesFull.doc_uri"><code class="docutils literal notranslate"><span class="pre">PrimesFull.doc_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.PrimesFull.goal"><code class="docutils literal notranslate"><span class="pre">PrimesFull.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.PrimesFull.lang"><code class="docutils literal notranslate"><span class="pre">PrimesFull.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.PrimesFull.recommended_detector"><code class="docutils literal notranslate"><span class="pre">PrimesFull.recommended_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.PrimesFull.tags"><code class="docutils literal notranslate"><span class="pre">PrimesFull.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.PrimesFull.tier"><code class="docutils literal notranslate"><span class="pre">PrimesFull.tier</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.snowball.Senators"><code class="docutils literal notranslate"><span class="pre">Senators</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.Senators.active"><code class="docutils literal notranslate"><span class="pre">Senators.active</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#garak.probes.snowball.SenatorsFull"><code class="docutils literal notranslate"><span class="pre">SenatorsFull</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.SenatorsFull.active"><code class="docutils literal notranslate"><span class="pre">SenatorsFull.active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.SenatorsFull.doc_uri"><code class="docutils literal notranslate"><span class="pre">SenatorsFull.doc_uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.SenatorsFull.goal"><code class="docutils literal notranslate"><span class="pre">SenatorsFull.goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.SenatorsFull.lang"><code class="docutils literal notranslate"><span class="pre">SenatorsFull.lang</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.SenatorsFull.recommended_detector"><code class="docutils literal notranslate"><span class="pre">SenatorsFull.recommended_detector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.SenatorsFull.tags"><code class="docutils literal notranslate"><span class="pre">SenatorsFull.tags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.probes.snowball.SenatorsFull.tier"><code class="docutils literal notranslate"><span class="pre">SenatorsFull.tier</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.suffix.html">garak.probes.suffix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.tap.html">garak.probes.tap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.test.html">garak.probes.test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.topic.html">garak.probes.topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.xss.html">garak.probes.xss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes.visual_jailbreak.html">garak.probes.visual_jailbreak</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.probes._tier.html">garak.probes._tier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="probes.html">garak.probes</a></li>
+      <li class="breadcrumb-item active">garak.probes.snowball</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/garak.probes.snowball.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-garak.probes.snowball">
+<span id="garak-probes-snowball"></span><h1>garak.probes.snowball<a class="headerlink" href="#module-garak.probes.snowball" title="Link to this heading"></a></h1>
+<p>Snowball probe</p>
+<p>Checks if the system gives wrong answers to complex reasoning questions,
+instead of giving the right answer or no answer. Bsaed on</p>
+<blockquote>
+<div><p><a class="reference external" href="https://arxiv.org/abs/2305.13534">https://arxiv.org/abs/2305.13534</a></p>
+</div></blockquote>
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.snowball.GraphConnectivity">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.snowball.</span></span><span class="sig-name descname"><span class="pre">GraphConnectivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.snowball.GraphConnectivity" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#garak.probes.snowball.GraphConnectivityFull" title="garak.probes.snowball.GraphConnectivityFull"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphConnectivityFull</span></code></a>, <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>Probe asking for impossible flight routings</p>
+<p>This probe attempts to catch models generating false claims by asking for a solution
+to an impossible problem, couched as a flight routing question - limited number of examples</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.GraphConnectivity.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#garak.probes.snowball.GraphConnectivity.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.snowball.GraphConnectivityFull">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.snowball.</span></span><span class="sig-name descname"><span class="pre">GraphConnectivityFull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.snowball.GraphConnectivityFull" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>Probe asking for impossible flight routings</p>
+<p>This probe attempts to catch models generating false claims by asking for a solution
+to an impossible problem, couched as a flight routing question</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.GraphConnectivityFull.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.snowball.GraphConnectivityFull.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.GraphConnectivityFull.doc_uri">
+<span class="sig-name descname"><span class="pre">doc_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://github.com/Nanami18/Snowballed_Hallucination'</span></em><a class="headerlink" href="#garak.probes.snowball.GraphConnectivityFull.doc_uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.GraphConnectivityFull.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'trick</span> <span class="pre">the</span> <span class="pre">model</span> <span class="pre">into</span> <span class="pre">saying</span> <span class="pre">an</span> <span class="pre">impossible</span> <span class="pre">flight</span> <span class="pre">routing</span> <span class="pre">is</span> <span class="pre">possible'</span></em><a class="headerlink" href="#garak.probes.snowball.GraphConnectivityFull.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.GraphConnectivityFull.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.snowball.GraphConnectivityFull.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.GraphConnectivityFull.recommended_detector">
+<span class="sig-name descname"><span class="pre">recommended_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['snowball.DontStartYes']</span></em><a class="headerlink" href="#garak.probes.snowball.GraphConnectivityFull.recommended_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.GraphConnectivityFull.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:performance:P0204',</span> <span class="pre">'owasp:llm09',</span> <span class="pre">'quality:Robustness:GenerativeMisinformation',</span> <span class="pre">'payload:hallucination']</span></em><a class="headerlink" href="#garak.probes.snowball.GraphConnectivityFull.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.GraphConnectivityFull.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#garak.probes.snowball.GraphConnectivityFull.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.snowball.Primes">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.snowball.</span></span><span class="sig-name descname"><span class="pre">Primes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.snowball.Primes" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#garak.probes.snowball.PrimesFull" title="garak.probes.snowball.PrimesFull"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrimesFull</span></code></a>, <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>Ask model to check a list of higher primes</p>
+<p>This probe checks if a model is prone to generating false claims by asking if a given
+number is or isn’t prime. - limited number of examples</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.Primes.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.snowball.Primes.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.snowball.PrimesFull">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.snowball.</span></span><span class="sig-name descname"><span class="pre">PrimesFull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.snowball.PrimesFull" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>Ask model to check a list of higher primes</p>
+<p>This probe checks if a model is prone to generating false claims by asking if a given
+number is or isn’t prime.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.PrimesFull.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.snowball.PrimesFull.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.PrimesFull.doc_uri">
+<span class="sig-name descname"><span class="pre">doc_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://github.com/Nanami18/Snowballed_Hallucination'</span></em><a class="headerlink" href="#garak.probes.snowball.PrimesFull.doc_uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.PrimesFull.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;trick</span> <span class="pre">the</span> <span class="pre">model</span> <span class="pre">into</span> <span class="pre">saying</span> <span class="pre">a</span> <span class="pre">prime</span> <span class="pre">number</span> <span class="pre">isn't</span> <span class="pre">prime&quot;</span></em><a class="headerlink" href="#garak.probes.snowball.PrimesFull.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.PrimesFull.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.snowball.PrimesFull.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.PrimesFull.recommended_detector">
+<span class="sig-name descname"><span class="pre">recommended_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['snowball.DontStartNo']</span></em><a class="headerlink" href="#garak.probes.snowball.PrimesFull.recommended_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.PrimesFull.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:performance:P0204',</span> <span class="pre">'owasp:llm09',</span> <span class="pre">'quality:Robustness:GenerativeMisinformation',</span> <span class="pre">'payload:hallucination']</span></em><a class="headerlink" href="#garak.probes.snowball.PrimesFull.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.PrimesFull.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#garak.probes.snowball.PrimesFull.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.snowball.Senators">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.snowball.</span></span><span class="sig-name descname"><span class="pre">Senators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.snowball.Senators" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#garak.probes.snowball.SenatorsFull" title="garak.probes.snowball.SenatorsFull"><code class="xref py py-class docutils literal notranslate"><span class="pre">SenatorsFull</span></code></a>, <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>Asking for senators that don’t exist</p>
+<p>This probe attempts to find generators prone to generating false claims by
+requesting the name of a US senator given constraints for which there isn’t
+a senator - limited number of examples</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.Senators.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.snowball.Senators.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.probes.snowball.SenatorsFull">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.probes.snowball.</span></span><span class="sig-name descname"><span class="pre">SenatorsFull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.probes.snowball.SenatorsFull" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.probes.base.html#garak.probes.base.Probe" title="garak.probes.base.Probe"><code class="xref py py-class docutils literal notranslate"><span class="pre">Probe</span></code></a></p>
+<p>Asking for senators that don’t exist</p>
+<p>This probe attempts to find generators prone to generating false claims by
+requesting the name of a US senator given constraints for which there isn’t
+a senator</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.SenatorsFull.active">
+<span class="sig-name descname"><span class="pre">active</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#garak.probes.snowball.SenatorsFull.active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.SenatorsFull.doc_uri">
+<span class="sig-name descname"><span class="pre">doc_uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://github.com/Nanami18/Snowballed_Hallucination'</span></em><a class="headerlink" href="#garak.probes.snowball.SenatorsFull.doc_uri" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.SenatorsFull.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'trick</span> <span class="pre">the</span> <span class="pre">model</span> <span class="pre">into</span> <span class="pre">saying</span> <span class="pre">a</span> <span class="pre">fictitious</span> <span class="pre">senator</span> <span class="pre">exists'</span></em><a class="headerlink" href="#garak.probes.snowball.SenatorsFull.goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.SenatorsFull.lang">
+<span class="sig-name descname"><span class="pre">lang</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'en'</span></em><a class="headerlink" href="#garak.probes.snowball.SenatorsFull.lang" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.SenatorsFull.recommended_detector">
+<span class="sig-name descname"><span class="pre">recommended_detector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['snowball.DontStartYes']</span></em><a class="headerlink" href="#garak.probes.snowball.SenatorsFull.recommended_detector" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.SenatorsFull.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['avid-effect:performance:P0204',</span> <span class="pre">'owasp:llm09',</span> <span class="pre">'quality:Robustness:GenerativeMisinformation',</span> <span class="pre">'payload:hallucination']</span></em><a class="headerlink" href="#garak.probes.snowball.SenatorsFull.tags" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.probes.snowball.SenatorsFull.tier">
+<span class="sig-name descname"><span class="pre">tier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="garak.probes._tier.html#garak.probes._tier.Tier" title="garak.probes._tier.Tier"><span class="pre">Tier</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#garak.probes.snowball.SenatorsFull.tier" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="garak.probes.realtoxicityprompts.html" class="btn btn-neutral float-left" title="garak.probes.realtoxicityprompts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="garak.probes.suffix.html" class="btn btn-neutral float-right" title="garak.probes.suffix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

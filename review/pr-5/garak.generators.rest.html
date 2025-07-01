@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>garak.generators.rest &mdash; garak  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="garak.generators.rasa" href="garak.generators.rasa.html" />
+    <link rel="prev" title="garak.generators.replicate" href="garak.generators.replicate.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            garak
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="how.html">How <code class="docutils literal notranslate"><span class="pre">garak</span></code> runs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NVIDIA/garak/blob/main/FAQ.md">FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configurable.html">Configuring <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliref.html">CLI reference for garak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">Translation support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Top-level concepts in <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="attempt.html">garak.attempt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">garak.cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">garak.command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">garak.exception</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">garak.interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="langservice.html">garak.langservice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payloads.html">garak.payloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_config.html">garak._config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_plugins.html">garak._plugins</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="buffs.html">garak.buffs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="detectors.html">garak.detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluators.html">garak.evaluators</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="generators.html">garak.generators</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.html">garak.generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.azure.html">garak.generators.azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.base.html">garak.generators.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.cohere.html">garak.generators.cohere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.function.html">garak.generators.function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.ggml.html">garak.generators.ggml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.groq.html">garak.generators.groq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.guardrails.html">garak.generators.guardrails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.huggingface.html">garak.generators.huggingface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.langchain.html">garak.generators.langchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.langchain_serve.html">garak.generators.langchain_serve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.litellm.html">garak.generators.litellm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.mistral.html">garak.generators.mistral</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.ollama.html">garak.generators.ollama</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.openai.html">garak.generators.openai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.nemo.html">garak.generators.nemo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.nim.html">garak.generators.nim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.nvcf.html">garak.generators.nvcf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.replicate.html">garak.generators.replicate</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">garak.generators.rest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#garak.generators.rest.RestGenerator"><code class="docutils literal notranslate"><span class="pre">RestGenerator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.rest.RestGenerator.DEFAULT_PARAMS"><code class="docutils literal notranslate"><span class="pre">RestGenerator.DEFAULT_PARAMS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.rest.RestGenerator.ENV_VAR"><code class="docutils literal notranslate"><span class="pre">RestGenerator.ENV_VAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#garak.generators.rest.RestGenerator.generator_family_name"><code class="docutils literal notranslate"><span class="pre">RestGenerator.generator_family_name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.rasa.html">garak.generators.rasa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.test.html">garak.generators.test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="garak.generators.watsonx.html">garak.generators.watsonx</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="harnesses.html">garak.harnesses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probes.html">garak.probes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">garak.report</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="extending.html">Extending <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to <code class="docutils literal notranslate"><span class="pre">garak</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">garak</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="generators.html">garak.generators</a></li>
+      <li class="breadcrumb-item active">garak.generators.rest</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/garak.generators.rest.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="garak-generators-rest">
+<h1>garak.generators.rest<a class="headerlink" href="#garak-generators-rest" title="Link to this heading"></a></h1>
+<p>Flexible connector for REST-based APIs.</p>
+<p>Uses the following options from <code class="docutils literal notranslate"><span class="pre">_config.plugins.generators[&quot;rest.RestGenerator&quot;]</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">uri</span></code> - (optional) the URI of the REST endpoint; this can also be passed in –model_name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> - a short name for this service; defaults to the uri</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">key_env_var</span></code> - (optional) the name of the environment variable holding an API key, by default <code class="docutils literal notranslate"><span class="pre">REST_API_KEY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">req_template</span></code> - a string where the text <code class="docutils literal notranslate"><span class="pre">$KEY</span></code> is replaced by env var <code class="docutils literal notranslate"><span class="pre">REST_API_KEY</span></code>’s value (or whatever’s specified in <code class="docutils literal notranslate"><span class="pre">key_env_var</span></code>) and <code class="docutils literal notranslate"><span class="pre">$INPUT</span></code> is replaced by the prompt. Default is to just send the input text.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">req_template_json_object</span></code> - (optional) the request template as a Python object, to be serialised as a JSON string before replacements</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> - a string describing the HTTP method, to be passed to the requests module; default “post”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">headers</span></code> - dict describing HTTP headers to be sent with the request</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">proxies</span></code> - dict passed to <code class="docutils literal notranslate"><span class="pre">requests</span></code> method call. See <a class="reference external" href="https://requests.readthedocs.io/en/latest/user/advanced/#proxies">required format</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response_json</span></code> - Is the response in JSON format? (bool)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response_json_field</span></code> - (optional) Which field of the response JSON should be used as the output string? Default <code class="docutils literal notranslate"><span class="pre">text</span></code>. Can also be a JSONPath value, and <code class="docutils literal notranslate"><span class="pre">response_json_field</span></code> is used as such if it starts with <code class="docutils literal notranslate"><span class="pre">$</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">request_timeout</span></code> - How many seconds should we wait before timing out? Default 20</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ratelimit_codes</span></code> - Which endpoint HTTP response codes should be caught as indicative of rate limiting and retried? <code class="docutils literal notranslate"><span class="pre">List[int]</span></code>, default <code class="docutils literal notranslate"><span class="pre">[429]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_codes</span></code> - Which endpoint HTTP response code should lead to the generation being treated as not possible and skipped for this query. Takes precedence over <code class="docutils literal notranslate"><span class="pre">ratelimit_codes</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verify_ssl</span></code> - (optional) Enforce ssl certificate validation? Default is <code class="docutils literal notranslate"><span class="pre">True</span></code>, a file path to a CA bundle can be provided. (bool|str)</p></li>
+</ul>
+<p>Templates can be either a string or a JSON-serialisable Python object.
+Instance of <code class="docutils literal notranslate"><span class="pre">$INPUT</span></code> here are replaced with the prompt; instances of <code class="docutils literal notranslate"><span class="pre">$KEY</span></code>
+are replaced with the specified API key. If no key is needed, just don’t
+put <code class="docutils literal notranslate"><span class="pre">$KEY</span></code> in a template.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">$INPUT</span></code> and <code class="docutils literal notranslate"><span class="pre">$KEY</span></code> placeholders can also be specified in header values.</p>
+<p>If we want to call an endpoint where the API key is defined in the value
+of an <code class="docutils literal notranslate"><span class="pre">X-Authorization</span></code> header, sending and receiving JSON where the prompt
+and response value are both under the <code class="docutils literal notranslate"><span class="pre">text</span></code> key, we’d define the service
+using something like:</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;rest&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;RestGenerator&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example service&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.ai/llm&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;headers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;X-Authorization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$KEY&quot;</span>
+<span class="w">         </span><span class="p">},</span>
+<span class="w">         </span><span class="nt">&quot;req_template_json_object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$INPUT&quot;</span>
+<span class="w">         </span><span class="p">},</span>
+<span class="w">         </span><span class="nt">&quot;response_json&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;response_json_field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>NB. <code class="docutils literal notranslate"><span class="pre">response_json_field</span></code> can also be a JSONPath, for JSON responses where
+the target text is not in a top level field. It is treated as a JSONPath
+when <code class="docutils literal notranslate"><span class="pre">response_json_field</span></code> starts with <code class="docutils literal notranslate"><span class="pre">$</span></code>.</p>
+<p>To use this specification with garak, you can either pass the JSON as a
+strong option on the command line via <code class="docutils literal notranslate"><span class="pre">--generator_options</span></code>, or save the
+JSON definition into a file and pass the filename to
+<code class="docutils literal notranslate"><span class="pre">--generator_option_file</span></code> / <code class="docutils literal notranslate"><span class="pre">-G</span></code>. For example, if we save the above
+JSON into <code class="docutils literal notranslate"><span class="pre">example_service.json</span></code>, we can invoke garak as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">garak</span> <span class="o">--</span><span class="n">model_type</span> <span class="n">rest</span> <span class="o">-</span><span class="n">G</span> <span class="n">example_service</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>This will load up the default <code class="docutils literal notranslate"><span class="pre">RestGenerator</span></code> and use the details in the
+JSON file to connect to the LLM endpoint.</p>
+<p>If you need something more flexible, add a new module or class and inherit
+from RestGenerator.</p>
+<hr class="docutils" />
+<p id="module-garak.generators.rest">REST API generator interface</p>
+<p>Generic Module for REST API connections</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="garak.generators.rest.RestGenerator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">garak.generators.rest.</span></span><span class="sig-name descname"><span class="pre">RestGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_root=&lt;module</span> <span class="pre">'garak._config'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/garak/garak/docs/source/../../garak/_config.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#garak.generators.rest.RestGenerator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="garak.generators.base.html#garak.generators.base.Generator" title="garak.generators.base.Generator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generator</span></code></a></p>
+<p>Generic API interface for REST models</p>
+<p>See reference docs for details (<a class="reference external" href="https://reference.garak.ai/en/latest/garak.generators.rest.html">https://reference.garak.ai/en/latest/garak.generators.rest.html</a>)</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.rest.RestGenerator.DEFAULT_PARAMS">
+<span class="sig-name descname"><span class="pre">DEFAULT_PARAMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'context_len':</span> <span class="pre">None,</span> <span class="pre">'headers':</span> <span class="pre">{},</span> <span class="pre">'max_tokens':</span> <span class="pre">150,</span> <span class="pre">'method':</span> <span class="pre">'post',</span> <span class="pre">'proxies':</span> <span class="pre">None,</span> <span class="pre">'ratelimit_codes':</span> <span class="pre">[429],</span> <span class="pre">'req_template':</span> <span class="pre">'$INPUT',</span> <span class="pre">'request_timeout':</span> <span class="pre">20,</span> <span class="pre">'response_json':</span> <span class="pre">False,</span> <span class="pre">'response_json_field':</span> <span class="pre">None,</span> <span class="pre">'skip_codes':</span> <span class="pre">[],</span> <span class="pre">'skip_seq_end':</span> <span class="pre">None,</span> <span class="pre">'skip_seq_start':</span> <span class="pre">None,</span> <span class="pre">'temperature':</span> <span class="pre">None,</span> <span class="pre">'top_k':</span> <span class="pre">None,</span> <span class="pre">'verify_ssl':</span> <span class="pre">True}</span></em><a class="headerlink" href="#garak.generators.rest.RestGenerator.DEFAULT_PARAMS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.rest.RestGenerator.ENV_VAR">
+<span class="sig-name descname"><span class="pre">ENV_VAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'REST_API_KEY'</span></em><a class="headerlink" href="#garak.generators.rest.RestGenerator.ENV_VAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="garak.generators.rest.RestGenerator.generator_family_name">
+<span class="sig-name descname"><span class="pre">generator_family_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'REST'</span></em><a class="headerlink" href="#garak.generators.rest.RestGenerator.generator_family_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="garak.generators.replicate.html" class="btn btn-neutral float-left" title="garak.generators.replicate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="garak.generators.rasa.html" class="btn btn-neutral float-right" title="garak.generators.rasa" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Leon Derczynski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
